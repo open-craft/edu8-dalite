@@ -186,13 +186,6 @@ body {
 	background-color: #f5f5f5;
 	margin-bottom: 12px;
 }
-
-#main-content section.generic {
-	border-radius: 10px;
-	border:1px solid #859598;
-	background-color: #f5f5f5;
-	margin-bottom: 12px;
-}
 /* 3.21 Main-Content - Generic - Breadcrumb
 ------------------------------------------------------------------------------*/
 #breadcrumb {
@@ -242,16 +235,6 @@ body {
 	display: inline;
 	position: relative;
 }
-#main-content section.generic > h1 {
-	font-family: 'Cousine', sans-serif;
-	color: #5A7279;
-	font-size: 1.25em;
-	text-transform: uppercase;
-	margin: 10px 15px;
-	display: inline;
-	position: relative;
-}
-
 	#main-content article.generic.teal h1 span {
 	position: absolute;
 	top: 4px;
@@ -280,54 +263,6 @@ body {
 		#main-content article.generic.teal ul li a {
 			color: #64737D;
 		}
-/* 3.23 Main-Content - Generic - Form Fill
-------------------------------------------------------------------------------*/
-#main-content .accordion-inner {
-	overflow: hidden;
-}
-
-#main-content .accordion-inner .context {
-	float: left;
-	width: 48%;
-}
-
-.greyed {
-	color: #999999;
-	font-size: 12px;
-	font-style: italic;
-	padding: 0 10px;
-}
-	#main-content .accordion-inner .context p.greyed {
-		width: 50%;
-	}
-
-#main-content .accordion-inner .fill-info {
-	float: left;
-	width: 47%;
-	padding: 10px 20px;
-	font-size: 0.75em;
-	border-left: 1px dotted #C4B7D2;
-}
-	#main-content .accordion-inner .fill-info input[type=text] {
-		width: 200px;
-	}
-	#main-content .accordion-inner .fill-info p {
-		margin-bottom: 20px;
-	}
-	#main-content .accordion-inner .fill-info textarea {
-		width: 90%;
-		margin-right: 10px;
-		background-color: #DEE7DF;
-		height: 70px;
-	}
-	#main-content .accordion-inner .fill-info select {
-		width: auto;
-		max-width: 85%;
-		background-color: #DEE7DF;
-		max-height: 2000px;
-		height: 150px;
-		margin-bottom: 20px;
-	}
 /* =============================================================================
    3 - Footer
 ============================================================================= */
@@ -336,33 +271,45 @@ footer#main-footer {
 	background-color: #333333;
 	margin-top: 50px;
 }
-/* =============================================================================
-   XX- Other Stylesheets Overrides
-============================================================================= */
-.accordion-heading {
-	border: 0;
-	margin: 0 20px;
-}
-	.accordion-heading h1 {
-		font-family: Arial, Helvetica, sans-serif;
-		font-size: 0.75em;
-		font-size: normal;
-	}
-.accordion-group {
-	border: 0;
-}
-.accordion-heading .accordion-toggle {
-	margin: 0;
-	padding: 0;
-}
-span.fill {
-	color: #cc0000;
-	padding: 0 5px 0 0;
-	margin: 0;
-	float: left;
-}
 
-.accordion-inner {
-	border-top: 1px solid #889A9F;
-	margin: 0 20px;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
