@@ -160,7 +160,7 @@
 					<div class="fill-info">
 						<label class="control-label">a) correct elements</label>
             <div class="controls">
-              <select multiple="multiple">
+              <select multiple="multiple" class="colored">
                 <option>fdhfjk dlsfhdjklf hdjklf hdjklf hdsjkl fhjdklf hsdjkl</option>
                 <option>2</option>
                 <option>3</option>
@@ -188,7 +188,7 @@
 
             <label class="control-label">b) elements to display</label>
             <div class="controls">
-              <select multiple="multiple">
+              <select multiple="multiple" class="colored">
                 <option>fdhfjk dlsfhdjklf hdjklf hdjklf hdsjkl fhjdklf hsdjkl</option>
                 <option>2</option>
                 <option>3</option>
@@ -221,7 +221,7 @@
 			<div class="accordion-heading">
 				<h1><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFive">Define Correct Answer Variables</a></h1>
 			</div>
-			<div id="collapseFive" class="accordion-body collapse in">
+			<div id="collapseFive" class="accordion-body collapse">
 				<div class="accordion-inner">
 
 					<div class="context">
@@ -243,12 +243,96 @@
 		
 		<article class="accordion-group">
 			<div class="accordion-heading">
-				<h1><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseSix">Add Rationale</a></h1>
+				<h1><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseSix">Define correct answer variables</a></h1>
 			</div>
 			<div id="collapseSix" class="accordion-body collapse">
 				<div class="accordion-inner">
-					Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-				</div>
+
+					<div class="context">
+						<p class="greyed">If required, type element names that do not appear in the elements to display list. Comma delimited, no quotes.</p>
+					</div>
+
+					<div class="fill-info">
+						<label>Number of choices:</label>
+							<select>
+							  <option>1</option>
+							  <option>2</option>
+							  <option>3</option>
+							  <option>4</option>
+							  <option>5</option>
+							</select>
+
+						<form class="form-search">
+							<label>Correct answer: </label>
+							<label class="checkbox inline">
+							  <input type="checkbox" id="inlineCheckbox1" value="option1"> 1
+							</label>
+							<label class="checkbox inline">
+							  <input type="checkbox" id="inlineCheckbox2" value="option2"> 2
+							</label>
+							<label class="checkbox inline">
+							  <input type="checkbox" id="inlineCheckbox3" value="option3"> 3
+							</label>
+							<label class="checkbox inline">
+							  <input type="checkbox" id="inlineCheckbox4" value="option4"> 4
+							</label>
+						</form>
+
+						<form class="form-search">
+							<label>Second best answer: </label>
+							<label class="checkbox inline">
+							  <input type="checkbox" id="inlineCheckbox1" value="option1"> 1
+							</label>
+							<label class="checkbox inline">
+							  <input type="checkbox" id="inlineCheckbox2" value="option2"> 2
+							</label>
+							<label class="checkbox inline">
+							  <input type="checkbox" id="inlineCheckbox3" value="option3"> 3
+							</label>
+							<label class="checkbox inline">
+							  <input type="checkbox" id="inlineCheckbox4" value="option4"> 4
+							</label>
+						</form>
+					</div>
+			</div>
+			</div>
+		</article>
+
+		<article class="accordion-group">
+			<div class="accordion-heading">
+				<h1><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseSeven">Add rationale</a></h1>
+			</div>
+			<div id="collapseSeven" class="accordion-body collapse">
+				<div class="accordion-inner">
+
+					<div class="context">
+						<p class="greyed">Type in the correction rationale for the question.</p>
+					</div>
+
+					<div class="fill-info">
+						<form>
+						  <textarea></textarea><span class="icon-question-sign"></span>
+						</form>
+					</div>
+			</div>
+			</div>
+		</article>
+
+		<article class="accordion-group">
+			<div class="accordion-heading">
+				<h1><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseEight">Save question</a></h1>
+			</div>
+			<div id="collapseEight" class="accordion-body collapse in">
+				<div class="accordion-inner">
+
+					<div class="context">
+						<p class="greyed">Click button to save your data and add you question to the All Questions List.</p>
+					</div>
+
+					<div class="fill-info">
+						<button class="btn btn-success">Save question »</button>
+					</div>
+			</div>
 			</div>
 		</article>
 

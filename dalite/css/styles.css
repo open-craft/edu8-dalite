@@ -320,7 +320,7 @@ body {
 		background-color: #DEE7DF;
 		height: 70px;
 	}
-	#main-content .accordion-inner .fill-info select {
+	#main-content .accordion-inner .fill-info select.colored {
 		width: auto;
 		max-width: 85%;
 		background-color: #DEE7DF;
@@ -365,4 +365,8 @@ span.fill {
 .accordion-inner {
 	border-top: 1px solid #889A9F;
 	margin: 0 20px;
+}
+
+label {
+	display: inline;
 }
