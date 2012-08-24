@@ -406,6 +406,34 @@ body {
 		text-align: center;
 		padding-top: 30px;
 	}
+/* 3.25 Main-Content - Generic - All Questions List
+------------------------------------------------------------------------------*/
+#main-content .white-table-list {
+	background-color: #ffffff;
+	padding: 10px 14px;
+	font-size: 0.75em;
+	border-radius: 0 0 10px 10px;
+	overflow: hidden;
+}
+	#main-content .white-table-list select.records-per-page {
+		width: 75px;
+	}
+
+	#main-content .white-table-list thead th {
+		text-align: center;
+		color: #ffffff;
+		background-color: #5c6085;
+	}
+
+	#main-content .white-table-list tbody tr:nth-child(odd) {
+		background-color: #dee7df;
+	}
+	#main-content .white-table-list tbody tr:nth-child(even) {
+		background-color: #ffffff;
+	}
+		#main-content .white-table-list tbody tr td:first-of-type {
+			width: 43%;
+		}
 /* =============================================================================
    3 - Footer
 ============================================================================= */
@@ -453,6 +481,16 @@ span.attempt-wrong {
 	font-family: verdana, sans-serif;
 	color: #000000;
 }
+
+.fRight {
+	float: right;
+}
+.fLeft {
+	float: left;
+}
+.inline {
+	display: inline;
+}
 /* =============================================================================
    XX- Other Stylesheets Overrides
 ============================================================================= */
@@ -486,4 +524,8 @@ span.fill {
 
 label {
 	display: inline;
+}
+
+.pagination {
+	margin-top: 0;
 }
