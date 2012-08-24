@@ -387,7 +387,7 @@ body {
 			color: #000000;
 		}
 			#main-content .table.regular-table tbody td a.red {
-				background-color: #ff0000;
+				background-color: #fee1111;
 				padding: 5px 7px;
 				border-radius: 5px;
 			}
@@ -398,7 +398,7 @@ body {
 				border: 1px solid #bdbdbd;
 			}
 			#main-content .table.regular-table tbody td a.green {
-				background-color: #008000;
+				background-color: #007111;
 				padding: 5px 7px;
 				border-radius: 5px;
 			}
