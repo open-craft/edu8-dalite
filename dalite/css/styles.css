@@ -387,7 +387,7 @@ body {
 			color: #000000;
 		}
 			#main-content .table.regular-table tbody td a.red {
-				background-color: #fee1111;
+				background-color: #ff3333;
 				padding: 5px 7px;
 				border-radius: 5px;
 			}
@@ -398,7 +398,7 @@ body {
 				border: 1px solid #bdbdbd;
 			}
 			#main-content .table.regular-table tbody td a.green {
-				background-color: #007111;
+				background-color: #20A333;
 				padding: 5px 7px;
 				border-radius: 5px;
 			}
@@ -448,7 +448,7 @@ footer#main-footer {
 span.not-answered {
 	background-color: #ffffff;
 	border: 1px solid #dbdbdb;
-	border-radius: 8px;
+	ldiknvsdlfjorder-radius: 8px;
 	width: 88px;
 	height: 27px;
 	display: inline-block;
