@@ -434,7 +434,7 @@ body {
 		#main-content .white-table-list tbody tr td:first-of-type {
 			width: 43%;
 		}
-/* 4 Main-Content - Available Courses
+/* 4.1 Main-Content - Students - Available Courses
 ------------------------------------------------------------------------------*/
 #main-content #available-courses {
 	margin-bottom: 300px;
@@ -480,6 +480,43 @@ body {
 		font-family: "Cousine", sans-serif;
 		font-weight: bold;
 		padding-top: 20px;
+	}
+/* 4.2 Main-Content - Students - Login
+------------------------------------------------------------------------------*/
+#main-content #login {
+	margin: 0 auto;
+	width: 560px;
+	height: 235px;
+	background-color: #f5f5f5;
+	border: 1px solid #e9e9e9;
+	border-radius: 5px;
+	margin-bottom: 300px;
+	margin-top: 100px;
+	padding: 20px 40px;
+	font-size: 13px;
+	text-align: center;
+}
+	#main-content #login h1 {
+		font-size: 1.5em;
+		margin: 0;
+		padding: 0;
+		font-family: "Cousine", sans-serif;
+		text-align: left;
+	}
+
+	#main-content #login .aligner {
+		width: 260px;
+		margin: 20px auto;
+		overflow: hidden;
+	}
+
+	#main-content #login .div_text {
+		float: right;
+		margin-left: 20px;
+	}
+
+	#main-content #login .button_div {
+		margin-bottom: 20px;
 	}
 /* =============================================================================
    5 - Footer
@@ -579,4 +616,8 @@ span.fill {
 
 .collapse {
 	overflow: hidden !important;
+}
+
+.input-prepend .add-on, .input-prepend .btn {
+	margin-right: -5px;
 }
