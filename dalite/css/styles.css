@@ -387,7 +387,7 @@ body {
 			color: #000000;
 		}
 			#main-content .table.regular-table tbody td a.red {
-				background-color: #ff3333;
+				background-color: #ff0000;
 				padding: 5px 7px;
 				border-radius: 5px;
 			}
@@ -398,7 +398,7 @@ body {
 				border: 1px solid #bdbdbd;
 			}
 			#main-content .table.regular-table tbody td a.green {
-				background-color: #20A333;
+				background-color: #008000;
 				padding: 5px 7px;
 				border-radius: 5px;
 			}
@@ -434,8 +434,55 @@ body {
 		#main-content .white-table-list tbody tr td:first-of-type {
 			width: 43%;
 		}
+/* 4 Main-Content - Available Courses
+------------------------------------------------------------------------------*/
+#main-content #available-courses {
+	margin-bottom: 300px;
+}
+#main-content #available-courses h1 {
+	font-family: "Cousine", sans-serif;
+	color: #3C3962;
+	font-size: 1.25em;
+	text-transform: uppercase;
+	margin-bottom: 20px;
+}
+
+#main-content #available-courses article.course {
+	background-color: #3C3962;
+	border: 1px solid #849497;
+	border-radius: 10px;
+	padding: 20px;
+	margin-bottom: 20px;
+	width: 80%;
+	overflow: hidden;
+}
+	#main-content #available-courses article.course button {
+		float: left;
+		width: 290px;
+		margin-right: 20px;
+		height: 90px;
+		border-radius: 20px;
+		border: 2px solid #cccccc;
+		font-size: 1.25em;
+		text-align: right;
+		padding-right: 10px;
+		color: #ffffff;
+		background-color:#000;
+		background-image:-webkit-gradient(linear, 0% 1%, 0% 95%, from(rgba(255,255,255,0.9)), to(rgba(64,64,64,0.9)), color-stop(.8,rgba(64,64,64,0.25)),color-stop(.25,rgba(32,32,32,0.5)));
+		background-image:-moz-linear-gradient(top,bottom,from(rgba(255,255,255,0.9)),color-stop(80%, rgba(64,64,64,0.25)),color-stop(25%, rgba(32,32,32,0.5)),to(rgba(64,64,64,0.9)));
+		font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	}
+	#main-content #available-courses article.course p {
+		float: left;
+		width: 50%;
+		font-size: 0.875em;
+		color: #ffffff;
+		font-family: "Cousine", sans-serif;
+		font-weight: bold;
+		padding-top: 20px;
+	}
 /* =============================================================================
-   3 - Footer
+   5 - Footer
 ============================================================================= */
 footer#main-footer {
 	height: 170px;
@@ -448,7 +495,7 @@ footer#main-footer {
 span.not-answered {
 	background-color: #ffffff;
 	border: 1px solid #dbdbdb;
-	ldiknvsdlfjorder-radius: 8px;
+	border-radius: 8px;
 	width: 88px;
 	height: 27px;
 	display: inline-block;
@@ -522,10 +569,14 @@ span.fill {
 	margin: 0 20px;
 }
 
-label {
+/* label {
 	display: inline;
-}
+}*/
 
 .pagination {
 	margin-top: 0;
+}
+
+.collapse {
+	overflow: hidden !important;
 }
