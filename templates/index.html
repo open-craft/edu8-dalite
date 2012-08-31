@@ -1,0 +1,51 @@
+{% include 'head.html' %}
+
+<body>
+{% include 'header.html' %}
+
+<section id="main-content">
+	<article class="question">
+		<header>
+			<hgroup>			
+				<h1>Question {{ count }}</h1>
+				<h2>{{ assignment.title }} <!-- note it would be good to put prof name here in next iteration --></h2>
+			</hgroup>
+		</header>
+		
+		<section class="question">
+			<div class="img-upload">
+				{% if question.media1.type = 'jpeg'  %}
+					<img src="img-uploads/{{ question.media1.data }}" alt="Image Upload" />
+				{% if question.media1.type = 'youtube'  %}
+					<iframe class="youtube-player" type="text/html" width="640" height="385" src="http://www.youtube.com/embed/{{ question.media1.data }}VIDEO_ID" frameborder="0">
+</iframe>
+				{% else  %}
+					<p>no image or video</p>
+				{% endif %}			
+			</div>
+			
+			<div class="answer-form">
+				<form class="form-horizontal">
+					<fieldset>
+						<div class="control-group">
+							<p>1. Check the corresponding elements that you thought were important in answering the question:</p>
+							
+							<!-- loop generates a list of concepts with check box defined in assignment_concepts -->
+							{% for concept in concepts %}
+        						<label class="checkbox">
+        							<input type="checkbox" name="optionsCheckboxList1" value="option1">
+        							{{ concept }}
+        						</label>
+             			{% endfor %}
+							
+						</div>
+					</fieldset>
+				</form>
+				<button class="btn btn-primary next-page"><href="answer.php">Next page&nbsp;&raquo;</a></button>
+			</div>
+			<div class="clear"></div>
+		</section>
+		
+	</article>
+</section>
+{% include 'footer.html' %}
