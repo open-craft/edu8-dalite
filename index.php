@@ -9,7 +9,7 @@
     //Variable stubs go here :)
 
     echo $twig->render('index.html', array('count' => '0', 
-                'assignment' => array ('title' => 'This is the title', 'description' => 'This is the description',), 
-                'concept','concepts' => array ('friction', 'matter',),
+                'assignment' => array ('title' => 'This is the title', 'description' => 'This is the description', 
+                'concepts' => array ('friction', 'matter',),),),
             );
 ?>
