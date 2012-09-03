@@ -8,7 +8,6 @@
 
     //Variable stubs go here :)
 
-    echo $twig->render('index.html', array('count' => '0', 'b_variable' => 'Don'));
-    
-
+    echo $twig->render('index.html', array('count' => '0', 
+                'assignment' => array ('title' => 'This is the title', 'description' => 'This is the description',),));
 ?>
