@@ -8,7 +8,7 @@
 
     //Variable stubs go here :)
 
-    echo $twig->render('index.html', array('a_variable' => 'Koya', 'b_variable' => 'Don'));
+    echo $twig->render('login.html', array('a_variable' => 'Koya', 'b_variable' => 'Don'));
     
 
 ?>
