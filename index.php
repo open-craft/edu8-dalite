@@ -8,7 +8,7 @@
 
     //Variable stubs go here :)
 
-    echo $twig->render('i.html', 
+    echo $twig->render('index.html', 
           array('count' => '0', 
                 'assignment' => array('title' => 'This is the title', 
                         'concepts' => array('friction', 'matter',),),
