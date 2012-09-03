@@ -11,8 +11,9 @@
     echo $twig->render('index.html', array('count' => '0', 
                 'assignment' => array('title' => 'This is the title', 'description' => 'This is the description', 
                       'concepts' => array('friction', 'matter',),),
-                ),
-                'media1' => array('type' => 'jpeg'),
-                'media2' => array('type' => 'youtube'),
+                
+                'media1' => array('type' => 'jpeg',),
+                'media2' => array('type' => 'youtube',),
+                )
             ); 
 ?>
