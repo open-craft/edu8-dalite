@@ -10,6 +10,6 @@
 
     echo $twig->render('index.html', array('count' => '0', 
                 'assignment' => array ('title' => 'This is the title', 'description' => 'This is the description', 
-                'concepts' => array ('friction', 'matter',),),),
-            );
+                'concepts' => array ('friction', 'matter',),),)
+            ); 
 ?>
