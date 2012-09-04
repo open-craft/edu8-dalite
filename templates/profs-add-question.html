@@ -84,7 +84,7 @@
 				<div class="accordion-inner">
 
 					<div class="context">
-						<p class="greyed">Choose either a video or image to include on the first page ot the question. </p>
+						<p class="greyed">Choose either a video or image to include on the first page of the question. </p>
 					</div>
 
 					<div class="fill-info">
@@ -161,6 +161,12 @@
 						<label class="control-label">a) correct elements</label>
             <div class="controls">
               <select multiple="multiple" class="colored">
+                  
+                <!-- loop generates the list of all concepts in the concept table -->                
+                {% for concept in concepts %}                                                        
+                <option>{{ concept }}</option>	        						
+                {% endfor %}
+                
                 <option>fdhfjk dlsfhdjklf hdjklf hdjklf hdsjkl fhjdklf hsdjkl</option>
                 <option>2</option>
                 <option>3</option>

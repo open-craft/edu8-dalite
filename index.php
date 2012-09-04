@@ -8,12 +8,15 @@
 
     //Variable stubs go here :)
 
-    echo $twig->render('index.html', 
+    echo $twig->render('profs-add-question.html', 
           array('count' => '0', 
                 'assignment' => array('title' => 'This is the title', 
                         'concepts' => array('friction', 'matter',),),
                 'media1' => array('type' => 'jpeg',),
                 'media2' => array('type' => 'youtube',),
+                
+                //For assignment entry pages
+                'concepts' => array ('concept1', 'concept2',),
                 )
             ); 
 ?>
