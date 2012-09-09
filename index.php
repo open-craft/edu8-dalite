@@ -17,6 +17,8 @@
                 
                 //For assignment entry pages
                 'concepts' => array ('concept1', 'concept2',),
+                //Student or prof names
+                'student' => array ('fname' => 'This is the name',),
                 )
             ); 
 ?>
