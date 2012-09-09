@@ -112,28 +112,38 @@
 					</div>
 
 					<div class="fill-info">
-						<label class="control-label">a) correct elements</label>
-            <div class="controls">
-              <select multiple="multiple" class="colored">                  
-                <!-- loop generates the list of all concepts in the concept table -->                
-                {% for concept in concepts %}                                                        
-                <option>{{ concept }}</option>	        						
-                {% endfor %}
-              </select>
-              <span class="icon-question-sign"></span>
+                                   
+                    <table>
+                      <tr>
+                        <td>
+                          <label class="control-label">a) elements to display</label>
+                          <div class="controls">
+                            <select multiple="multiple" class="colored">
+                              <!-- loop generates the list of all concepts in the concept table -->                
+                              {% for concept in concepts %}                                                        
+                              <option>{{ concept }}</option>	        						
+                              {% endfor %}
+                            </select>
+                            <span class="icon-question-sign"></span>
+                          </div>                          
+                        </td>
+                        <td>
+                          <label class="control-label">b) correct elements</label>
+                          <div class="controls"></div>
+                            <select multiple="multiple" class="colored">                  
+                                <!-- loop generates the list of all concepts in the concept table -->                
+                                {% for concept in concepts %}                                                        
+                                <option>{{ concept }}</option>	        						
+                                {% endfor %}
+                            </select>
+                            <span class="icon-question-sign"></span>
+                          </div>                            
+                        </td>
+                      </tr>
+                    </table>
+              
 
-            </div>
-
-            <label class="control-label">b) elements to display</label>
-            <div class="controls">
-              <select multiple="multiple" class="colored">
-                <!-- loop generates the list of all concepts in the concept table -->                
-                {% for concept in concepts %}                                                        
-                <option>{{ concept }}</option>	        						
-                {% endfor %}
-              </select>
-              <span class="icon-question-sign"></span>
-            </div>
+            
 					</div>
 			</div>
 			</div>
