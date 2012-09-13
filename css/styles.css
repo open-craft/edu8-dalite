@@ -153,12 +153,12 @@ body {
 	#main-content section.question .answer-form .control-group {
 		margin-top: 20px;
 	}
-		#main-content section.question .answer-form .control-group p:first-of-type {
+		#main-content section.question .answer-form p:first-of-type {
 			font-family: 'Cousine', sans-serif;
 			color: #5F5089;
 			font-size: 0.9375em;
 		}
-		#main-content section.question .answer-form .control-group label {
+		#main-content section.question .answer-form label {
 			font-family: 'Cousine', sans-serif;
 			color: #3739C5;
 			font-size: 1em;
@@ -166,7 +166,7 @@ body {
 			margin: 0;
 			padding: 5px 0;
 		}
-			#main-content section.question .answer-form .control-group label:first-of-type {
+			#main-content section.question .answer-form label:first-of-type {
 				border-top:1px solid #C4B7D2;
 			}
 			.radio input[type="radio"],
@@ -177,6 +177,7 @@ body {
 
 #main-content section.question .answer-form button.next-page {
 	float: right;
+	margin-bottom: 30px;
 }
 /* 3.2 Main-Content - Generic
 ------------------------------------------------------------------------------*/
@@ -518,6 +519,33 @@ body {
 	#main-content #login .button_div {
 		margin-bottom: 20px;
 	}
+/* 5.2 Main-Content - Students - Question part 2
+------------------------------------------------------------------------------*/
+#main-content article.part-2 fieldset {
+	border-bottom: 1px solid #D7CCD6;
+	margin-bottom: 30px;
+	padding-bottom: 30px;
+}
+#main-content article.part-2 .control-group.question label {
+	float: left;
+	border-top: 0 !important;
+	border-bottom: 0 !important;
+	border-right: 1px solid #C4B7D2;
+	margin-right: 10px;
+	padding-right: 10px;
+}
+	#main-content article.part-2 .control-group.question label:last-of-type {
+		border-right: 0;
+	}
+#main-content article.part-2 .control-group.question input {
+	float: left;
+	margin: 1px 5px 0 0;
+}
+#main-content article.part-2 textarea.answer {
+	width: 125%;
+	height: 250px;
+	border: 1px solid #5F5087;
+}
 /* 5.4 Main-Content - Students - Question part 4
 ------------------------------------------------------------------------------*/
 #main-content article.part-4 .img-upload {
