@@ -1,5 +1,19 @@
 <?php
-    use Symfony\Component\ClassLoader\UniversalClassLoader;
+require_once 'vendor/autoload.php';
+use Symfony\Component\Routing\Matcher\UrlMatcher;
+use Symfony\Component\Routing\RequestContext;
+use Symfony\Component\Routing\RouteCollection;
+use Symfony\Component\Routing\Route;
+
+$routes = new RouteCollection();
+$routes->add('route_name', new Route('/foo', array('controller' => 'MyController')));
+
+$context = new RequestContext($_SERVER['REQUEST_URI']);
+
+$matcher = new UrlMatcher($routes, $context);
+
+$parameters = $matcher->match('/foo');
+/*
     require_once 'vendor/twig/twig/lib/Twig/Autoloader.php';
     Twig_Autoloader::register();
     $loader = new Twig_Loader_Filesystem('templates');
@@ -22,4 +36,5 @@
                 'student' => array ('firstname' => 'myfirstname', 'lastname' => 'mylastname'),
                 )
             ); 
+*/
 ?>
