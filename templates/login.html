@@ -1,0 +1,54 @@
+{% include 'head.html' %}
+
+<body>
+{% include 'header.html' %}
+
+<section id="main-content">
+
+	<section id="login">
+		<h1>Login</h1>
+
+		<form action="http://rocketgeek.com/filter-hooks/bootstrap-icons-for-the-login-form/" method="POST" class="form">
+			<fieldset>
+				
+				<div class="aligner">
+					<label for="username" class="fLeft">Username</label>
+					<div class="div_text">
+						<div class="input-prepend">
+							<span class="add-on"><i class="icon-user"></i></span>
+							<input name="log" type="text" id="log inputIcon" value="" class="username span2" />
+						</div>
+					</div>
+
+					<div class="clear"></div>
+					
+					<label for="password" class="fLeft">Password</label>
+					<div class="div_text">
+						<div class="input-prepend">
+							<span class="add-on"><i class="icon-lock"></i></span>
+							<input name="pwd" type="password" id="pwd inputIcon" class="password span2" />
+						</div>
+					</div>
+					<input type="hidden" name="redirect_to" value="http://rocketgeek.com/filter-hooks/bootstrap-icons-for-the-login-form/" /><input name="a" type="hidden" value="login" />
+				</div>
+				
+				<div class="clear"></div>
+
+				<div class="button_div">
+					<input name="rememberme" type="checkbox" id="rememberme" value="forever" />&nbsp;Remember me&nbsp;&nbsp;<input type="submit" name="Submit" value="Login" class="btn btn-primary" /></div>
+				<div class="clear"></div>
+				<div>Forgot password?&nbsp;<a href="http://rocketgeek.com/user-settings/?a=pwdreset">Click here to reset</a></div>
+				<div>New User?&nbsp;<a href="http://rocketgeek.com/register/">Click here to register</a></div>	
+				<div class="clear"></div>
+			</fieldset>
+		</form>
+
+
+	</section>
+
+</section>
+
+<footer id="main-footer"></footer>
+
+</body>
+</html>

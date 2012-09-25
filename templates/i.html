@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Webpage</title>
+    </head>
+    <body>
+        <ul id="navigation">
+        {% for item in navigation %}
+            <li><a href="{{ item.href }}">{{ item.caption }}</a></li>
+        {% endfor %}
+        </ul>
+
+        <h1>My Webpage</h1>
+        {{ media1['type'] }}
+	{{ b_variable }}
+        
+        {% if media1['type'] == 'jpeg'  %}
+        <img src="https://edu8.ca/trunk/img-uploads/dummy-01.jpg" alt="Image Upload" />
+        {% endif %}
+        
+    </body>
+</html>
+
