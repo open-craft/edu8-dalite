@@ -7,7 +7,7 @@
 
     $twig = new Twig_Environment($loader);
 
-    echo $twig->render('profs-add-question.html', 
+    echo $twig->render('index.html', 
           array('count' => '0', 
                 'assignment' => array('title' => 'This is the title', 
                         'concepts' => array('friction', 'matter',),),
