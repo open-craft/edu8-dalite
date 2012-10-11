@@ -518,6 +518,71 @@ body {
 	#main-content #login .button_div {
 		margin-bottom: 20px;
 	}
+/* 5.3 Main-Content - Students - Question part 3
+------------------------------------------------------------------------------*/
+#main-content article.part-3 section.question {
+	border-bottom: 0;
+}
+
+#main-content article.part-3 .left {
+	float: left;
+	width: 362px;
+	border-right: 1px solid #D7CCD6;
+	padding-right: 55px;
+	margin-right: 55px;
+}
+#main-content article.part-3 .right {
+	padding: 0;
+	margin: 0;
+	float: left;
+	width: 362px;
+}
+	#main-content article.part-3 .standalone-rationale article {
+		border: 2px solid #7967a7;
+		border-radius: 12px;
+		font-family: "Cousine", sans-serif;
+		margin-bottom: 20px;
+	}
+		#main-content article.part-3 .standalone-rationale article h2 {
+			margin: 0;
+			font-size: 1em;
+			text-align: center;
+			background-color: #57538E;
+			color: #ffffff;
+			border-radius: 10px 10px 0 0;
+			font-weight: normal;
+		}
+		#main-content article.part-3 .standalone-rationale article h2 span {
+			position: relative;
+		}
+		#main-content article.part-3 .standalone-rationale article h2 span:before {
+				content: " ";
+				background: url(../img/star.gif) no-repeat;
+				display: block;
+				position: absolute;
+				top: -1px;
+				left: -30px;
+				height: 17px;
+				width: 16px;
+			}
+			#main-content article.part-3 .standalone-rationale article h2 span:after {
+				content: " ";
+				background: url(../img/star.gif) no-repeat;
+				display: block;
+				position: absolute;
+				top: -1px;
+				right: -30px;
+				height: 17px;
+				width: 16px;
+			}
+		#main-content article.part-3 .standalone-rationale article p {
+			color: #333333;
+			margin: 20px;
+			padding-bottom: 20px;
+			font-size: .75em;
+			font-weight: bold;
+			border-bottom: 1px solid #D7CCD6;
+		}
 /* 5.4 Main-Content - Students - Question part 4
 ------------------------------------------------------------------------------*/
 #main-content article.part-4 .img-upload {
@@ -716,4 +781,10 @@ span.fill {
 
 .input-prepend .add-on, .input-prepend .btn {
 	margin-right: -5px;
+}
+
+div.center {
+	margin: 0 auto;
+	width: 100%;
+	text-align: center;
 }
