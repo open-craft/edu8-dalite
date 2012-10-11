@@ -1,43 +1,45 @@
 {% include 'head.html' %}
-
 <body>
 {% include 'header.html' %}
 
 <section id="main-content">
 
-	<article class="question part-4">
-		<header>
-			<hgroup>
-				<h1>Question {{ questioncount }}</h1>
-				<h2>Start Physics Run > Focus group 1 May 2 2012, prof. Chris Whittaker</h2>
-			</hgroup>
-		</header>
-		
-		<section class="question">
-			<div class="img-upload">
-				<img src="img-uploads/dummy-01.jpg" alt="Image Upload" />
-			</div>
-			
-			<div class="answer-form">
-				<article class="correct-rationale">
-					<h2><span>The correct rationale:</span></h2>
-					<p>Everything should be made as simple as possible, but not simpler.</p>
-				</article>
+  <article class="question part-4">
+    <header>
+      <hgroup>
+        <h1>Question  {{ questioncount }}</h1>
+        <h2>{{ assignment['title'] }}  <!--note it would be good to put prof name here in next iteration--></h2>
+      </hgroup>
+    </header>
 
-				<article class="student-rationale">
-					<h2>Your rationale</h2>
-					<p>The solution of problems is one of the lowest forms of mathematical research, ...yet its educational value cannot be overestimated. It is the ladder by which the mind ascends into higher fields of original research and investigation. Many dormant minds have been aroused into activity through the mastery of a single problem.</p>
-					<h2>Your answer was: 3</h2>
-				</article>
-				<button class="btn btn-primary next-page"><href="next-question/">Next question&nbsp;&raquo;</a></button>
-			</div>
-			<div class="clear"></div>
-		</section>
-		
-	</article>
+    <section class="question">
+      <div class="img-upload">
+        {% if media1['type'] == 'jpeg'  %}
+            <img src="https://edu8.ca/trunk/img-uploads/{{ media1['data'] }}" alt="Image Upload" />
+          {% elseif media1['type'] == 'youtube'  %}
+            <iframe width="420" height="315" src="http://www.youtube.com/embed/{{ media1['data'] }}" frameborder="0" allowfullscreen></iframe>
+          {% else  %}
+            <p>no image or video</p>
+        {% endif %}
+      </div>
+
+      <div class="answer-form">
+        <article class="correct-rationale">
+          <h2><span>The correct rationale</span></h2>
+          <p>{{ question['rationale_best1'] }}</p>
+          <p>{{ question['rationale_best2'] }}</p>
+        </article>
+
+        <article class="student-rationale">
+          <h2>Your rationale</h2>          
+          <p>{{ answer['rationale'] }}</p>
+          <h2>Your answer was: {{ answer['answer'] }}</h2>
+        </article>
+        <button class="btn btn-primary next-page"><href="next-question/">Next question&nbsp;&raquo;</a></button>
+	  </div>
+      <div class="clear"></div>
+    </section>
+
+  </article>
 </section>
-
-<footer id="main-footer"></footer>
-
-</body>
-</html>
+{% include 'footer.html' %}

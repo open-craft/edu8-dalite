@@ -1,66 +1,54 @@
 {% include 'head.html' %}
-
 <body>
 {% include 'header.html' %}
 
 <section id="main-content">
 
-	<article class="question part-2">
-		<header>
-			<hgroup>
-				<h1>Question {{ questioncount }}</h1>
-				<h2>Focus group 1 May 2 2012, prof. Chris Whittaker</h2>
-			</hgroup>
-		</header>
-		
-		<section class="question">
-			<div class="img-upload">
-				<img src="img-uploads/dummy-01.jpg" alt="Image Upload" />
-			</div>
-			
-			<div class="answer-form">
-				<form class="form-horizontal">
-					<fieldset>
-						<div class="control-group question">
-							<p>2. Select the correct answer:</p>
-							<label class="checkbox">
-								<input type="radio" name="optionsCheckboxList1" value="option1">
-								1
-							</label>
-							<label class="checkbox">
-								<input type="radio" name="optionsCheckboxList2" value="option1">
-								2
-							</label>
-							<label class="checkbox">
-								<input type="radio" name="optionsCheckboxList3" value="option1">
-								3
-							</label>
-							<label class="checkbox">
-								<input type="radio" name="optionsCheckboxList4" value="option1">
-								4
-							</label>
-							<label class="checkbox">
-								<input type="radio" name="optionsCheckboxList4" value="option1">
-								5
-							</label>
-						</div>
-					</fieldset>
+  <article class="question part-2">
+    <header>
+      <hgroup>
+        <h1>Question  {{ questioncount }}</h1>
+        <h2>{{ assignment['title'] }}  <!--note it would be good to put prof name here in next iteration--></h2>
+      </hgroup>
+    </header>
 
-					<fieldset>
-						<p>3. Provide a reasoning for the answer that you chose above:</p>
-						<textarea class="answer"></textarea>
-					</fieldset>
+    <section class="question">
+      <div class="img-upload">
+        {% if media1['type'] == 'jpeg'  %}
+            <img src="https://edu8.ca/trunk/img-uploads/{{ media1['data'] }}" alt="Image Upload" />
+          {% elseif media1['type'] == 'youtube'  %}
+            <iframe width="420" height="315" src="http://www.youtube.com/embed/{{ media1['data'] }}" frameborder="0" allowfullscreen></iframe>
+          {% else  %}
+            <p>no image or video</p>
+        {% endif %}
+      </div>
 
-				</form>
-				<button class="btn btn-primary next-page"><href="question-part3/">Next page&nbsp;&raquo;</a></button>
+      <div class="answer-form">
+        <form class="form-horizontal">
+          <fieldset>
+            <div class="control-group question">
+              <p>2. Select the correct answer:</p>
+              { for count in question 'numchoices' }
+                <label class="checkbox">
+                <input type="radio" name="optionsCheckboxList{{ count }}" value="option{{ count }}">
+                {{ count }}
+                </label>
+              {% end of %}
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <p>3. Provide a reasoning for the answer that you chose above:</p>
+            <textarea class="student-rationale-textbox"></textarea>
+          </fieldset>
+
+        </form>
+        <button class="btn btn-primary next-page"><href="question-part3/">Next page&nbsp;&raquo;</a></button>
 			</div>
-			<div class="clear"></div>
-		</section>
-		
-	</article>
+      <div class="clear"></div>
+    </section>
+
+  </article>
 </section>
 
-<footer id="main-footer"></footer>
-
-</body>
-</html>
+{% include 'footer.html' %}
