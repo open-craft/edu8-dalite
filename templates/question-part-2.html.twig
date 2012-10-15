@@ -28,12 +28,12 @@
           <fieldset>
             <div class="control-group question">
               <p>2. Select the correct answer:</p>
-              { for count in question 'numchoices' }
+              {% for count in question 'numchoices' %}
                 <label class="checkbox">
                 <input type="radio" name="optionsCheckboxList{{ count }}" value="option{{ count }}">
                 {{ count }}
                 </label>
-              {% end of %}
+              {% endfor %}
             </div>
           </fieldset>
 
@@ -43,7 +43,7 @@
           </fieldset>
 
         </form>
-        <button class="btn btn-primary next-page">Next page&nbsp;&raquo;</button>
+        <button class="btn btn-primary next-page"><a href="question-part-3/">Next page&nbsp;&raquo;</a></button>
       </div>
       <div class="clear"></div>
     </section>
