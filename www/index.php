@@ -7,7 +7,7 @@
 
     $twig = new Twig_Environment($loader);
 
-    echo $twig->render('index.html', 
+    echo $twig->render('question-part-1.html.twig', 
           array('count' => '0', 
                 'assignment' => array('title' => 'This is the title', 
                         'concepts' => array('friction', 'matter',),),
