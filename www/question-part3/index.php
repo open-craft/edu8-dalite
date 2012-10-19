@@ -1,10 +1,8 @@
 <?php
- require_once '../vendor/autoload.php';
+ require_once $_SERVER['DOCUMENT_ROOT'] . '../vendor/autoload.php';
  use Twig\Twig;
 
-    $loader = new Twig_Loader_Filesystem('../templates');
-
-
+    $loader = new Twig_Loader_Filesystem($_SERVER['DOCUMENT_ROOT'] . '../templates');
     $twig = new Twig_Environment($loader);
 
     echo $twig->render('question-part3.html.twig', 
