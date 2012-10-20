@@ -27,12 +27,7 @@
           <fieldset>
             <div class="control-group question">
               <p>2. Select the correct answer:</p>
-              {% for count in question 'numchoices' %}
-                <label class="checkbox">
-                <input type="radio" name="optionsCheckboxList{{ count }}" value="option{{ count }}">
-                {{ count }}
-                </label>
-              {% endfor %}
+              
             </div>
           </fieldset>
 
