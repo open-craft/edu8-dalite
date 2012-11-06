@@ -11,7 +11,9 @@
                         'concepts' => array('friction', 'matter',),),
                 'media1' => array('type' => 'jpeg',),
                 'media2' => array('type' => 'youtube',),
-                
+
+		'question' => array('numchoices' => 5,),
+                 
                 //For assignment entry pages
                 'concepts' => array ('concept1', 'concept2',),
                 //Student or prof names
