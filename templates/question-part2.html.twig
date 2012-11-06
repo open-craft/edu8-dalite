@@ -27,10 +27,9 @@
           <fieldset>
             <div class="control-group question">
               <p>2. Select the correct answer:</p>
-              <!-- NOTE TO KOYA : something is wrong with the following twig statement. The template will only render if I remove the following 5 lines completely. When they are there, it will not render.  -->
                 {% for count in 1..question['numchoices'] %}
                 <label class="checkbox">
-                <input type="radio" name="optionsCheckboxList{{ count }}" value="option{{ count }}">
+                <input type="radio" name="optionsCheckboxList" value="option{{ count }}">
                 {{ count }}
                 </label>
               {% endfor %}
