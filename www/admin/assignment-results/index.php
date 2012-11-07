@@ -5,7 +5,7 @@
     $loader = new Twig_Loader_Filesystem($_SERVER['DOCUMENT_ROOT'] . '/../templates');
     $twig = new Twig_Environment($loader);
 
-    echo $twig->render('admin/profs-main-page.html.twig', 
+    echo $twig->render('admin/assignment-results.html.twig', 
           array('count' => '0', 
                 'assignment' => array('title' => 'This is the title', 
                         'concepts' => array('friction', 'matter',),),
