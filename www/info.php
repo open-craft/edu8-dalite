@@ -1,5 +1,4 @@
 <?php 
-Hi M
 phpinfo();
 ?>
 
