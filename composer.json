@@ -1,7 +1,9 @@
 {
     "require": {
+        "symfony/yaml": "*",
         "twig/twig": "1.10.*",
-	"doctrine/dbal": "2.3.*"
+	"doctrine/dbal": "2.3.*",
+	"doctrine/orm": "2.3.*"
  }
 }
 
