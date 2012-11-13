@@ -6,8 +6,8 @@
   <article class="question">
     <header>
       <hgroup>			
-        <h1>Question  {{ questioncount }}</h1>
-        <h2>{{ assignment['title'] }}  <!--note it would be good to put prof name here in next iteration--></h2>
+        <h1>Question  {{ question_num }}</h1>
+        <h2>{{ question[0]['title'] }}  <!--note it would be good to put prof name here in next iteration--></h2>
       </hgroup>
     </header>
 
@@ -29,7 +29,7 @@
               <p>1. Check the corresponding elements that you thought were important in answering the question:</p>
               
               <!-- loop generates a list of concepts with check box defined in assignment_concepts -->
-              {% for concept in assignment['concepts'] %}
+              {% for concept in question[question_num-1]['concepts'] %}
                 <label class="checkbox">
                   <input type="checkbox" name="optionsCheckboxList1" value="option1">
                     {{ concept }}	

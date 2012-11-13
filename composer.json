@@ -1,5 +1,6 @@
 {
     "require": {
+	"symfony/http-foundation": "*",
         "symfony/yaml": "*",
         "twig/twig": "1.10.*",
 	"doctrine/dbal": "2.3.*",
