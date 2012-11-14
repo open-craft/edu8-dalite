@@ -37,8 +37,8 @@ if ($path == "/reset")
             [
                 'title' => 'This is friction question',
                 'concepts' => ['friction', 'matter'],
-                'media1' => ['type' => 'jpeg', 'location' => '/img-uploads/q1.jpg'],
-                'media2' => ['type' => 'youtube', 'location' => 'P0s1hZ-Ru-c'],
+                'media1' => ['type' => 'jpeg', 'data' => '/img-uploads/q1.jpg'],
+                'media2' => ['type' => 'youtube', 'data' => 'P0s1hZ-Ru-c'],
                 'num_choice' => 5,
                 'choice_type' => 'alpha',
                 'answer' => 1,
