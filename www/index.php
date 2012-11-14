@@ -35,16 +35,40 @@ if ($path == "/reset")
         'student' => ['firstname' => 'Dan', 'lastname' => 'Hill'],
         'question' => [
             [
-                'title' => 'This is question',
+                'title' => 'This is friction question',
                 'concepts' => ['friction', 'matter'],
-                'media1' => ['type' => 'jpeg'],
-                'media2' => ['type' => 'youtube']
+                'media1' => ['type' => 'jpeg', 'location' => '/img-uploads/q1.jpg'],
+                'media2' => ['type' => 'youtube', 'location' => 'P0s1hZ-Ru-c'],
+                'num_choices' => 5,
+                'choice_type' => 'alpha',
+                'answer' => 1,
+                'second_best' => 2,
+                'rationales' => [
+                    'Rationale for a',
+                    'Rationale for b',
+                    'Rationale for c',
+                    'Rationale for d',
+                    'Rationale for e'
+                    ]
+                
             ],
             [
-                'title' => 'This is the another question',
-                'concepts' => ['friction', 'whoupie'],
-                'media1' => ['type' => 'jpeg'],
-                'media2' => ['type' => 'youtube']
-            ]
-            ]]);
+                'title' => 'This is another question',
+                'concepts' => ['friction', 'tension'],
+                'media1' => ['type' => 'jpeg', 'location' => '/img-uploads/q2.jpg'],
+                'media2' => ['type' => 'none'],
+                'num_choices' => 6,
+                'choice_type' => 'numeric',
+                'answer' => 3,
+                'second_best' => 1,
+                'rationales' => [
+                    'Rationale for 1',
+                    'Rationale for 2',
+                    'Rationale for 3',
+                    'Rationale for 4',
+                    'Rationale for 5',
+                    'Rationale for 6',
+                    ]
+              ]
+          ]]);
 ?>
