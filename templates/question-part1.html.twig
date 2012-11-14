@@ -13,10 +13,10 @@
 
     <section class="question">
       <div class="img-upload">
-        {% if media1['type'] == 'jpeg'  %}
-            <img src="https://edu8.ca/trunk/img-uploads/{{ media1['data'] }}" alt="Image Upload" />
-          {% elseif media1['type'] == 'youtube'  %}
-            <iframe width="420" height="315" src="http://www.youtube.com/embed/{{ media1['data'] }}" frameborder="0" allowfullscreen></iframe>
+        {% if question[question_num]['media1']['type'] == 'jpeg'  %}
+              <img src="/img-uploads/{{ question[question_num]['media1']['data'] }}" alt="Image Upload" />
+          {% elseif question[question_num]['media1']['type'] == 'youtube'  %}
+            <iframe width="420" height="315" src="http://www.youtube.com/embed/{{ question[question_num][media]['data'] }}" frameborder="0" allowfullscreen></iframe>
           {% else  %}
             <p>no image or video</p>
         {% endif %}
@@ -29,7 +29,7 @@
               <p>1. Check the corresponding elements that you thought were important in answering the question:</p>
               
               <!-- loop generates a list of concepts with check box defined in assignment_concepts -->
-              {% for concept in question[question_num-1]['concepts'] %}
+              {% for concept in question[question_num]['concepts'] %}
                 <label class="checkbox">
                   <input type="checkbox" name="optionsCheckboxList1" value="option1">
                     {{ concept }}	
