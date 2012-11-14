@@ -15,16 +15,22 @@ $twig = new Twig_Environment($loader);
 $request = Request::createFromGlobals();
 $path = $request->getPathInfo();
 
-if ($path == "/")
-    $path = "index";
+$path = rtrim($path, "/");
 
-if ($path == "/admin/")
+if ($path == "")
+    $path = "/login";
+
+if ($path == "/admin")
     $path = "/admin/index";
 
-if ($path == "/question-part4/")
+if (strstr($path,"question-part4"))
 	$session->set('question_num', $question_num+1);
 
-    echo $twig->render(rtrim($request->getPathInfo(), "/") . '.html.twig', [
+if ($path == "/reset")
+	$session->set('question_num', 1);
+
+
+    echo $twig->render( $path . '.html.twig', [
         'question_num' => $question_num,
         'student' => ['firstname' => 'Dan', 'lastname' => 'Hill'],
         'question' => [
