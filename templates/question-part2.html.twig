@@ -1,12 +1,12 @@
 {% include 'head.html' %}
-<body>
+
 {% include 'header.html' %}
 
 <section id="main-content">
   <article class="question part-2">
     <header>
       <hgroup>
-        <h1>Question  {{ questioncount }}</h1>
+        <h1>Question  {{ question_num }}</h1>
         <h2>{{ assignment['title'] }}  <!--note it would be good to put prof name here in next iteration--></h2>
       </hgroup>
     </header>
@@ -27,7 +27,7 @@
           <fieldset>
             <div class="control-group question">
               <p>2. Select the correct answer:</p>
-                {% for count in 1..question['numchoices'] %}
+                {% for count in 1..question[question_num]['num_choice'] %}
                 <label class="checkbox">
                 <input type="radio" name="optionsCheckboxList" value="option{{ count }}">
                 {{ count }}

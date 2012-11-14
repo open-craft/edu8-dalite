@@ -55,7 +55,7 @@ if ($path == "/reset")
             [
                 'title' => 'This is another question',
                 'concepts' => ['friction', 'tension'],
-                'media1' => ['type' => 'jpeg', 'location' => '/img-uploads/q2.jpg'],
+                'media1' => ['type' => 'jpeg', 'data' => '/img-uploads/q2.jpg'],
                 'media2' => ['type' => 'none'],
                 'num_choice' => 6,
                 'choice_type' => 'numeric',
