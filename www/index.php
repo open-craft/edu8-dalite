@@ -31,6 +31,7 @@ if ($path == "/reset")
 
 
     echo $twig->render( $path . '.html.twig', [
+        'alpha' => ['Z','A','B','C','D','E','F','G','H','I'],
         'question_num' => $question_num,
         'student' => ['firstname' => 'Dan', 'lastname' => 'Hill'],
         'question' => [[],
@@ -56,7 +57,8 @@ if ($path == "/reset")
                 'title' => 'This is another question',
                 'concepts' => ['friction', 'tension'],
                 'media1' => ['type' => 'youtube', 'data' => 'P0s1hZ-Ru-c'],
-                'media2' => ['type' => 'none'],
+                'media2' => ['type' => 'image', 'data' => 'dummy-01.jpg'],
+
                 'num_choice' => 6,
                 'choice_type' => 'numeric',
                 'answer' => 3,

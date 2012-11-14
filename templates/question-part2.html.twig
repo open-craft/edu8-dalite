@@ -13,13 +13,13 @@
 
     <section class="question">
       <div class="img-upload">
-        {% if media1['type'] == 'jpeg'  %}
-            <img src="https://edu8.ca/trunk/img-uploads/{{ media1['data'] }}" alt="Image Upload" />
-          {% elseif media1['type'] == 'youtube'  %}
-            <iframe width="420" height="315" src="http://www.youtube.com/embed/{{ media1['data'] }}" frameborder="0" allowfullscreen></iframe>
+          {% if question[question_num]['media2']['type'] == 'image'  %}
+              <img src="/img-uploads/{{ question[question_num]['media2']['data'] }}" alt="Image Missing" />
+          {% elseif question[question_num]['media2']['type'] == 'youtube'  %}
+            <iframe width="420" height="315" src="http://www.youtube.com/embed/{{ question[question_num]['media2']['data'] }}" frameborder="0" allowfullscreen></iframe>
           {% else  %}
             <p>no image or video</p>
-        {% endif %}
+       {% endif %}
       </div>
 
       <div class="answer-form">
@@ -27,12 +27,23 @@
           <fieldset>
             <div class="control-group question">
               <p>2. Select the correct answer:</p>
+              {% if question[question_num]['choice_type'] == 'numeric' %}
                 {% for count in 1..question[question_num]['num_choice'] %}
-                <label class="checkbox">
-                <input type="radio" name="optionsCheckboxList" value="option{{ count }}">
-                {{ count }}
-                </label>
-              {% endfor %}
+                    <label class="checkbox">
+                      <input type="radio" name="optionsCheckboxList" value="option{{ count }}">
+                    {{ count }}
+                    </label>
+                {% endfor %}
+              {% endif %}
+              {% if question[question_num]['choice_type'] == 'alpha' %}
+                {% for count in 1..question[question_num]['num_choice'] %}
+                    <label class="checkbox">
+                      <input type="radio" name="optionsCheckboxList" value="option{{ count }}">
+                    {{ alpha[count] }}
+                    </label>
+                {% endfor %}
+              {% endif %}
+
             </div>
           </fieldset>
 
