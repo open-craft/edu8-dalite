@@ -34,6 +34,7 @@ if ($path == "/reset")
         'alpha' => ['Z','A','B','C','D','E','F','G','H','I'],
         'question_num' => $question_num,
         'student' => ['firstname' => 'Dan', 'lastname' => 'Hill'],
+        'answer' => 1,
         'question' => [[],
             [
                 'title' => 'This is friction question',
@@ -42,7 +43,7 @@ if ($path == "/reset")
                 'media2' => ['type' => 'youtube', 'data' => 'P0s1hZ-Ru-c'],
                 'num_choice' => 5,
                 'choice_type' => 'alpha',
-                'answer' => 1,
+                'answer' => 1,  
                 'second_best' => 2,
                 'rationales' => [
                     'Rationale for a',

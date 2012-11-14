@@ -15,13 +15,13 @@
 
     <section class="question">
       <div class="img-upload">
-        {% if media1['type'] == 'jpeg'  %}
-            <img src="https://edu8.ca/trunk/img-uploads/{{ media1['data'] }}" alt="Image Upload" />
-          {% elseif media1['type'] == 'youtube'  %}
-            <iframe width="420" height="315" src="http://www.youtube.com/embed/{{ media1['data'] }}" frameborder="0" allowfullscreen></iframe>
+          {% if question[question_num]['media2']['type'] == 'image'  %}
+              <img src="/img-uploads/{{ question[question_num]['media2']['data'] }}" alt="Image Missing" />
+          {% elseif question[question_num]['media2']['type'] == 'youtube'  %}
+            <iframe width="420" height="315" src="http://www.youtube.com/embed/{{ question[question_num]['media2']['data'] }}" frameborder="0" allowfullscreen></iframe>
           {% else  %}
             <p>no image or video</p>
-        {% endif %}
+          {% endif %}
       </div>
 
       <div class="answer-form">
@@ -30,27 +30,39 @@
         </div>
       </div>
       <div class="clear"></div>
-
+{% if question[question_num]['answer'] == answer%}
+{%        set other = question[question_num]['second_best']%}
+{%   else %}
+{%        set other = question[question_num]['answer']%}
+{%   endif %}
+ 
+{%   if question[question_num]['choice_type'] == 'alpha'%}
+{%      set r_answer = alpha[answer]%}
+{%      set l_answer = alpha[other]%}
+{%    else%}
+{%      set r_answer = answer%}
+{%      set l_answer = other%}
+{%   endif %}
       <div class="left standalone-rationale">
         <article>
-          <h2><span>Is the answer <!-- display right or random wrong answer number here -->? </span></h2>
+          <h2><span>Is the answer {{l_answer}}<!-- display right or random wrong answer number here -->? </span></h2>
           
           <p><!-- display first best or random wrong rationale here. Note, the best or wrong rationale has to be linked to the answer number stated above --></p>
           <p><!-- display second best or random wrong rationale here. Note, the best or wrong rationale has to be linked to the answer number stated above --></p>
         </article>
         <div class="center">
-            <a href="/question-part4"><button class="btn btn-primary">Choose <!-- display same right or random wrong answer number as above here -->&nbsp;&raquo;</button></a>
+            <a href="/question-part4"><button class="btn btn-primary">Choose {{l_answer}}<!-- display same right or random wrong answer number as above here -->&nbsp;&raquo;</button></a>
         </div>
       </div>
 
       <div class="right standalone-rationale">
         <article>
-          <h2><span>Is the answer <!-- display right or random wrong answer number here -->?</span></h2>
+          <h2><span>Is the answer {{r_answer}}<!-- display right or random wrong answer number here -->?</span></h2>
           <p>{{ question['rationale_best1'] }}<!-- display first best or random wrong rationale here. Note, the best or wrong rationale has to be linked to the answer number stated above --></p>
           <p>{{ question['rationale_best2'] }}<!-- display second best or random wrong rationale here. Note, the best or wrong rationale has to be linked to the answer number stated above --></p>
         </article>
         <div class="center">
-          <a href="/question-part4"><button class="btn btn-primary">Choose <!-- same right or random wrong answer number as above here -->&nbsp;&raquo;</button></a>
+          <a href="/question-part4"><button class="btn btn-primary">Choose {{r_answer}}<!-- same right or random wrong answer number as above here -->&nbsp;&raquo;</button></a>
         </div>
       </div>
     <div class="clear"></div>
