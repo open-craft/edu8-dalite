@@ -100,34 +100,9 @@
                           <label class="control-label">a) elements to display</label>
                           <div class="controls">
                               <select multiple="multiple" class="colored">
-                                  <!-- loop generates the list of all concepts in the concept table -->                
-                                  <option value="Amplitude">Amplitude</option>
-                                  <option value="Angular Frequency">Angular Frequency</option>
-                                  <option value="Area">Area</option>
-                                  <option value="Conservation of Mechanical Energy">Conservation of Mechanical Energy</option>
-                                  <option value="Curvature">Curvature</option>
-                                  <option value="Displacement">Displacement</option>
-                                  <option value="Elastic Potential Energy">Elastic Potential Energy</option>
-                                  <option value="Frequency">Frequency</option>
-                                  <option value="Gravitational Potential Energy">Gravitational Potential Energy</option>
-                                  <option value="History Graph">History Graph</option>
-                                  <option value="Hooke's Law">Hooke's Law</option>
-                                  <option value="Inertia">Inertia</option>
-                                  <option value="KE of ejected electrons">KE of ejected electrons</option>
-                                  <option value="Kinetic Energy">Kinetic Energy</option>
-                                  <option value="Mass">Mass</option>
-                                  <option value="Phase">Phase</option>
-                                  <option value="Phase Angle">Phase Angle</option>
-                                  <option value="Propagation Velocity">Propagation Velocity</option>
-                                  <option value="Restoring Constant">Restoring Constant</option>
-                                  <option value="Restoring Force">Restoring Force</option>
-                                  <option value="Sanpshot Graph">Sanpshot Graph</option>
-                                  <option value="Slope">Slope</option>
-                                  <option value="Spring Constant">Spring Constant</option>
-                                  <option value="Transverse Acceleration">Transverse Acceleration</option>
-                                  <option value="Transverse Velocity">Transverse Velocity</option>
-                                  <option value="Velocity">Velocity</option>
-                                  <option value="Wavelength">Wavelength</option>
+				{% for concept in concepts %}
+                                      <option value="{{concept}}">{{concept}}</option>> 
+                                {% endfor %}
                               </select>
                               <span class="icon-question-sign"></span>
                           </div>                          
