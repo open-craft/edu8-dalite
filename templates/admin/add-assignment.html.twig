@@ -1,14 +1,9 @@
-<!doctype html>
- 
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <title>jQuery UI Sortable - Handle empty lists</title>
+{% include 'head.html' %}
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
     <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
     <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
-    <link rel="stylesheet" href="/resources/demos/style.css" />
-    <style>
+ 
+   <style>
     #sortable1, #sortable2,  #sortable3 { list-style-type: none; margin: 0; padding: 0; float: left; margin-right: 10px; background: #eee; padding: 5px; width: 143px;}
     #sortable1 li, #sortable2, #sortable3 li { margin: 5px; padding: 5px; font-size: 1.2em; width: 120px; }
     </style>
@@ -26,41 +21,15 @@
         $( "#sortable1,  #sortable3" ).disableSelection();
     });
     </script>
-</head>
-<body>
+<section id="main-content">
 
-<div id="tabs">
-    <ul>
-        <li><a href="#tabs-1">Nunc tincidunt</a></li>
-        <li><a href="#tabs-2">Proin dolor</a></li>
-    </ul>
-    <div id="tabs-1">
-        <ul id="sortable1" class="connectedSortable ui-helper-reset">
-            <li class="ui-state-default">Item 1</li>
-            <li class="ui-state-default">Item 2</li>
-            <li class="ui-state-default">Item 3</li>
-            <li class="ui-state-default">Item 4</li>
-            <li class="ui-state-default">Item 5</li>
-        </ul>
-    </div>
-    <div id="tabs-2">
-        <ul id="sortable2" class="connectedSortable ui-helper-reset">
-            <li class="ui-state-highlight">Item 1</li>
-            <li class="ui-state-highlight">Item 2</li>
-            <li class="ui-state-highlight">Item 3</li>
-            <li class="ui-state-highlight">Item 4</li>
-            <li class="ui-state-highlight">Item 5</li>
-        </ul>
-    </div>
-</div>
- 
-<div id="tabs">
+    <div id="tabs">
 <ul>
 <li><a href="#tabs-1">Nunc tincidunt</a></li>
 <li><a href="#tabs-2">Proin dolor</a></li>
 </ul>
     <div id="tabs-1">
-<ul id="sortable1" class="droptrue">
+<ul id="sortable1" class="connectedSortable">
 <li class="ui-state-default">Item 3</li>
 <li class="ui-state-default">Item 4</li>
 <li class="ui-state-default">Item 5</li>
@@ -68,7 +37,7 @@
 
 </div>
     <div id="tabs-2">
-<ul id="sortable2" class="droptrue">
+<ul id="sortable2" class="connectedSortable">
 <li class="ui-state-default">Item 3</li>
 <li class="ui-state-default">Item 4</li>
 <li class="ui-state-default">Item 5</li>
@@ -77,11 +46,10 @@
 </div>
 </div>
 
-<ul id="sortable3" class="droptrue">
-</ul>
- 
+    
+    
+    
 <br style="clear: both;" />
+</section>
  
- 
-</body>
-</html>
+{% include 'footer.html' %}
