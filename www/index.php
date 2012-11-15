@@ -69,12 +69,12 @@ if ($path == "/reset")
                 'correct_rationale' => 'Here is a Correct Rationale. The ball will roll up the hill until gravity gets it down.',
 
                 'rationales' => ['',
-                    'Rationale for 1',
-                    'Rationale for 2',
-                    'Rationale for 3',
-                    'Rationale for 4',
-                    'Rationale for 5',
-                    'Rationale for 6',
+                    'Rationale for 1: To have constructive interference at R the waves must be in phase at R. Since the extra distance travelled by one wave is a full wavelength (one full cycle) then the waves also need to be in phase at the sources to be in phase at R.',
+                    'Rationale for 2: When a wave or pulse reaches a rigid barrier two things happen: it bounces back and inverts. So when half of the wave has reflected (inverted) it will superimpose with the rest of the incoming pulse (non-inverted) and cancel completely.',
+                    'Rationale for 3 : Increasing the intensity means more photons. Keeping the color the same (same wavelength and frequency) means the photons have the same energy. More photons means more ejected electrons but photons with the same energy means each ejected electrons will have the same energy.',
+                    'Rationale for 4: When a wave or pulse reaches a rigid barrier two things happen: it bounces back and inverts. So after the wave has completely reflected it will be moving to the left and inverted (upside down).',
+                    'Rationale for 5: The difference in wavelength between any adjacent harmonic frequencies is half of a wavelength (for any air tube). The frequency is equal to wave speed over wavelength so the difference in ',
+                    'Rationale for 6: The first (lowest) frequency happens when the wavelength is twice the length of the tube (displacement nodes at both ends with an anti-node in the middle) and the frequency is equal to the wave speed divided by the wavelength.',
                     ]
               ]
           ], 
