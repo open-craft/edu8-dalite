@@ -28,8 +28,10 @@
 <section id="main-content">
 
 {% include '/admin/navbar.html.twig' %}
-
- 
+    <section class="generic teal">
+        <h1>Add Assignment</h1>
+        <p>Create a new assignment by dragging questions from any of the thematic tabs into the Assignment Builder "Drop and Sort Here" window. The questions can be reordered in the Assignment Builder at any time by dragging them up or down. Once you are finished click submit</p>
+    </section>
     <div id="tabs">
         <ul>
             <li><a href="#tabs-1">Linear Dynamics</a></li>
@@ -56,10 +58,18 @@
     </div>
 
     <br style="clear: both;" />
-
-    <ul id="sortable3" class="connectedSortable addandsort">
-        <li class="ui-state-default ui-state-disabled">ADD &amp; SORT QUESTIONS HERE!!!!!!</li>
-    </ul>
+    <section class="generic teal">
+        <h1>Assignment Builder</h1>
+        <form>  
+            <label>Assignment title: </label>
+            <input type="text" class="input-medium search-query" placeholder="">
+       </form>
+        <ul id="sortable3" class="connectedSortable addandsort">
+            <li class="ui-state-default ui-state-disabled">DROP &amp; SORT QUESTIONS HERE!!!!!!</li>
+        </ul>
+        
+        <button type="submit" class="btn">Submit</button>
+    </section>
 
     <br style="clear: both;" />
 
