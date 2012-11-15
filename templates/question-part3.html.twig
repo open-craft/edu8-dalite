@@ -35,7 +35,8 @@
 {%   else %}
 {%        set other = question[question_num]['answer']%}
 {%   endif %}
- 
+{%  set r_rationale = question[question_num]['rationales'][answer] %}
+{%  set l_rationale = question[question_num]['rationales'][other] %}
 {%   if question[question_num]['choice_type'] == 'alpha'%}
 {%      set r_answer = alpha[answer]%}
 {%      set l_answer = alpha[other]%}
@@ -47,7 +48,7 @@
         <article>
           <h2><span>Is the answer {{l_answer}}<!-- display right or random wrong answer number here -->? </span></h2>
           
-          <p><!-- display first best or random wrong rationale here. Note, the best or wrong rationale has to be linked to the answer number stated above --></p>
+          <p>{{ l_rationale }}<!-- display first best or random wrong rationale here. Note, the best or wrong rationale has to be linked to the answer number stated above --></p>
           <p><!-- display second best or random wrong rationale here. Note, the best or wrong rationale has to be linked to the answer number stated above --></p>
         </article>
         <div class="center">
@@ -58,8 +59,7 @@
       <div class="right standalone-rationale">
         <article>
           <h2><span>Is the answer {{r_answer}}<!-- display right or random wrong answer number here -->?</span></h2>
-          <p>{{ question['rationale_best1'] }}<!-- display first best or random wrong rationale here. Note, the best or wrong rationale has to be linked to the answer number stated above --></p>
-          <p>{{ question['rationale_best2'] }}<!-- display second best or random wrong rationale here. Note, the best or wrong rationale has to be linked to the answer number stated above --></p>
+          <p>{{ r_rationale }}<!-- display first best or random wrong rationale here. Note, the best or wrong rationale has to be linked to the answer number stated above --></p>
         </article>
         <div class="center">
           <a href="/question-part4"><button class="btn btn-primary">Choose {{r_answer}}<!-- same right or random wrong answer number as above here -->&nbsp;&raquo;</button></a>

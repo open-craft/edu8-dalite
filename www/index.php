@@ -47,7 +47,7 @@ if ($path == "/reset")
                 'second_best' => 2,
                 'correct_rationale' => 'Correct Rationale',
                 
-                'rationales' => [
+                'rationales' => ['',
                     'Rationale for a',
                     'Rationale for b',
                     'Rationale for c',
@@ -68,7 +68,7 @@ if ($path == "/reset")
                 'second_best' => 1,
                 'correct_rationale' => 'Here is a Correct Rationale. The ball will roll up the hill until gravity gets it down.',
 
-                'rationales' => [
+                'rationales' => ['',
                     'Rationale for 1',
                     'Rationale for 2',
                     'Rationale for 3',
