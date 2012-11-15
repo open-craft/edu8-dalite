@@ -45,6 +45,8 @@ if ($path == "/reset")
                 'choice_type' => 'alpha',
                 'answer' => 1,  
                 'second_best' => 2,
+                'correct_rationale' => 'Correct Rationale',
+                
                 'rationales' => [
                     'Rationale for a',
                     'Rationale for b',
@@ -64,6 +66,8 @@ if ($path == "/reset")
                 'choice_type' => 'numeric',
                 'answer' => 3,
                 'second_best' => 1,
+                'correct_rationale' => 'Here is a Correct Rationale. The ball will roll up the hill until gravity gets it down.',
+
                 'rationales' => [
                     'Rationale for 1',
                     'Rationale for 2',

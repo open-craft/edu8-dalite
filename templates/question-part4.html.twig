@@ -6,33 +6,32 @@
   <article class="question part-4">
     <header>
       <hgroup>
-        <h1>Question  {{ questioncount }}</h1>
-        <h2>{{ assignment['title'] }}  <!--note it would be good to put prof name here in next iteration--></h2>
+        <h1>Question  {{ question_num }}</h1>
+        <h2>{{ question[question_num]['title'] }}  <!--note it would be good to put prof name here in next iteration--></h2>
       </hgroup>
     </header>
 
     <section class="question">
       <div class="img-upload">
-        {% if media1['type'] == 'jpeg'  %}
-            <img src="https://edu8.ca/trunk/img-uploads/{{ media1['data'] }}" alt="Image Upload" />
-          {% elseif media1['type'] == 'youtube'  %}
-            <iframe width="420" height="315" src="http://www.youtube.com/embed/{{ media1['data'] }}" frameborder="0" allowfullscreen></iframe>
+          {% if question[question_num]['media2']['type'] == 'image'  %}
+              <img src="/img-uploads/{{ question[question_num]['media2']['data'] }}" alt="Image Missing" />
+          {% elseif question[question_num]['media2']['type'] == 'youtube'  %}
+            <iframe width="420" height="315" src="http://www.youtube.com/embed/{{ question[question_num]['media2']['data'] }}" frameborder="0" allowfullscreen></iframe>
           {% else  %}
             <p>no image or video</p>
-        {% endif %}
+       {% endif %}
       </div>
 
       <div class="answer-form">
         <article class="correct-rationale">
           <h2><span>The correct rationale</span></h2>
-          <p>{{ question['rationale_best1'] }}</p>
-          <p>{{ question['rationale_best2'] }}</p>
+          <p>{{ question[question_num]['correct_rationale'] }}</p>
         </article>
 
         <article class="student-rationale">
           <h2>Your rationale</h2>          
-          <p>{{ answer['rationale'] }}</p>
-          <h2>Your answer was: {{ answer['answer'] }}</h2>
+          <p>Student Rationale Here</p>
+          <h2>Your answer was: Student Answer Here</h2>
         </article>
         <a href="/question-part1"><button class="btn btn-primary next-page margin-bottom-20">OK&nbsp;&raquo;</button></a>
       </div>
