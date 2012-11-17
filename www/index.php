@@ -1,43 +1,125 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/../vendor/autoload.php';
-
-
+use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing;
- 
-function render_template($request)
-{
-    extract($request->attributes->all(), EXTR_SKIP);
-    ob_start();
-    $loader = new Twig_Loader_Filesystem(__DIR__ . '/../templates');
-    $twig = new Twig_Environment($loader);
-    $temp = $_route;
-    $temp = str_replace('_','/', $_route);
-    echo $twig->render( $temp
-            . '.html.twig', $request->attributes->get('_twig_vars'));
-    return new Response(ob_get_clean());
-}
- 
+
+$session = new Session();
+$session->start();
+
+// set and get session attributes
+$question_num = $session->get('question_num', 1);
+
+$loader = new Twig_Loader_Filesystem($_SERVER['DOCUMENT_ROOT'] . '/../templates');
+$twig = new Twig_Environment($loader);
+
 $request = Request::createFromGlobals();
-$routes = include __DIR__.'/../src/app.php';
- 
-$context = new Routing\RequestContext();
-$context->fromRequest($request);
-$matcher = new Routing\Matcher\UrlMatcher($routes, $context);
- 
-try {
-    $request->attributes->add($matcher->match($request->getPathInfo()));
-    $response = call_user_func($request->attributes->get('_controller'), $request);
+$path = $request->getPathInfo();
 
-} catch (Routing\Exception\ResourceNotFoundException $e) {
-     $response = call_user_func(render_template, $request, []);
-    
-} catch (Exception $e) {
-    $response = new Response('Not Found', 404);   
-    //$response = new Response('An error occurred', 500);
-}
- 
-$response->send();
+$path = rtrim($path, "/");
 
+if ($path == "")
+    $path = "/login";
+
+if ($path == "/admin")
+    $path = "/admin/index";
+
+if (strstr($path,"question-part4"))
+	$session->set('question_num', $question_num+1);
+
+if ($path == "/reset")
+	$session->set('question_num', 1);
+
+
+    echo $twig->render( $path . '.html.twig', [
+        'alpha' => ['Z','A','B','C','D','E','F','G','H','I'],
+        'question_num' => $question_num,
+        'student' => ['firstname' => 'Dan', 'lastname' => 'Hill'],
+        'answer' => 1,
+        'question' => [[],
+            [
+                'title' => 'This is friction question',
+                'concepts' => ['friction', 'matter'],
+                'media1' => ['type' => 'image', 'data' => 'dummy-01.jpg'],
+                'media2' => ['type' => 'youtube', 'data' => 'P0s1hZ-Ru-c'],
+                'num_choice' => 5,
+                'choice_type' => 'alpha',
+                'answer' => 1,  
+                'second_best' => 2,
+                'correct_rationale' => 'Correct Rationale',
+                
+                'rationales' => ['',
+                    'Rationale for a',
+                    'Rationale for b',
+                    'Rationale for c',
+                    'Rationale for d',
+                    'Rationale for e'
+                    ]
+                
+            ],
+            [
+                'title' => 'This is another question',
+                'concepts' => ['friction', 'tension'],
+                'media1' => ['type' => 'youtube', 'data' => 'P0s1hZ-Ru-c'],
+                'media2' => ['type' => 'image', 'data' => 'dummy-01.jpg'],
+
+                'num_choice' => 6,
+                'choice_type' => 'numeric',
+                'answer' => 3,
+                'second_best' => 1,
+                'correct_rationale' => 'Here is a Correct Rationale. The ball will roll up the hill until gravity gets it down.',
+
+                'rationales' => ['',
+                    'Rationale for 1: To have constructive interference at R the waves must be in phase at R. Since the extra distance travelled by one wave is a full wavelength (one full cycle) then the waves also need to be in phase at the sources to be in phase at R.',
+                    'Rationale for 2: When a wave or pulse reaches a rigid barrier two things happen: it bounces back and inverts. So when half of the wave has reflected (inverted) it will superimpose with the rest of the incoming pulse (non-inverted) and cancel completely.',
+                    'Rationale for 3 : Increasing the intensity means more photons. Keeping the color the same (same wavelength and frequency) means the photons have the same energy. More photons means more ejected electrons but photons with the same energy means each ejected electrons will have the same energy.',
+                    'Rationale for 4: When a wave or pulse reaches a rigid barrier two things happen: it bounces back and inverts. So after the wave has completely reflected it will be moving to the left and inverted (upside down).',
+                    'Rationale for 5: The difference in wavelength between any adjacent harmonic frequencies is half of a wavelength (for any air tube). The frequency is equal to wave speed over wavelength so the difference in ',
+                    'Rationale for 6: The first (lowest) frequency happens when the wavelength is twice the length of the tube (displacement nodes at both ends with an anti-node in the middle) and the frequency is equal to the wave speed divided by the wavelength.',
+                    ]
+              ]
+          ], 
+	  'concepts' => [
+        'Amplitude',
+        'Angular Frequency',
+        'Area',
+        'Conservation of Mechanical Energy',
+        'Curvature',
+        'Displacement',
+        'Elastic Potential Energy',
+        'Frequency',
+        'Gravitational Potential Energy',
+        'History Graph',
+        'Hooke\'s Law',
+        'Inertia',
+        'KE of ejected electrons',
+        'Kinetic Energy',
+        'Mass',
+        'Phase',
+        'Phase Angle',
+        'Propagation Velocity',
+        'Restoring Constant',
+        'Restoring Force',
+        'Sanpshot Graph',
+        'Slope',
+        'Spring Constant',
+        'Transverse Acceleration',
+        'Transverse Velocity',
+        'Velocity',
+        'Wavelength',
+        'Difference in energy levels',
+        'Energy levels',
+        'Energy of absorbed photon',
+        'Energy of each photon',
+        'Energy of emitted photon',
+        'Excited levels',
+        'Frequency of each photon',
+        'Ground level',
+        'Interference',
+        'Number of photons',
+        'Standing wave',
+        'Stopping potential',
+        'Traveling wave',
+        'Wavelength of each photon',
+        'Work function']
+]);
 ?>
