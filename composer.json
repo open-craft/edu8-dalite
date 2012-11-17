@@ -1,6 +1,9 @@
 {
     "require": {
 	"symfony/http-foundation": "*",
+	"symfony/http-kernel": "*",
+	"symfony/config": "*",
+	"symfony/routing": "*",
         "symfony/yaml": "*",
         "twig/twig": "1.10.*",
 	"doctrine/dbal": "2.3.*",
