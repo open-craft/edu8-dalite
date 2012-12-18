@@ -1,0 +1,35 @@
+{% include 'head.html' %}
+{% include 'header.html' %}
+
+<section id="main-content">
+
+	<section id="login">
+		<h1>Login</h1>
+
+		<form action="/question-part1" method="POST" class="form">
+			<fieldset>
+				
+				<div class="aligner">
+                                            LANDING
+                                </div>
+				
+				<div class="clear"></div>
+
+				<div class="button_div">
+                    {% for assignment in assignments %}
+					<input type="submit" name="assignment" value="{{assignment['assignment_']}}" class="btn btn-primary">{{assignment['name']}} </input>
+                    {% endfor %}
+                                </div>
+				<div class="clear"></div>
+			</fieldset>
+		</form>
+
+
+	</section>
+
+</section>
+
+<footer id="main-footer"></footer>
+
+</body>
+</html>

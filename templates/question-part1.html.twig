@@ -1,48 +1,34 @@
 {% include 'head.html' %}
-
 {% include 'header.html' %}
+{% include 'init.twig' %}
 
+{% set q = question[question_num] %}
 <section id="main-content">
-  <article class="question">
-    <header>
-      <hgroup>			
-        <h1>Question  {{ question_num }}</h1>
-        <h2>{{ question[question_num]['title'] }}  <!--note it would be good to put prof name here in next iteration--></h2>
-      </hgroup>
-    </header>
-
+  {% include 'question-header.html.twig' with {'class': 'question part-2'} %}
     <section class="question">
       <div class="img-upload">
-        {% if question[question_num]['media1']['type'] == 'image'  %}
-              <img src="/img-uploads/{{ question[question_num]['media1']['data'] }}" alt="Image Missing" />
-          {% elseif question[question_num]['media1']['type'] == 'youtube'  %}
-            <iframe width="420" height="315" src="http://www.youtube.com/embed/{{ question[question_num]['media1']['data'] }}" frameborder="0" allowfullscreen></iframe>
-          {% else  %}
-            <p>no image or video</p>
-        {% endif %}
+            {% include 'media.html.twig' with {'media': q['media1'], 'type': 'image'} %}
       </div>
-
-      <div class="answer-form">
-        <form class="form-horizontal">
-          <fieldset>
+        {% include 'form-begin.html.twig' with {'action': '/question-part2'} %}
             <div class="control-group">
               <p>1. Check the corresponding elements that you thought were important in answering the question:</p>
               
               <!-- loop generates a list of concepts with check box defined in assignment_concepts -->
-              {% for concept in question[question_num]['concepts'] %}
+              {% set i = 0 %}
+              {% for concept in q['concepts'] %}
                 <label class="checkbox">
-                  <input type="checkbox" name="optionsCheckboxList1" value="option1">
+                  <input type="checkbox" name="tag{{ i }}" value="{{ concept }}">
                     {{ concept }}	
                 </label>
+              {% set i = i+1 %}
               {% endfor %}
             </div>
-          </fieldset>
-        </form>
-        <a href="/question-part2"><button class="btn btn-primary next-page">Next page&nbsp;&raquo;</button></a>
-      </div>
+        {% include 'form-end.html.twig' %}
+
       <div class="clear"></div>
     </section>
 
   </article>
 </section>
+
 {% include 'footer.html' %}

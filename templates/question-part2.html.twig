@@ -1,44 +1,30 @@
 {% include 'head.html' %}
-
 {% include 'header.html' %}
+{% import 'media.html.twig' as media %}
+{% set q = question[question_num] %}
 
 <section id="main-content">
-  <article class="question part-2">
-    <header>
-      <hgroup>
-        <h1>Question  {{ question_num }}</h1>
-        <h2>{{ assignment['title'] }}  <!--note it would be good to put prof name here in next iteration--></h2>
-      </hgroup>
-    </header>
-
+    {% include 'question-header.html.twig' with {'class': 'question part-2'} %}
     <section class="question">
-      <div class="img-upload">
-          {% if question[question_num]['media2']['type'] == 'image'  %}
-              <img src="/img-uploads/{{ question[question_num]['media2']['data'] }}" alt="Image Missing" />
-          {% elseif question[question_num]['media2']['type'] == 'youtube'  %}
-            <iframe width="420" height="315" src="http://www.youtube.com/embed/{{ question[question_num]['media2']['data'] }}" frameborder="0" allowfullscreen></iframe>
-          {% else  %}
-            <p>no image or video</p>
-       {% endif %}
-      </div>
+         <div class="img-upload">
+            {% include 'media.html.twig' with {'media': q['media1'], 'type': 'image'} %}
+        </div>
 
-      <div class="answer-form">
-        <form class="form-horizontal" action="/question-part3" method="POST" >
-          <fieldset>
+        {% include 'form-begin.html.twig' with {'action': '/question-part3'} %}
             <div class="control-group question">
               <p>2. Select the correct answer:</p>
-              {% if question[question_num]['choice_type'] == 'numeric' %}
-                {% for count in 1..question[question_num]['num_choice'] %}
+              {% if q['alpha'] == 0 %}
+                {% for count in 1..q['num_choice'] %}
                     <label class="checkbox">
-                      <input type="radio" name="optionsCheckboxList" value="option{{ count }}">
+                      <input type="radio" name="answer" value="{{ count }}">
                     {{ count }}
                     </label>
                 {% endfor %}
               {% endif %}
-              {% if question[question_num]['choice_type'] == 'alpha' %}
-                {% for count in 1..question[question_num]['num_choice'] %}
+              {% if q['choice_type'] == 'alpha' %}
+                {% for count in 1..q['num_choice'] %}
                     <label class="checkbox">
-                      <input type="radio" name="optionsCheckboxList" value="option{{ count }}">
+                      <input type="radio" name="answer" value="{{ count }}">
                     {{ alpha[count] }}
                     </label>
                 {% endfor %}
@@ -49,12 +35,11 @@
 
           <fieldset>
             <p>3. Provide a reasoning for the answer that you chose above:</p>
-            <textarea class="student-rationale-textbox"></textarea>
-          </fieldset>
-<input type="submit" value="Continue">
-        </form>
-        <a href="/question-part3"><button class="btn btn-primary next-page">Submit&nbsp;&raquo;</button></a>
-      </div>
+            <textarea name="student-rationale" class="student-rationale-textbox"></textarea>
+          </div>
+        {% include 'form-end.html.twig' %}
+
+
       <div class="clear"></div>
     </section>
 

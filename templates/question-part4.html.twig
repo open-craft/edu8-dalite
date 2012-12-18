@@ -1,37 +1,28 @@
 {% include 'head.html' %}
 {% include 'header.html' %}
+{% include 'init.twig' %}
+{% import 'media.html.twig' as media %}
+{% set q = question[question_num] %}
 
 <section id="main-content">
 
-  <article class="question part-4">
-    <header>
-      <hgroup>
-        <h1>Question  {{ question_num }}</h1>
-        <h2>{{ question[question_num]['title'] }}  <!--note it would be good to put prof name here in next iteration--></h2>
-      </hgroup>
-    </header>
+    {% include 'question-header.html.twig' with {'class': 'question part-4'} %}
 
     <section class="question">
       <div class="img-upload">
-          {% if question[question_num]['media2']['type'] == 'image'  %}
-              <img src="/img-uploads/{{ question[question_num]['media2']['data'] }}" alt="Image Missing" />
-          {% elseif question[question_num]['media2']['type'] == 'youtube'  %}
-            <iframe width="420" height="315" src="http://www.youtube.com/embed/{{ question[question_num]['media2']['data'] }}" frameborder="0" allowfullscreen></iframe>
-          {% else  %}
-            <p>no image or video</p>
-       {% endif %}
+            {% include 'media.html.twig' with {'media': q['media1'], 'type': 'image'} %}
       </div>
 
       <div class="answer-form">
         <article class="correct-rationale">
           <h2><span>The correct rationale</span></h2>
-          <p>{{ question[question_num]['correct_rationale'] }}</p>
+          <p>{{ q['rationale'] }}</p>
         </article>
 
         <article class="student-rationale">
           <h2>Your rationale</h2>          
-          <p>Student Rationale Here</p>
-          <h2>Your answer was: Student Answer Here</h2>
+          <p>{{request['student_rationale']}}</p>
+          <h2>Your answer was: {{ request['answer'] }}</h2>
         </article>
         <a href="/question-part1"><button class="btn btn-primary next-page margin-bottom-20">OK&nbsp;&raquo;</button></a>
       </div>

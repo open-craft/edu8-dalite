@@ -1,70 +1,73 @@
 {% include 'head.html' %}
 {% include 'header.html' %}
+{% include 'init.twig' %}
+{% import 'media.html.twig' as media %}
+{% set q = question[question_num] %}
+
+
+{% set r_rationale = rationales %}
+{% set l_rationale = rationales2 %}
+{% if q['choice_type'] == 'alpha'%}
+{%    set r_answer = alpha[q['answer']]%}
+{%    set l_answer = alpha[other]%}
+{% else%}
+{%    set r_answer = q['answer']%}
+{%    set l_answer = other%}
+{% endif %}
+{% if swap %}
+{%    set temp = l_answer %}
+{%    set l_answer = r_answer %}
+{%    set r_answer = temp %}
+{%    set temp2 = l_rationale %}
+{%    set l_rationale = r_rationale%}
+{%    set r_rationale = temp2%}
+{% endif %}
 
 
 <div class="clear"></div>
 <section id="main-content">
 
-  <article class="question part-3">
-    <header>
-      <hgroup>
-        <h1>Question {{ questioncount }}</h1>
-        <h2>{{ assignment['title'] }}  <!--note it would be good to put prof name here in next iteration--></h2>
-      </hgroup>
-    </header>
+    {% include 'question-header.html.twig' with {'class': 'question part-3'} %}
 
     <section class="question">
       <div class="img-upload">
-          {% if question[question_num]['media2']['type'] == 'image'  %}
-              <img src="/img-uploads/{{ question[question_num]['media2']['data'] }}" alt="Image Missing" />
-          {% elseif question[question_num]['media2']['type'] == 'youtube'  %}
-            <iframe width="420" height="315" src="http://www.youtube.com/embed/{{ question[question_num]['media2']['data'] }}" frameborder="0" allowfullscreen></iframe>
-          {% else  %}
-            <p>no image or video</p>
-          {% endif %}
+            {% include 'media.html.twig' with {'media': q['media1'], 'type': 'image'} %}
       </div>
 
-      <div class="answer-form">
+        {% include 'form-begin.html.twig' with {'action': '/question-part4'} %}
         <div class="control-group question">
           <p>4.Consider the problem again, noting the rationales that have been provided by other students. They may, or may not, cause you to reconsider your answer. Read them, and select your final answer...</p>
         </div>
       </div>
       <div class="clear"></div>
-{% if question[question_num]['answer'] == answer%}
-{%        set other = question[question_num]['second_best']%}
-{%   else %}
-{%        set other = question[question_num]['answer']%}
-{%   endif %}
-{%  set r_rationale = question[question_num]['rationales'][answer] %}
-{%  set l_rationale = question[question_num]['rationales'][other] %}
-{%   if question[question_num]['choice_type'] == 'alpha'%}
-{%      set r_answer = alpha[answer]%}
-{%      set l_answer = alpha[other]%}
-{%    else%}
-{%      set r_answer = answer%}
-{%      set l_answer = other%}
-{%   endif %}
       <div class="left standalone-rationale">
         <article>
           <h2><span>Is the answer {{l_answer}}<!-- display right or random wrong answer number here -->? </span></h2>
-          
-          <p>{{ l_rationale }}<!-- display first best or random wrong rationale here. Note, the best or wrong rationale has to be linked to the answer number stated above --></p>
-          <p><!-- display second best or random wrong rationale here. Note, the best or wrong rationale has to be linked to the answer number stated above --></p>
+          {% for r in l_rationale %}
+          <p>{{ r['rationale'] }}</p>
+          {% endfor %}
+         
         </article>
         <div class="center">
-            <a href="/question-part4"><button class="btn btn-primary">Choose {{l_answer}}<!-- display same right or random wrong answer number as above here -->&nbsp;&raquo;</button></a>
+            <input type="submit" name="C{{l_answer}}" value="Choose {{l_answer}}" class="btn btn-primary"/>
         </div>
       </div>
 
       <div class="right standalone-rationale">
         <article>
           <h2><span>Is the answer {{r_answer}}<!-- display right or random wrong answer number here -->?</span></h2>
-          <p>{{ r_rationale }}<!-- display first best or random wrong rationale here. Note, the best or wrong rationale has to be linked to the answer number stated above --></p>
+          {% for r in r_rationale %}
+          <p>{{ r['rationale'] }}</p>
+          {% endfor %}
         </article>
         <div class="center">
-          <a href="/question-part4"><button class="btn btn-primary">Choose {{r_answer}}<!-- same right or random wrong answer number as above here -->&nbsp;&raquo;</button></a>
+        <input type="hidden" name="try" value="here"/>
+            <input type="submit" name="C{{r_answer}}" value="Choose {{r_answer}}" class="btn btn-primary"/>
         </div>
       </div>
+          </fieldset>
+        </form>
+
     <div class="clear"></div>
     </section>
 
