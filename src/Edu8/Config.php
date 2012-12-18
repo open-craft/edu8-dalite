@@ -7,14 +7,14 @@ class Config {
 
     public static function initDb() {
         if(!$connection){
-        $filename = __DIR__ . '/../../config/db.php';
-        if (is_file($filename))
-            $connection = require $filename;
-        }
+	    $filename = __DIR__ . '/../../config/db.php';
+	    if (is_file($filename))
+		$connection = require $filename;
+	    else
+	        throw new Exception('Missing config/', basename($filename));
+	}
         return $connection;
-        throw new Exception('Missing config/', basename($filename));
     }
-
 }
 
 ?>
