@@ -21,9 +21,15 @@ function main() {
     $request->attributes->add($matcher->match($request->getPathInfo() ) );
     $file_root = $request->attributes->get('file_root');
     $slug = $request->attributes->get('slug');
+    $twig_vars = $session->get('twig_vars', []);
+    
+    if (!$twig_vars['auth'] && $file_root !== 'login') {
+        $response = new RedirectResponse('/login');
+        $response->send();
+       return;
+    }
 
     //Merge session and post variables 
-    $twig_vars = $session->get('twig_vars', []);
     if(empty($twig_vars['request']))
         $twig_vars['request'] = $request->request->all();
     else
@@ -47,12 +53,6 @@ function main() {
         build($request, $twig_vars);
     }
     $session->set('twig_vars', $twig_vars);
-    
-    if (!$twig_vars['auth'] && $file_root !== 'login') {
-        $response = new RedirectResponse('/login');
-        $response->send();
-       return;
-    }
 
     if ($twig_vars['auth'] && $file_root === 'login') {
         $response = new RedirectResponse('/');
