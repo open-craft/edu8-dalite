@@ -1,14 +1,10 @@
 {
     "require": {
 	"symfony/http-foundation": "*",
-	"symfony/http-kernel": "*",
-	"symfony/config": "*",
 	"symfony/routing": "*",
-    "symfony/yaml": "*",
     "symfony/finder": "*",
     "twig/twig": "1.10.*",
-	"doctrine/dbal": "2.3.*",
-	"doctrine/orm": "2.3.*"
+	"doctrine/dbal": "2.3.*"
  },
     "autoload": {
         "psr-0": { "Edu8": "src/" }

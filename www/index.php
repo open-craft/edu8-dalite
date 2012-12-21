@@ -23,18 +23,28 @@ function main() {
     $slug = $request->attributes->get('slug');
     $twig_vars = $session->get('twig_vars', []);
     
-    if (!$twig_vars['auth'] && $file_root !== 'login') {
+   
+   if(empty($twig_vars['request']))
+        $twig_vars['request'] = $request->request->all();
+    else
+        $twig_vars['request'] = array_merge($twig_vars['request'],$request->request->all());
+  
+    $session->set('twig_vars', $twig_vars);
+    
+    if ($twig_vars['auth'] && $file_root === '/login') {
+        $response = new RedirectResponse('/');
+        $response->send();
+        return;
+    }
+    
+    if (!$twig_vars['auth'] && $file_root !== '/login') {
         $response = new RedirectResponse('/login');
         $response->send();
        return;
     }
 
     //Merge session and post variables 
-    if(empty($twig_vars['request']))
-        $twig_vars['request'] = $request->request->all();
-    else
-        $twig_vars['request'] = array_merge($twig_vars['request'],$request->request->all());
-    try{
+  try{
         //Get routes and match with refer url
         $routes2 = Edu8\Route::getRoutes(__DIR__ . '/../callbacks/');
         $matcher2 = new Routing\Matcher\UrlMatcher($routes2, $context);
@@ -53,12 +63,6 @@ function main() {
         build($request, $twig_vars);
     }
     $session->set('twig_vars', $twig_vars);
-
-    if ($twig_vars['auth'] && $file_root === 'login') {
-        $response = new RedirectResponse('/');
-        $response->send();
-        return;
-    }
 
     //Render twig with varables assembled in build()
     $loader = new Twig_Loader_Filesystem(__DIR__ . '/../templates');
