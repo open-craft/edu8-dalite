@@ -32,16 +32,33 @@
         <h1>Add Assignment</h1>        
     </section>-->
     
-    <section class="generic teal" style="padding: 1em;">
+    <section class="question" style="margin: 0em 2em">
         <h1>Assignment Builder</h1>
         <p style="margin: 1em 2em 1.5em 1em; font-size: .9em;">Create a new assignment by dragging questions from any of the thematic tabs into the Assignment Builder "Drop and Sort Here" window. The questions can be reordered in the Assignment Builder at any time by dragging them up or down. Once you are finished click submit. If you wish to add a new question, click on the <a href="https://edu8.ca/admin/add-question/">Add Question Button Above</a></p>
+        <div class="answer-form" X>
+        <form id="form" action="/admin" method="POST" class="form-horizontal" style="margin: .5em 1em 0 1em;">  
+            <label>Assignment title: </label>
+            <input type="text" class="input-medium search-query" placeholder="">
+            <label>Course : </label>
+            <select>
+                <option value="lineardynamics">Choose a course</option>
+                <option value="lineardynamics">Linear Dynamics</option>
+                <option value="kinematics">ID Kinematics</option>
+            </select><input type="hidden" id="PostField" name="postvar" value="">
+        </form>
+        </div>
+<a href="javascript: submitform()"><button class="btn btn-primary" style="float: right; margin: 6em 1em 0 1em;">Submit&nbsp;&raquo;</button></a>
+    <br style="clear: both;" />        
+    <br style="clear: both;" />        
+    <table> <tr>
+<td>
         <div id="tabs">
             <h1 style="color: #5A7279; font-size: .8em; margin-left: .7em;">Available Questions</h1>
             <ul>
                 <li><a href="#tabs-1">Linear Dynamics</a></li>
                 <li><a href="#tabs-2">ID Kinematics</a></li>
             </ul>
-            <div id="tabs-1">
+            <div id="tabs-1"   style="height: 400px;overflow: scroll;">
                 <ul id="sortable1" class="connectedSortable ui-helper-reset">
                 {% for q in all_questions %}
                     <li id="q={{ q['question_'] }}" class="ui-state-default">{{ q['description'] }}</li>
@@ -57,23 +74,14 @@
                     <li class="ui-state-highlight">Which time is kinetic energy greatest?</li>
                 </ul>
             </div>
-        </div>
-        <br style="clear: both;" />        
+        </div></td>
+        <td>
         <ul id="sortable3" class="connectedSortable addandsort" style="margin: .2em; border: 1px #aaa solid;">
             <li class="ui-state-default ui-state-disabled">DROP &amp; SORT QUESTIONS HERE!!!!!!</li>
         </ul>
-        <form id="form" action="/admin" method="POST" style="margin: .5em 1em 0 1em;">  
-            <label>Assignment title: </label>
-            <input type="text" class="input-medium search-query" placeholder="">
-            <label>Course : </label>
-            <select>
-                <option value="lineardynamics">Choose a course</option>
-                <option value="lineardynamics">Linear Dynamics</option>
-                <option value="kinematics">ID Kinematics</option>
-            </select><input type="hidden" id="PostField" name="postvar" value="">
-        </form>
-    
-<a href="javascript: submitform()"><button type="submit" class="btn" style="margin: 1em;">Submit</button></a>
+</td>
+            </tr></table>
+        
 </section>
     <script>
 function submitform()
