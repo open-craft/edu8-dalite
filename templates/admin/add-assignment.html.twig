@@ -43,11 +43,9 @@
             </ul>
             <div id="tabs-1">
                 <ul id="sortable1" class="connectedSortable ui-helper-reset">
-                    <li class="ui-state-default">Travelling wave moving to right (picture of disp vs position shown). What will wave look like at 1.5s?</li>
-                    <li class="ui-state-default">A string vibrating at 300Hz is shown at a particular time. Determine frequency is vibrating in lowest mode.</li>
-                    <li class="ui-state-default">An air pipe is open at both ends. What is the fundamental freq?</li>
-                    <li class="ui-state-default">Snapshot graph to right -- predict snapshot graph at later time.</li>
-                    <li class="ui-state-default">For a given simple harmonic oscillator, the total distance travelled in one period is?</li>
+                {% for q in all_questions %}
+                    <li id="q={{ q['question_'] }}" class="ui-state-default">{{ q['description'] }}</li>
+                    {% endfor %}
                 </ul>
             </div>
             <div id="tabs-2">
@@ -64,21 +62,29 @@
         <ul id="sortable3" class="connectedSortable addandsort" style="margin: .2em; border: 1px #aaa solid;">
             <li class="ui-state-default ui-state-disabled">DROP &amp; SORT QUESTIONS HERE!!!!!!</li>
         </ul>
-        <form style="margin: .5em 1em 0 1em;">  
+        <form id="form" action="/admin" method="POST" style="margin: .5em 1em 0 1em;">  
             <label>Assignment title: </label>
             <input type="text" class="input-medium search-query" placeholder="">
-        </form>
-         <form style="margin: .5em 1em 0 1em;">  
             <label>Course : </label>
             <select>
                 <option value="lineardynamics">Choose a course</option>
                 <option value="lineardynamics">Linear Dynamics</option>
                 <option value="kinematics">ID Kinematics</option>
-            </select>
+            </select><input type="hidden" id="PostField" name="postvar" value="">
         </form>
-        <button type="submit" class="btn" style="margin: 1em;">Submit</button>
-    </section>
+    
+<a href="javascript: submitform()"><button type="submit" class="btn" style="margin: 1em;">Submit</button></a>
+</section>
+    <script>
+function submitform()
+{
+   var qs = $( "#sortable3" ).sortable( "serialize" );
+    $('#PostField').val(qs);
+  document.getElementById('form').submit();
+}
+</script>
 
+    </script>
     <br style="clear: both;" />
 
  

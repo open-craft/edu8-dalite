@@ -45,6 +45,6 @@ function build (\Symfony\Component\HttpFoundation\Request $request,&$a){
         'Wavelength of each photon',
         'Work function'];
 
-        return $a;
+        
 } 
 ?>

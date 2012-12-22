@@ -48,7 +48,8 @@ function main() {
         //Get routes and match with refer url
         $routes2 = Edu8\Route::getRoutes(__DIR__ . '/../callbacks/');
         $matcher2 = new Routing\Matcher\UrlMatcher($routes2, $context);
-        $attribs = $matcher2->match('/'.basename($_SERVER['HTTP_REFERER'],'.php') ); //parse_url($_SERVER['HTTP_REFERER'], PHP_URL_PATH);
+        $try = parse_url($_SERVER['HTTP_REFERER'], PHP_URL_PATH);
+        $attribs = $matcher2->match($try);
 
         //Dispatch post() from appropriate file
         if(is_file($attribs['php_file'])){
