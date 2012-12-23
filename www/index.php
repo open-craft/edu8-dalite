@@ -17,10 +17,15 @@ function main() {
     $context->fromRequest($request);
     $routes = Edu8\Route::getRoutes(__DIR__ . '/../routes/');
     $matcher = new Routing\Matcher\UrlMatcher($routes, $context);
-  
-    $request->attributes->add($matcher->match($request->getPathInfo() ) );
-    $file_root = $request->attributes->get('file_root');
-    $slug = $request->attributes->get('slug');
+
+    try {
+        $request->attributes->add($matcher->match($request->getPathInfo() ) );
+        $file_root = $request->attributes->get('file_root');
+        $slug = $request->attributes->get('slug');
+    } catch(\Exception $e) {
+        $file_root = rtrim($request->getPathInfo(),'/');
+        $slug = '';//$request->attributes->get('slug');
+    }
     $twig_vars = $session->get('twig_vars', []);
     
    

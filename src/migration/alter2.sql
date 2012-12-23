@@ -93,4 +93,5 @@ SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 ALTER TABLE `dalite`.`question` ADD COLUMN `media2` VARCHAR(45) NULL  AFTER `media1` , ADD COLUMN `alpha` TINYINT NOT NULL  AFTER `second_choice_rationale` , CHANGE COLUMN `uuid` `media1` VARCHAR(36) NOT NULL DEFAULT '""'  ;
-
+ALTER TABLE `course` ADD `professor_` INT( 10 ) NOT NULL AFTER `course_`;
+UPDATE `course` SET `professor_` = '200' WHERE `course`.`course_` =200;
