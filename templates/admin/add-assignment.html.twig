@@ -41,9 +41,10 @@
             <input type="text" class="input-medium search-query" placeholder="">
             <label>Course : </label>
             <select>
-                <option value="lineardynamics">Choose a course</option>
-                <option value="lineardynamics">Linear Dynamics</option>
-                <option value="kinematics">ID Kinematics</option>
+                <option value="noCourse">Choose a course</option>
+                {% for course in courses %}
+                <option value="{{course['course_']}}">{{course['name']}}</option>
+                {% endfor %}
             </select><input type="hidden" id="PostField" name="postvar" value="">
         </form>
         </div>
