@@ -1,7 +1,8 @@
 <script type="text/javascript">
 function submitform()
 {
-  document.getElementById('form').submit();
+  if(validateform())
+    document.getElementById('form').submit();
 }
 </script>
 

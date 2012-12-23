@@ -12,6 +12,7 @@
 
         {% include 'form-begin.html.twig' with {'action': '/question-part3'} %}
             <div class="control-group question">
+              <div id="error_answer"></div>
               <p>2. Select the correct answer:</p>
               {% if q['alpha'] == 0 %}
                 {% for count in 1..q['num_choice'] %}
@@ -33,11 +34,27 @@
             </div>
           </fieldset>
 
-          <fieldset>
-            <p>3. Provide a reasoning for the answer that you chose above:</p>
-            <textarea name="student-rationale" class="student-rationale-textbox"></textarea>
+            <div id="error_rationale"></div>
+            <p>3. Provide a rationale for the answer that you chose above:</p>
+            <textarea id="student_rationale" name="student_rationale" class="student-rationale-textbox"></textarea>
           </div>
+
         {% include 'form-end.html.twig' %}
+        <script>
+        function validateform(){
+
+            if(!$("input:checked").length){
+                $("#error_answer").html('<div class="alert"> <button type="button" class="close" data-dismiss="alert">&times;</button>Choose an answer.  </div>');
+                return false;
+            }        
+            if($("#student_rationale").val().length < 20){
+                $("#error_rationale").html('<div class="alert"> <button type="button" class="close" data-dismiss="alert">&times;</button>Rationale too short.</div>');
+                return false;
+            }
+
+            return true;
+        }
+        </script>
 
 
       <div class="clear"></div>

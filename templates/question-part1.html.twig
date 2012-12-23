@@ -6,13 +6,14 @@
 <section id="main-content">
   {% include 'question-header.html.twig' with {'class': 'question part-2'} %}
     <section class="question">
+    <div id="error_msg"></div>
       <div class="img-upload">
             {% include 'media.html.twig' with {'media': q['media1'], 'type': 'image'} %}
       </div>
         {% include 'form-begin.html.twig' with {'action': '/question-part2'} %}
             <div class="control-group">
-              <p>1. Check the corresponding elements that you thought were important in answering the question:</p>
-              
+              <p>1. Check the concepts that you thought were important in answering the question:</p>
+            <div id="error_answer"></div>      
               <!-- loop generates a list of concepts with check box defined in assignment_concepts -->
               {% set i = 0 %}
               {% for concept in q['concepts'] %}
@@ -24,7 +25,15 @@
               {% endfor %}
             </div>
         {% include 'form-end.html.twig' %}
-
+        <script>
+        function validateform(){
+            if(!$("input:checked").length){
+                $("#error_answer").html('<div class="alert"> <button type="button" class="close" data-dismiss="alert">&times;</button>Select at least one.</div>');
+                return false;
+            }        
+            return true;
+        }
+        </script>
       <div class="clear"></div>
     </section>
 
