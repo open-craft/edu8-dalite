@@ -6,6 +6,7 @@
         #sortable1, #sortable2,  #sortable3 { list-style-type: none; margin: 0; padding: 0; /*float: left;*/ margin-right: 10px; background: #eee; padding: 5px; /*width: 143px;*/}
         #sortable1 li, #sortable2 li, #sortable3 li { margin: 5px; padding: 5px; font-size: .9em; /*width: 120px;*/ cursor: pointer; }
         .addandsort {background-color: #C29C9B !important;}
+
     </style>
     <script>
     $(function() {
@@ -31,7 +32,11 @@
     <!--<section class="generic teal" style="padding: 1em;">
         <h1>Add Assignment</h1>        
     </section>-->
-    
+   <style> 
+    table {table-layout:fixed;} 
+    td {vertical-align: top;}
+    li {font-size: .7em;}
+    </style>
     <section class="question" style="margin: 0em 2em">
         <h1>Assignment Builder</h1>
         <p style="margin: 1em 2em 1.5em 1em; font-size: .9em;">Create a new assignment by dragging questions from any of the thematic tabs into the Assignment Builder "Drop and Sort Here" window. The questions can be reordered in the Assignment Builder at any time by dragging them up or down. Once you are finished click submit. If you wish to add a new question, click on the <a href="https://edu8.ca/admin/add-question/">Add Question Button Above</a></p>
@@ -51,12 +56,12 @@
 <a href="javascript: submitform()"><button class="btn btn-primary" style="float: right; margin: 6em 1em 0 1em;">Submit&nbsp;&raquo;</button></a>
     <br style="clear: both;" />        
     <br style="clear: both;" />        
-    <table> <tr>
-<td>
-        <div id="tabs">
+    <table style="table-layout:fixed;"> <tr>
+<td style="vertical-align: top;">
+        <div id="tabs" style="width:550px; height:550px; float: left;">
             <h1 style="color: #5A7279; font-size: .8em; margin-left: .7em;">Available Questions</h1>
             <ul>
-                <li><a href="#tabs-1">Linear Dynamics</a></li>
+                <li><a href="#tabs-1">Uncategorized</a></li>
                 <li><a href="#tabs-2">ID Kinematics</a></li>
             </ul>
             <div id="tabs-1"   style="height: 400px;overflow: scroll;">
