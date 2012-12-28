@@ -100,7 +100,7 @@ body {
 ============================================================================= */
 #main-content {
 	width: 980px;
-	margin: 35px 0 0 50px;
+	margin: 10px 0 0 50px;
 }
 /* 3.10 Main-Content - Question
 ------------------------------------------------------------------------------*/
@@ -246,9 +246,10 @@ body {
 	font-family: 'Cousine', sans-serif;
 	color: #5A7279;
 	font-size: 1.25em;
-	text-transform: uppercase;
-	margin: 10px 15px;
-	display: inline;
+	letter-spacing: 2px;
+        text-transform: uppercase;
+	margin: 15px 0 20px 22px;
+	display: block;
 	position: relative;
 }
 
@@ -740,7 +741,7 @@ span.attempt-wrong {
    XX- Other Stylesheets Overrides
 ============================================================================= */
 .accordion-heading {
-	border: 0;
+	border-top: 1px #889a9f solid;
 	margin: 0 20px;
 }
 	.accordion-heading h1 {
@@ -763,7 +764,8 @@ span.fill {
 }
 
 .accordion-inner {
-	border-top: 1px solid #889A9F;
+	border-top: 0 !important;
+        /*border-top: 1px solid #889A9F;*/
 	margin: 0 20px;
 }
 
