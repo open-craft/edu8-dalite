@@ -1,21 +1,20 @@
-<!--
-navbar.html.twig
--->
+        <!--
+        navbar.html.twig
+        -->
         <nav id="breadcrumb">
 			
-            <a href="/admin/add-assignment"><button class="btn">Add Assignment <i class="icon-plus-sign"></i></button></a>
-		<div class="btn-group">
-			<button class="btn">Assignment Results</button>
-			<button class="btn dropdown-toggle" data-toggle="dropdown">
-				<span class="caret"></span>
-			</button>
-			<ul class="dropdown-menu">
-                            <li><a href="/admin/assignment-results">Assignment 1</a></li>
-                            <li><a href="/admin/assignment-results">Assignment 2</a></li>
-                            <li><a href="/admin/assignment-results">Assignment 3</a></li>
-			</ul>
-		</div>	
+            <a href="/admin/add-course"><button class="btn">Add Course <i class="icon-plus-sign"></i></button></a>
+            <a href="/admin/add-assignment"><button class="btn">Add Assignment <i class="icon-plus-sign"></i></button></a>	
             <a href="/admin/add-question"><button class="btn">Add Question <i class="icon-plus-sign"></i></button></a>
-            <a href="/admin/all-questions"><button class="btn">All Questions</button></a>
-			
+            <div class="btn-group">
+                <button class="btn">All Lists</button>
+                <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="/admin/assignment-results">All Courses</a></li>
+                    <li><a href="/admin/assignment-results">All Assignments</a></li>
+                    <li><a href="/admin/all-questions">All Questions</a></li>
+                </ul>
+            </div>
 	</nav>
