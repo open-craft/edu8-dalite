@@ -1,0 +1,83 @@
+{% include 'head.html' %}
+
+<body>
+{% include 'header.html' %}
+
+<section id="main-content">
+
+{% include '/admin/navbar.html.twig' %}
+
+
+<div class="accordion" id="accordion2">
+
+	<section class="generic teal">
+		<h1>Add a course</h1>
+
+            	<article class="accordion-group">
+			<div class="accordion-heading">
+				<h1><span class="fill">Course name</span></h1>
+			</div>
+
+			<div id="collapseOne" class="accordion-body">
+				<div class="accordion-inner">
+
+					<div class="context">
+						<p class="greyed"></p>
+					</div>
+                                        <div class="fill-info">					
+						<form class="form-search">
+                                                    <input type="text" class="input-medium search-query" placeholder="Copy and paste Youtube url here...">
+						</form>
+					</div>
+				</div>
+			</div>
+
+		</article>
+		
+		<article class="accordion-group">
+			<div class="accordion-heading">
+				<h1><span class="fill">Students</h1>                                
+			</div>
+			<div id="collapseTwo" class="accordion-body">
+				<div class="accordion-inner">
+
+					<div class="context">
+						<p class="greyed"></p>
+					</div>
+
+					<div class="fill-info">
+						<p>Students List</p>
+                                                <p><a href="#">Click here to get a blank Students List csv template file</a></p>
+                                                <button class="btn">Choose and upload &raquo;</button> <span class="icon-question-sign"></span> <span class="greyed">Student list uploaded</span>						
+					</div>
+				</div>
+			</div>
+		</article>
+		<article class="accordion-group">
+			<div class="accordion-heading">
+				<h1><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseEight">Save Course</a></h1>
+			</div>
+			<div id="collapseEight" class="accordion-body collapse in">
+				<div class="accordion-inner">
+
+					<div class="context">
+						<p class="greyed"></p>
+					</div>
+
+					<div class="fill-info">
+						<button class="btn btn-success">Save course »</button>
+					</div>
+			</div>
+			</div>
+		</article>
+
+	</section>
+	
+</div>
+	
+</section>
+
+<footer id="main-footer"></footer>
+
+</body>
+</html>
