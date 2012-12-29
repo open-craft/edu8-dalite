@@ -470,15 +470,15 @@ body {
 }
 
 #main-content section.available-courses {
-    margin: 0 37px 50px;
+    margin: 20px 37px 50px;
 }
 
 .available-course input.btn-primary {
     background-color: #999;
     background-image: url("../img/glyphicons-halflings.png");
-    background-position: 15px -67px;
+    background-position: 15px -64px;
     background-repeat: no-repeat;
-    height: 29px;
+    height: 34px;
     width: 42px;
     
 }
