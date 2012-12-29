@@ -26,4 +26,22 @@
   </article>
 </section>
 
+<form action="/question-part1" method="POST" class="form">
+			<fieldset>
+				
+				<div class="aligner">
+                                            LANDING
+                                </div>
+				
+				<div class="clear"></div>
+
+				<div class="button_div">
+                    {% for assignment in assignments %}
+					<input type="submit" name="assignment" value="{{assignment['assignment_']}}" class="btn btn-primary">{{assignment['name']}} </input>
+                    {% endfor %}
+                                </div>
+				<div class="clear"></div>
+			</fieldset>
+		</form>
+
 {% include 'footer.html' %}
