@@ -486,7 +486,8 @@ body {
 }
 
 .available-course input.btn-primary:hover {
-    background-position: 15px -72px;
+    background-position: 15px -67px;
+    background-color: #000; 
 }
 
 
@@ -497,6 +498,17 @@ body {
     margin: 5px 0;
 }
 
+.stassignment-details {
+    margin: 0 0 0 15px;
+}
+
+.stassignment-details a {
+    color: #5f5087;
+}
+
+.moredetails {
+    font-size: .8em;
+} 
 
 	#main-content .available-courses article.course button {
 		float: left;
