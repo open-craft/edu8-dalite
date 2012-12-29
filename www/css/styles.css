@@ -478,11 +478,21 @@ body {
 .available-course input.btn-primary {
     background-color: #999;
     background-image: url("../img/glyphicons-halflings.png");
+    background-position: 15px -67px;
     background-repeat: no-repeat;
+    height: 29px;
+    width: 42px;
+    
 }
 
-#main-content .available-courses article.available-course {
+.available-course input.btn-primary:hover {
+    background-position: 15px -72px;
+}
+
+
+.available-course {
     border-bottom: 1px #c4b7d2 solid;
+    clear: both;
     padding: 15px 0;
     margin: 5px 0;
 }
