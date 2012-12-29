@@ -470,8 +470,6 @@ body {
 }
 
 #main-content section.available-courses {
-    border-bottom: 1px solid #A4A4A4;
-    border-top: 1px solid #A4A4A4;
     margin: 0 37px 50px;
 }
 
@@ -502,6 +500,10 @@ body {
     margin: 0 0 0 15px;
 }
 
+.stassignment-details p {
+    margin: 0 0 2px;
+}
+
 .stassignment-details a {
     color: #5f5087;
 }
@@ -510,7 +512,7 @@ body {
     font-size: .8em;
 } 
 
-	#main-content .available-courses article.course button {
+	/*#main-content .available-courses article.course button {
 		float: left;
 		width: 290px;
 		margin-right: 20px;
@@ -534,7 +536,8 @@ body {
 		font-family: "Cousine", sans-serif;
 		font-weight: bold;
 		padding-top: 20px;
-	}
+	}*/
+        
 /* 4.2 Main-Content - Students - Login
 ------------------------------------------------------------------------------*/
 #main-content #login {
