@@ -475,7 +475,7 @@ body {
     margin: 0 37px 50px;
 }
 
-.btn-primary .available-course {
+.available-course input.btn-primary {
     background-color: #0074CC;
     /*background-image: -moz-linear-gradient(center top , #0088CC, #0055CC);*/
     background-repeat: no-repeat;
