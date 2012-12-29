@@ -2,14 +2,14 @@
 {% include 'header.html' %}
 
 <section id="main-content">
-  <article class="question">
+  <article class="available-courses">
     <header>
       <hgroup>
-        <h1>Available Assignments</h1>
+        <h1 style="background-color: #3c3962; color: #dfd29f;">Available Assignments</h1>
         <h2>&nbsp;</h2>        
       </hgroup>
     </header>
-    <section class="question">
+    <section class="available-courses">
       <form action="/question-part1" method="POST" class="form">
         <fieldset>
           {% for assignment in assignments %}
@@ -18,7 +18,7 @@
               <input type="submit" name="assignment" value="{{assignment['assignment_']}}" class="btn btn-primary"><i class="icon-pencil"></i></input>
             </div> 
             <div class="stassignment-details" style="float: left;">
-              <h3 style="margin:0;padding:0;"><a href="{{assignment['assignment_']}}">{{assignment['name']}}</a></h3> 
+              <p style="margin:0;padding:0;"><a href="{{assignment['assignment_']}}">{{assignment['name']}}</a></p> 
               <p style="margin:0;padding:0;">Course: course name {{assignment['course']}} | Prof: professor name {{assignment['professor']}}</p>
             </div>
           </div>
@@ -29,23 +29,4 @@
     </section>
   </article>
 </section>
-
-<form action="/question-part1" method="POST" class="form">
-			<fieldset>
-				
-				<div class="aligner">
-                                            LANDING
-                                </div>
-				
-				<div class="clear"></div>
-
-				<div class="button_div">
-                    {% for assignment in assignments %}
-					<input type="submit" name="assignment" value="{{assignment['assignment_']}}" class="btn btn-primary">{{assignment['name']}} </input>
-                    {% endfor %}
-                                </div>
-				<div class="clear"></div>
-			</fieldset>
-		</form>
-
 {% include 'footer.html' %}
