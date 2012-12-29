@@ -18,7 +18,8 @@
 	             items: "li:not(.ui-state-disabled)"
 		             });
         $("#sortable1 li").live('click', function(){
-	    $('#modal-img').attr("src",$(this).prop("data-media"));
+	    //$('#modal-img').attr("src",$(this).attr("data-media"));
+	    alert($(this).data("media"));
             $('#modal-content').modal('show');
         });
 			     }); 
