@@ -438,9 +438,7 @@ body {
 		}
 /* 4.1 Main-Content - Students - Available Courses
 ------------------------------------------------------------------------------*/
-#main-content .available-courses {
-	margin-bottom: 300px;
-}
+
 /*#main-content .available-courses h1 {
 	font-family: "Cousine", sans-serif;
 	color: #3C3962;
@@ -449,6 +447,10 @@ body {
 	margin-bottom: 20px;
 }*/
 
+#main-content .available-courses {
+	margin-bottom: 50px;
+}
+
 #main-content article.available-courses {
     background-color: #F5F5F5;
     border: 1px solid #859598;
@@ -456,18 +458,31 @@ body {
 }
 
 #main-content article.available-courses header hgroup h1 {
-        background-color: #3c3962;
-        border-radius: 10px 10px 0 0;
-        border-bottom:1px solid #859598;
-        color: #dfd29f;
-        font-family: 'Cousine', sans-serif;
-        font-size: 1.25em;
-        height: 58px;
-        line-height: 58px;
-        padding: 0 37px;		
+    background-color: #3c3962;
+    border-radius: 10px 10px 0 0;
+    border-bottom:1px solid #859598;
+    color: #dfd29f;
+    font-family: 'Cousine', sans-serif;
+    font-size: 1.25em;
+    height: 58px;
+    line-height: 58px;
+    padding: 0 37px;		
 }
-        
-#main-content .available-courses article.course {
+
+#main-content section.available-courses {
+    border-bottom: 1px solid #A4A4A4;
+    border-top: 1px solid #A4A4A4;
+    margin: 0 37px 50px;
+}
+
+.btn-primary {
+    background-color: #0074CC;
+    background-image: -moz-linear-gradient(center top , #0088CC, #0055CC);
+    background-repeat: repeat-x;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+}
+
+#main-content .available-courses article.available-course {
 	background-color: #3C3962;
 	border: 1px solid #849497;
 	border-radius: 10px;
@@ -476,6 +491,8 @@ body {
 	width: 80%;
 	overflow: hidden;
 }
+
+
 	#main-content .available-courses article.course button {
 		float: left;
 		width: 290px;
