@@ -438,7 +438,7 @@ body {
 		}
 /* 4.1 Main-Content - Students - Available Courses
 ------------------------------------------------------------------------------*/
-#main-content #available-courses {
+#main-content .available-courses {
 	margin-bottom: 300px;
 }
 /*#main-content .available-courses h1 {
@@ -449,6 +449,11 @@ body {
 	margin-bottom: 20px;
 }*/
 
+#main-content article.available-courses {
+    background-color: #F5F5F5;
+    border: 1px solid #859598;
+    border-radius: 10px 10px 10px 10px;
+}
 
 #main-content article.available-courses header hgroup h1 {
         background-color: #3c3962;
@@ -462,7 +467,7 @@ body {
         padding: 0 37px;		
 }
         
-#main-content #available-courses article.course {
+#main-content .available-courses article.course {
 	background-color: #3C3962;
 	border: 1px solid #849497;
 	border-radius: 10px;
@@ -471,7 +476,7 @@ body {
 	width: 80%;
 	overflow: hidden;
 }
-	#main-content #available-courses article.course button {
+	#main-content .available-courses article.course button {
 		float: left;
 		width: 290px;
 		margin-right: 20px;
@@ -487,7 +492,7 @@ body {
 		background-image:-moz-linear-gradient(top,bottom,from(rgba(255,255,255,0.9)),color-stop(80%, rgba(64,64,64,0.25)),color-stop(25%, rgba(32,32,32,0.5)),to(rgba(64,64,64,0.9)));
 		font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
 	}
-	#main-content #available-courses article.course p {
+	#main-content .available-courses article.course p {
 		float: left;
 		width: 50%;
 		font-size: 0.875em;
