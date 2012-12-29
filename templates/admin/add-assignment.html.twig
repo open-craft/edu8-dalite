@@ -17,12 +17,11 @@
          $( "#sortable3" ).sortable({
 	             items: "li:not(.ui-state-disabled)"
 		             });
-        $("#sortable1").click(function(){
-            $(#'modal-content').modal('show');
-	    $(#'modal-img').attr("src",$(this).id);
+        $("#sortable1 li").live('click', function(){
+	    $('#modal-img').attr("src",$(this).prop("id"));
+            $('#modal-content').modal('show');
         });
-			      
-                });
+			     }); 
 
     </script>
     
@@ -36,7 +35,7 @@
     </button>
   </div>
 <div class="modal-body">
-<img id="model-img" src="" alt="Question Missing">
+<img id="modal-img" src="" alt="Question Missing">
 </div>
 </div>
 
