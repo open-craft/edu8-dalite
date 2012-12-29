@@ -441,14 +441,27 @@ body {
 #main-content #available-courses {
 	margin-bottom: 300px;
 }
-#main-content #available-courses h1 {
+/*#main-content .available-courses h1 {
 	font-family: "Cousine", sans-serif;
 	color: #3C3962;
 	font-size: 1.25em;
 	text-transform: uppercase;
 	margin-bottom: 20px;
-}
+}*/
 
+
+#main-content article.available-courses header hgroup h1 {
+        background-color: #3c3962;
+        border-radius: 10px 10px 0 0;
+        border-bottom:1px solid #859598;
+        color: #dfd29f;
+        font-family: 'Cousine', sans-serif;
+        font-size: 1.25em;
+        height: 58px;
+        line-height: 58px;
+        padding: 0 37px;		
+}
+        
 #main-content #available-courses article.course {
 	background-color: #3C3962;
 	border: 1px solid #849497;
