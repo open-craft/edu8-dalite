@@ -18,7 +18,7 @@
 	             items: "li:not(.ui-state-disabled)"
 		             });
         $("#sortable1 li").live('click', function(){
-	    //$('#modal-img').attr("src",$(this).attr("data-media"));
+	    //$('#modal-img').attr("src","http://dalite.oise.utoronto.ca/src/php/pages/qimg/" + {$(this).attr("data-media") +".jpg");
 	    alert($(this).data("media"));
             $('#modal-content').modal('show');
         });
