@@ -1,5 +1,5 @@
 <?php 
 $out = shell_exec("svn up ../");
-echo $out;
+echo nl2br($out);
 ?>
 
