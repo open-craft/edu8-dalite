@@ -29,7 +29,34 @@
 
 </section>
 
-<footer id="main-footer"></footer>
 
-</body>
-</html>
+
+
+
+    <section id="main-content">
+      <article class="{{ class }}">
+        <header>
+          <hgroup>
+            <h1>Available Assignments</h1>
+            <h2>&nbsp;</h2>        
+          </hgroup>
+        </header>
+        <section class="question">
+          {% for assignment in assignments %}
+          <div class="stassignment">
+            <div class="stassignment-icon" style="float:left;">
+              <input type="submit" name="assignment" value="{{assignment['assignment_']}}" class="btn btn-primary"><i class="icon-pencil"></i></input>
+            </div> 
+            <div class="stassignment-details" style="float: left;">
+              <h3 style="margin:0;padding:0;"><a href="{{assignment['assignment_']}}">{{assignment['name']}}</a></h3> 
+              <p style="margin:0;padding:0;">Course: course name {{assignment['course']}} | Prof: professor name {{assignment['professor']}}</p>
+            </div>
+          </div>
+          {% endfor %}           
+          <div class="clear"></div>
+        </section>
+
+  </article>
+</section>
+
+{% include 'footer.html' %}
