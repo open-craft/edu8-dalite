@@ -475,11 +475,11 @@ body {
     margin: 0 37px 50px;
 }
 
-.btn-primary {
+.btn-primary .available-courses {
     background-color: #0074CC;
     background-image: -moz-linear-gradient(center top , #0088CC, #0055CC);
     background-repeat: repeat-x;
-    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    border-color: #7F7F7F;
 }
 
 #main-content .available-courses article.available-course {
