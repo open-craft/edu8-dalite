@@ -818,8 +818,8 @@ span.attempt-wrong {
 	padding: 0;
 }
 
-  .accordion-heading .accordion-toggle a {
-	color: #333;
+  .accordion-heading a {
+	color: #333 !important;
   }
 span.fill {
 	color: #cc0000;
