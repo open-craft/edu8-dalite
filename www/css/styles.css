@@ -814,7 +814,8 @@ span.attempt-wrong {
 	border: 0;
 }
 .accordion-heading .accordion-toggle {
-	margin: 0;
+	display: inline;
+        margin: 0;
 	padding: 0;
 }
 
