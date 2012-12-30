@@ -826,7 +826,7 @@ span.fill {
 	color: #cc0000;
 	padding: 0 5px 0 0;
 	margin: 0;
-	float: left;
+	float: none;
 }
 
 .accordion-inner {
