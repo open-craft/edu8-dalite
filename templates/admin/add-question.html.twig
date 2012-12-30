@@ -99,7 +99,7 @@
 
 					<div class="fill-info">
                                    
-                          <label class="control-label">a) elements to display</label>
+                          <label class="control-label">a) tags to display</label>
                           <div class="controls">
                               <select multiple="multiple" class="colored">
 				{% for concept in concepts %}
@@ -107,7 +107,17 @@
                                 {% endfor %}
                               </select>
                               <span class="icon-question-sign"></span>
-                          </div>                          
+                          </div> 
+                          <label class="control-label">b) correct tags</label>
+                          <div class="controls">
+                              <select multiple="multiple" class="colored">
+				{% for concept in concepts %}
+                                      <option value="{{concept}}">{{concept}}</option>> 
+                                {% endfor %}
+                              </select>
+                              <span class="icon-question-sign"></span>
+                          </div> 
+                          
 
 
 
