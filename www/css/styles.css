@@ -168,7 +168,7 @@ body {
 			padding: 5px 0;
 		}
                 
-                        #main-content section.question .answer-form .control-group label alphanumeric {
+                        #main-content section.question .answer-form .control-group label .alphanumeric {
                               float: left; 
                               border-right: 1px solid #C4B7D2;
                               padding: 0 5px;
