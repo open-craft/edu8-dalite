@@ -164,13 +164,16 @@ body {
 			color: #3739C5;
 			font-size: 1em;
 			margin: 0;
-                        /* this is for answers = one on each line
                         border-bottom: 1px solid #C4B7D2;
-			padding: 5px 0;*/
-                        /* this is for answers = one beside the other*/
-                        border-right: 1px solid #C4B7D2;
-			padding: 0 5px;
+			padding: 5px 0;
 		}
+                
+                        #main-content section.question .answer-form .control-group label alphanumeric {
+                              float: left; 
+                              border-right: 1px solid #C4B7D2;
+                              padding: 0 5px;
+                        }
+                
 			#main-content section.question .answer-form .control-group label:first-of-type {
 				border-top:1px solid #C4B7D2;
 			}

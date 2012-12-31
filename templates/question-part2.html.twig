@@ -12,7 +12,7 @@
 
         {% include 'form-begin.html.twig' with {'action': '/question-part3'} %}
             <div class="control-group question">
-              <div id="error_answer"></div>
+              <div id="error_answer alphanumeric"></div>
               <p>2. Select the correct answer:</p>
               {% if q['alpha'] == 0 %}
                 {% for count in 1..q['num_choice'] %}
