@@ -608,11 +608,12 @@ body {
 }
 
 #main-content article.part-3 .left {
-	float: left;
-	width: 362px;
 	border-right: 1px solid #D7CCD6;
-	padding-right: 55px;
-	margin-right: 55px;
+        float: left;
+        margin-left: 30px;
+        margin-right: 65px;
+        padding-right: 65px;
+        width: 362px;
 }
 #main-content article.part-3 .right {
 	padding: 0;
@@ -621,7 +622,8 @@ body {
 	width: 362px;
 }
 	#main-content article.part-3 .standalone-rationale article {
-		border: 2px solid #7967a7;
+		background-color: #fff;
+                border: 2px solid #7967a7;
 		border-radius: 12px;
 		font-family: "Cousine", sans-serif;
 		margin-bottom: 20px;
@@ -665,6 +667,10 @@ body {
 			font-size: .75em;
 			font-weight: bold;
 			border-bottom: 1px solid #D7CCD6;
+		}
+                
+                #main-content article.part-3 .standalone-rationale article p:last-of-type {
+			border-bottom: 1px solid pink;
 		}
 /* 5.4 Main-Content - Students - Question part 4
 ------------------------------------------------------------------------------*/
