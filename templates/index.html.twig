@@ -10,11 +10,11 @@
     </header>
     <section class="available-courses">
       <form action="/question-part1" method="POST" class="form">
-        <fieldset>
+        <fieldset<input type="hidden" name="assignment" value="" >
           {% for assignment in assignments %}
             <article class="available-course" style="display: block; clear: both;">
               <div class="stassignment-icon" style="float:left;">
-                <input type="submit" name="assignment" value="{{assignment['assignment_']}}" class="btn btn-primary icon-pencil"></input>
+                <button onclick="submit({{assignment['assignment_']}})" class="btn btn-primary icon-pencil"></input>
               </div> 
               <div class="stassignment-details" style="float: left;">
                 <p><a href="#" onclick="submit({{assignment['assignment_']}});">{{assignment['name']}}</a></p> 
