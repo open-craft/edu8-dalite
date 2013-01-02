@@ -176,7 +176,14 @@ body {
 				margin-left: 0px;
 				margin-right: 10px;
 			}
-#main-content section.question .answer-form textarea {color: #3739C5; font-size: 14px; height: 222px; width: 265px;}
+#main-content section.question .answer-form textarea {
+    color: #3739C5;
+    font-size: 15px;
+    height: 222px;
+    padding: 8px;
+    width: 251px;
+}
+
 #main-content section.question .answer-form button.next-page {
 	float: right;
 }
@@ -585,6 +592,7 @@ body {
         border-right: 1px solid #C4B7D2;
         border-top: 0 none !important;
         float: left; 
+        margin: 10px 0;
         padding: 0 5px;
 }
 #main-content  article.part-2 section.question .answer-form p {
