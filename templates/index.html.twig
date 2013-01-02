@@ -9,13 +9,13 @@
       </hgroup>
     </header>
     <section class="available-courses">
-      <form id="form" action="/question-part1" method="POST" class="form">
+      <form id="form" action="/question-part1" method="POST" class="form"></input>
+
         <fieldset<input type="hidden" name="assignment" value="" >
           {% for assignment in assignments %}
             <article class="available-course" style="display: block; clear: both;">
               <div class="stassignment-icon" style="float:left;">
-                <button onclick="submit({{assignment['assignment_']}})" class="btn btn-primary icon-pencil"></input>
-              </div> 
+                <button onclick="submit('{{assignment['assignment_']}}')" class="btn btn-primary icon-pencil">              </div> 
               <div class="stassignment-details" style="float: left;">
                 <p><a href="#" onclick="submit({{assignment['assignment_']}});">{{assignment['name']}}</a></p> 
                 <p><span class="moredetails">Course: course name {{assignment['course']}} | Prof: professor name {{assignment['professor']}}</span></p>
