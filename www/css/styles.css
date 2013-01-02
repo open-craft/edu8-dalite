@@ -592,13 +592,13 @@ body {
         border-right: 1px solid #C4B7D2;
         border-top: 0 none !important;
         float: left; 
-        margin: 10px 0;
         padding: 0 5px;
 }
 #main-content  article.part-2 section.question .answer-form p {
     color: #5F5089;
     font-family: 'Cousine',sans-serif;
     font-size: 0.9375em;
+    margin: 10px 0 6px;
 }         
         
         /* 5.3 Main-Content - Students - Question part 3
