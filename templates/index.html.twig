@@ -11,7 +11,7 @@
     <section class="available-courses">
       <form id="form" action="/question-part1" method="POST" class="form"></input>
 
-        <fieldset<input type="hidden" name="assignment" value="" >
+        <fieldset<input type="hidden" id="assignment" name="assignment" value="" >
           {% for assignment in assignments %}
             <article class="available-course" style="display: block; clear: both;">
               <div class="stassignment-icon" style="float:left;">
@@ -31,7 +31,7 @@
 </section>
 <script>
 function start_assignment(assignment){
-  $("#form").assignment.value = assignment;
+  $("#assignment").value = assignment;
   $("#form").submit();
   return false;
 }
