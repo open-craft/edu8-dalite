@@ -581,12 +581,15 @@ body {
         /* 5.3 Main-Content - Students - Question part 2
 ------------------------------------------------------------------------------*/
 #main-content article.part-2 section.question .answer-form label.checkbox {
-	border: 1px red solid;
         float: left; 
         border-right: 1px solid #C4B7D2;
         padding: 0 5px;
 }
-         
+#main-content section.question .answer-form .control-group p {
+    color: #5F5089;
+    font-family: 'Cousine',sans-serif;
+    font-size: 0.9375em;
+}         
         
         /* 5.3 Main-Content - Students - Question part 3
 ------------------------------------------------------------------------------*/
