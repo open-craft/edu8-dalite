@@ -168,12 +168,6 @@ body {
 			padding: 5px 0;
 		}
                 
-                        #main-content section.question .answer-form .control-group .alphanumeric label {
-                              float: left; 
-                              border-right: 1px solid #C4B7D2;
-                              padding: 0 5px;
-                        }
-                
 			#main-content section.question .answer-form .control-group label:first-of-type {
 				border-top:1px solid #C4B7D2;
 			}
@@ -583,7 +577,18 @@ body {
 	#main-content #login .button_div {
 		margin-bottom: 20px;
 	}
-/* 5.3 Main-Content - Students - Question part 3
+
+        /* 5.3 Main-Content - Students - Question part 2
+------------------------------------------------------------------------------*/
+#main-content article.part-2 section.question .answer-form label.checkbox {
+	border: 1px red solid;
+        float: left; 
+        border-right: 1px solid #C4B7D2;
+        padding: 0 5px;
+}
+         
+        
+        /* 5.3 Main-Content - Students - Question part 3
 ------------------------------------------------------------------------------*/
 #main-content article.part-3 section.question {
 	border-bottom: 0;
