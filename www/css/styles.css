@@ -177,11 +177,12 @@ body {
 				margin-right: 10px;
 			}
 #main-content section.question .answer-form textarea {
+    border: 2px #564F82 solid;
     color: #3739C5;
     font-size: 15px;
-    height: 222px;
+    height: 200px;
     padding: 8px;
-    width: 251px;
+    width: 324px;
 }
 
 #main-content section.question .answer-form button.next-page {
@@ -670,7 +671,7 @@ body {
 		}
                 
                 #main-content article.part-3 .standalone-rationale article p:last-of-type {
-			border-bottom: 1px solid pink;
+			border-bottom: 0px !important;
 		}
 /* 5.4 Main-Content - Students - Question part 4
 ------------------------------------------------------------------------------*/

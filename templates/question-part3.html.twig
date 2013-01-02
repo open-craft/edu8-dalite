@@ -36,7 +36,7 @@
 
         {% include 'form-begin.html.twig' with {'action': '/question-part4'} %}
         <div class="control-group question">
-          <p>4.Consider the problem again, noting the rationales that have been provided by other students. They may, or may not, cause you to reconsider your answer. Read them, and select your final answer...</p>
+          <p>4.Consider the problem again, noting the rationales below that have been provided by other students. They may, or may not, cause you to reconsider your answer. Read them, and select your final answer...</p>
         </div>
       </div>
       <div class="clear"></div>
@@ -62,7 +62,7 @@
         </article>
         <div class="center">
         <input type="hidden" name="try" value="here"/>
-            <input type="submit" name="C{{r_answer}}" value="Choose {{r_answer}}" class="btn btn-primary"/>
+            <i class="icon-check"></i><input type="submit" name="C{{r_answer}}" value="Choose {{r_answer}}" class="btn btn-primary"/>
         </div>
       </div>
           </fieldset>
