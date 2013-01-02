@@ -15,9 +15,9 @@
           {% for assignment in assignments %}
             <article class="available-course" style="display: block; clear: both;">
               <div class="stassignment-icon" style="float:left;">
-                <button onclick="submit('{{assignment['assignment_']}}')" class="btn btn-primary icon-pencil">              </div> 
+                <button onclick="start_assignment('{{assignment['assignment_']}}')" class="btn btn-primary icon-pencil">              </div> 
               <div class="stassignment-details" style="float: left;">
-                <p><a href="#" onclick="submit({{assignment['assignment_']}});">{{assignment['name']}}</a></p> 
+                <p><a href="#" onclick="start_assignment('{{assignment['assignment_']}}');">{{assignment['name']}}</a></p> 
                 <p><span class="moredetails">Course: course name {{assignment['course']}} | Prof: professor name {{assignment['professor']}}</span></p>
               </div>
               <div class="clear"></div>
@@ -30,7 +30,7 @@
   </article>
 </section>
 <script>
-function submit(assignment){
+function start_assignment(assignment){
   $("#form").assignment.value = assignment;
   $("#form").submit();
   return false;
