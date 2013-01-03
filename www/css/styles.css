@@ -177,12 +177,12 @@ body {
 				margin-right: 10px;
 			}
 #main-content section.question .answer-form textarea {
-    border: 2px #564F82 solid;
+    border: 2px #5C5299 solid;
     color: #3739C5;
-    font-size: 15px;
+    font-size: 16px;
     height: 200px;
     padding: 8px;
-    width: 324px;
+    width: 316px;
 }
 
 #main-content section.question .answer-form button.next-page {
@@ -750,8 +750,10 @@ body {
 				margin: 0;
 				font-size: 0.9375em;
 				text-align: center;
-				background-color: #C5BDD9;
-				color: #6660A3;
+				/*background-color: #C5BDD9;
+				color: #6660A3;*/
+                                background-color: #7A7EA0;
+				color: #fff;
 				border-radius: 10px 10px 0 0;
 				border-bottom: 2px solid #7967a7;
 			}
