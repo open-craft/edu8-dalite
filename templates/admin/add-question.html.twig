@@ -1,13 +1,13 @@
 {% include 'head.html' %}
 
-<link rel="stylesheet" href="css/jquery.fileupload-ui.css">
 <body>
 {% include 'header.html' %}
 
 <section id="main-content">
 
 {% include '/admin/navbar.html.twig' %}
-    <form id="fileupload" action="server/php/" method="POST" enctype="multipart/form-data">
+
+
 <div class="accordion" id="accordion2">
 
 	<section class="generic teal">
@@ -24,45 +24,9 @@
 					<div class="context">
 						<p class="greyed">Choose either a video or image to include on the first page of the question. </p>
 					</div>
-        <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
-        <div class="row fileupload-buttonbar">
-            <div class="span7">
-                <span class="btn btn-success fileinput-button">
-                    <i class="icon-plus icon-white"></i>
-                    <span>Add a jpg image...</span>
-                    <input type="file" name="files" >
-                </span>
-                <!-- The fileinput-button span is used to style the file input field as button 
-                <button type="submit" class="btn btn-primary start">
-                    <i class="icon-upload icon-white"></i>
-                    <span>Start upload</span>
-                </button>
-                <button type="reset" class="btn btn-warning cancel">
-                    <i class="icon-ban-circle icon-white"></i>
-                    <span>Cancel upload</span>
-                </button>
-                <button type="button" class="btn btn-danger delete">
-                    <i class="icon-trash icon-white"></i>
-                    <span>Delete</span>
-                </button>
-                <input type="checkbox" class="toggle"> -->
-            </div>
-            <div class="span5">
-                <!-- The global progress bar -->
-                <div class="progress progress-success progress-striped active fade">
-                    <div class="bar" style="width:0%;"></div>
-                </div>
-            </div>
-        </div>
-        <!-- The loading indicator is shown during image processing -->
-        <div class="fileupload-loading"></div>
-        <br>
-        <!-- The table listing the files available for upload/download -->
-        <table class="table table-striped"><tbody class="files" data-toggle="modal-gallery" data-target="#modal-gallery"></tbody></table>
-
 
 					<div class="fill-info">
-                                          <p><input type="radio" name="media1" value="Image"> Image: <input type="file" name"media1" placeholder="Choose and upload &raquo;"></input> <span class="greyed">image myphysics01.jpg uploaded</span></p>
+                                          <p><input type="radio" name="media1" value="Image"> Image: <button class="btn">Choose and upload &raquo;</button> <span class="icon-question-sign"></span> <span class="greyed">image myphysics01.jpg uploaded</span></p>
                                           
                                           <p style="display: inline;"><input type="radio" name="media1" value="Image"></p>
                                           <form class="form-search" style="display: inline;">
@@ -284,163 +248,8 @@
 	</section>
 	
 </div>
-</form>	
+	
 </section>
-<script id="template-upload" type="text/x-tmpl">
-{% for (var i=0, file; file=o.files[i]; i++) { %}
-    <tr class="template-upload fade">
-        <td class="preview"><span class="fade"></span></td>
-        <td class="name"><span>{%=file.name%}</span></td>
-        <td class="size"><span>{%=o.formatFileSize(file.size)%}</span></td>
-        {% if (file.error) { %}
-            <td class="error" colspan="2"><span class="label label-important">{%=locale.fileupload.error%}</span> {%=locale.fileupload.errors[file.error] || file.error%}</td>
-        {% } else if (o.files.valid && !i) { %}
-            <td>
-                <div class="progress progress-success progress-striped active"><div class="bar" style="width:0%;"></div></div>
-            </td>
-            <td class="start">{% if (!o.options.autoUpload) { %}
-                <button class="btn btn-primary">
-                    <i class="icon-upload icon-white"></i>
-                    <span>{%=locale.fileupload.start%}</span>
-                </button>
-            {% } %}</td>
-        {% } else { %}
-            <td colspan="2"></td>
-        {% } %}
-        <td class="cancel">{% if (!i) { %}
-            <button class="btn btn-warning">
-                <i class="icon-ban-circle icon-white"></i>
-                <span>{%=locale.fileupload.cancel%}</span>
-            </button>
-        {% } %}</td>
-    </tr>
-{% } %}
-</script>
-<!-- The template to display files available for download -->
-<script id="template-download" type="text/x-tmpl">
-{% for (var i=0, file; file=o.files[i]; i++) { %}
-    <tr class="template-download fade">
-        {% if (file.error) { %}
-            <td></td>
-            <td class="name"><span>{%=file.name%}</span></td>
-            <td class="size"><span>{%=o.formatFileSize(file.size)%}</span></td>
-            <td class="error" colspan="2"><span class="label label-important">{%=locale.fileupload.error%}</span> {%=locale.fileupload.errors[file.error] || file.error%}</td>
-        {% } else { %}
-            <td class="preview">{% if (file.thumbnail_url) { %}
-                <a href="{%=file.url%}" title="{%=file.name%}" rel="gallery" download="{%=file.name%}"><img src="{%=file.thumbnail_url%}"></a>
-            {% } %}</td>
-            <td class="name">
-                <a href="{%=file.url%}" title="{%=file.name%}" rel="{%=file.thumbnail_url&&'gallery'%}" download="{%=file.name%}">{%=file.name%}</a>
-            </td>
-            <td class="size"><span>{%=o.formatFileSize(file.size)%}</span></td>
-            <td colspan="2"></td>
-        {% } %}
-        <td class="delete"> <!--
-            <button class="btn btn-danger" data-type="{%=file.delete_type%}" data-url="{%=file.delete_url%}">
-                <i class="icon-trash icon-white"></i>
-                <span>{%=locale.fileupload.destroy%}</span>
-            </button>
-            <input type="checkbox" name="delete" value="1"> -->
-        </td>
-    </tr>
-{% } %}
-</script>
-<!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
-<script src="../vendors/jQuery-File-Upload/js/vendor/jquery.ui.widget.js"></script>
-<!-- The Templates plugin is included to render the upload/download listings -->
-<script src="../vendors/jQuery-File-Upload/js/tmpl.min.js"></script>
-<!-- The Load Image plugin is included for the preview images and image resizing functionality -->
-<script src="../vendors/jQuery-File-Upload/js/load-image.min.js"></script>
-<!-- The Canvas to Blob plugin is included for image resizing functionality -->
-<script src="../vendors/jQuery-File-Upload/js/canvas-to-blob.min.js"></script>
-<!-- Bootstrap JS and Bootstrap Image Gallery are not required, but included for the demo -->
-<script src="../vendors/jQuery-File-Upload/js/bootstrap.min.js"></script>
-<script src="../vendors/jQuery-File-Upload/js/bootstrap-image-gallery.min.js"></script>
-<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
-<script src="../vendors/jQuery-File-Upload/js/jquery.iframe-transport.js"></script>
-<!-- The basic File Upload plugin -->
-<script src="../vendors/jQuery-File-Upload/js/jquery.fileupload.js"></script>
-<!-- The File Upload image processing plugin -->
-<script src="../vendors/jQuery-File-Upload/js/jquery.fileupload-ip.js"></script>
-<!-- The File Upload user interface plugin -->
-<script src="../vendors/jQuery-File-Upload/js/jquery.fileupload-ui.js"></script>
-<!-- The localization script -->
-<script src="../vendors/jQuery-File-Upload/js/locale.js"></script>
-<!-- The main application script -->
-<script src="../vendors/jQuery-File-Upload/js/main.js"></script>
-<!-- The XDomainRequest Transport is included for cross-domain file deletion for IE8+ -->
-<!--[if gte IE 8]><script src="js/cors/jquery.xdr-transport.js"></script><![endif]-->
-<script type="text/javascript" src="jquery.form.js"></script>
-<script type="text/javascript">
-$().ajaxError(function(ev,xhr,o,err) {
-    alert(err);
-    if (window.console && window.console.log) console.log(err);
-});
-
-
-$(document).ready(function() {
-    var options = {
-        target:        '#output1',   // target element(s) to be updated with server response
-        beforeSubmit:  showRequest,  // pre-submit callback
-        success:       showResponse  // post-submit callback
-
-        // other available options:
-        //url:       url         // override for form's 'action' attribute
-        //type:      type        // 'get' or 'post', override for form's 'method' attribute
-        //dataType:  null        // 'xml', 'script', or 'json' (expected server response type)
-        //clearForm: true        // clear all form fields after successful submit
-        //resetForm: true        // reset the form after successful submit
-
-        // $.ajax options can be used here too, for example:
-        //timeout:   3000
-    };
-
-    // bind form using 'ajaxForm'
-    $('#fileupload').ajaxForm(options);
-});
-
-// pre-submit callback
-function showRequest(formData, jqForm, options) {
-    // formData is an array; here we use $.param to convert it to a string to display it
-    // but the form plugin does this for you automatically when it submits the data
-    var queryString = $.param(formData);
-
-    // jqForm is a jQuery object encapsulating the form element.  To access the
-    // DOM element for the form do this:
-//    var formElement = jqForm[0];
-
-    //alert('About to submit: \n\n' + queryString);
-
-    // here we could return false to prevent the form from being submitted;
-    // returning anything other than false will allow the form submit to continue
-    return true;
-}
-
-// post-submit callback
-function showResponse(responseText, statusText)  {
-    // for normal html responses, the first argument to the success callback
-    // is the XMLHttpRequest object's responseText property
-
-    // if the ajaxForm method was passed an Options Object with the dataType
-    // property set to 'xml' then the first argument to the success callback
-    // is the XMLHttpRequest object's responseXML property
-
-    // if the ajaxForm method was passed an Options Object with the dataType
-    // property set to 'json' then the first argument to the success callback
-    // is the json data object returned by the server
-
-    //alert('status: ' + statusText + '\n\nresponseText: \n' + responseText +
-    //    '\n\nThe output div should have already been updated with the responseText.');
-
-    $('#db_response_dlg').modal({backdrop: 'static'}); 
-    $('#db_response_dlg').modal('show'); 
-    $('#db_response_dlg').on('hidden', function () {
-    	window.location.reload();
-	document.forms[0].reset();	
-	window.scroll(0,0);
-    });
-}
-</script>
 
 <footer id="main-footer"></footer>
 
