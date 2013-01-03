@@ -7,7 +7,7 @@ function post (\Symfony\Component\HttpFoundation\Request $request, &$a){
         $a['student'] =  $db_statement->fetchAll()[0];
 
         
-        if($a['student'] && $a['student']['password'] === $a['request']['pass'])
+        if(count($a['student']) && $a['student']['password'] === $a['request']['pass'])
             $a['auth'] = true;
     }
 }
