@@ -487,11 +487,12 @@ body {
 }
 
 .available-course input.btn-primary {
-    background-color: #999;
-    background-image: url("../img/glyphicons-halflings.png");
-    background-position: 15px -64px;
+    background-color: #0088CC;
+    background-image: url("../img/glyphicons-pencil-white.png");
+    background-position: 5px 8px;
     background-repeat: no-repeat;
     height: 34px;
+    padding: 8px 10px 10px 24px
     width: 42px;
     
 }
