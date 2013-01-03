@@ -9,16 +9,16 @@
       </hgroup>
     </header>
     <section class="available-courses">
-      <form id="form" action="/question-part1" method="POST" class="form"></input>
-
-        <fieldset<input type="hidden" id="assignment" name="assignment" value="" >
+      <form action="/question-part1" method="POST" class="form">
+        <fieldset>
           {% for assignment in assignments %}
             <article class="available-course" style="display: block; clear: both;">
               <div class="stassignment-icon" style="float:left;">
-                <button onclick="start_assignment('{{assignment['assignment_']}}')" class="btn btn-primary icon-pencil">              </div> 
+                <input type="submit" name="assignment" value="{{assignment['assignment_']}}" class="btn btn-primary icon-pencil"></input>
+              </div> 
               <div class="stassignment-details" style="float: left;">
-                <p><a href="#" onclick="start_assignment('{{assignment['assignment_']}}');">{{assignment['name']}}</a></p> 
-                <p><span class="moredetails">Course: course name {{assignment['course']}} | Prof: professor name {{assignment['professor']}}</span></p>
+                <p>{{assignment['name']}} 
+                <span class="moredetails">Course: course name {{assignment['course']}} | Prof: professor name {{assignment['professor']}}</span></p>
               </div>
               <div class="clear"></div>
             </article>
@@ -29,11 +29,4 @@
     </section>
   </article>
 </section>
-<script>
-function start_assignment(assignment){
-  $("#assignment").value = assignment;
-  $("#form").submit();
-  return false;
-}
-</script>
 {% include 'footer.html' %}
