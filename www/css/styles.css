@@ -738,13 +738,15 @@ body {
 				}
 
 		#main-content article.part-4 .answer-form article.correct-rationale p {
-			padding: 20px;
+			color: #5F5089;
+                        padding: 20px;
 			font-size: 0.85em;
 			font-weight: bold;
 		}
 
 		#main-content article.part-4 .answer-form article.student-rationale {
-			background: #F7F8FB;
+			/*background: #F7F8FB;*/
+                        background: #FFF;
 		}
 
 			#main-content article.part-4 .answer-form article.student-rationale h2:first-of-type {
