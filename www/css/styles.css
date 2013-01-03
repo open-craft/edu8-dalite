@@ -609,9 +609,8 @@ body {
 }
 
 #main-content article.part-3 section.question input.btn {
-	border: 5 pink solid;
-        background: url(../img/glyphicons-check-white.png) no-repeat;
-	background-position: 0 0;
+        background: url("../img/glyphicons-check-white.png") no-repeat scroll 10px 6px #0074CC;
+        padding: 5px 14px 6px 31px;
 }
 
 #main-content article.part-3 .left {
