@@ -108,6 +108,7 @@ body {
 	border-radius: 10px;
 	border:1px solid #859598;
 	background-color: #f5f5f5;
+        margin-top: 42px;
 }
 	#main-content article.question header hgroup h1 {
 		/*color: #DFD29F;*/
