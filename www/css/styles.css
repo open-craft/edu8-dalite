@@ -757,7 +757,7 @@ body {
 				border-radius: 10px 10px 0 0;
 				border-bottom: 2px solid #7967a7;
 			}
-			#main-content article.part-4 .answer-form article.student-rationale h2:last-of-type {
+			/*#main-content article.part-4 .answer-form article.student-rationale h2:last-of-type {
 				margin: 0;
 				font-size: 0.9375em;
 				text-align: center;
@@ -765,7 +765,7 @@ body {
 				color: #6660A3;
 				border-radius: 0 0 10px 10px;
 				border-top: 2px solid #7967a7;
-			}
+			}*/
 			#main-content article.part-4 .answer-form article.student-rationale p {
 				color: #6661A3;
 				padding: 20px;
