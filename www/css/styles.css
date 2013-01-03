@@ -608,6 +608,12 @@ body {
 	border-bottom: 0;
 }
 
+#main-content article.part-3 section.question input.btn {
+	border: 5 pink solid;
+        background: url(../img/glyphicons-check-white.png) no-repeat;
+	background-position: 0 0;
+}
+
 #main-content article.part-3 .left {
 	border-right: 1px solid #D7CCD6;
         float: left;
