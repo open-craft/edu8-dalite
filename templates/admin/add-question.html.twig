@@ -12,7 +12,7 @@
 
 	<section class="generic teal">
 		<h1>Add a question</h1>
-
+		<form action="" method="POST" enctype="multipart/form-data">
 		<article class="accordion-group">
 			<div class="accordion-heading">
 				<h1><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">Add image/video - A <span class="icon-share-alt"></span></a> <a href="#" rel="tooltip" title="*required field"><span class="fill">*</span></a></h1>
@@ -26,7 +26,7 @@
 					</div>
 
 					<div class="fill-info">
-                                          <p><input type="radio" name="media1" value="Image"> Image: <button class="btn">Choose and upload &raquo;</button> <span class="icon-question-sign"></span> <span class="greyed">image myphysics01.jpg uploaded</span></p>
+                                          <p><input type="radio" name="media1" value="Image"> Image: <input type="file" name"media1" placeholder="Choose and upload &raquo;"></input> <span class="icon-question-sign"></span> <span class="greyed">image myphysics01.jpg uploaded</span></p>
                                           
                                           <p style="display: inline;"><input type="radio" name="media1" value="Image"></p>
                                           <form class="form-search" style="display: inline;">
@@ -64,7 +64,7 @@
 				</div>
 			</div>
 		</article>
-		
+		</form>
 		
 		<article class="accordion-group">
 			<div class="accordion-heading">
