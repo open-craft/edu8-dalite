@@ -489,17 +489,15 @@ body {
 .available-course input.btn-primary {
     background-color: #0088CC;
     background-image: url("../img/glyphicons-pencil-white.png");
-    background-position: 5px 8px;
+    background-position: 11px 9px;
     background-repeat: no-repeat;
     height: 34px;
-    padding: 8px 10px 10px 24px
-    width: 42px;
-    
+    padding: 10px 10px 25px 30px;    
 }
 
 .available-course input.btn-primary:hover {
-    background-position: 15px -67px;
-    background-color: #000; 
+    /*background-position: 15px -67px;*/
+    background-color: #0054BC; 
 }
 
 
