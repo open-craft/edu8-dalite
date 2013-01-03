@@ -110,7 +110,8 @@ body {
 	background-color: #f5f5f5;
 }
 	#main-content article.question header hgroup h1 {
-		color: #DFD29F;
+		/*color: #DFD29F;*/
+                color: #D8D7C2;
 		font-family: 'Cousine', sans-serif;
 		font-size: 1.25em;
 		line-height: 58px;
