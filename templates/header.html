@@ -10,7 +10,13 @@
 	</header>
 	
 	<div class="btn-group drop-log-out">
-          <p style="color: #dbdbdb">You are logged in as {{ student['firstname'] }} {{ student['lastname'] }} <a href="/reset">logout</a></p>
+          <p style="color: #dbdbdb">
+              {% if student %}
+              You are logged in as {{ student['firstname'] }} {{ student['lastname'] }} <a href="/reset"><b>logout</b></a>
+              {% else %}
+              You are not logged in.
+              {% endif %}
+          </p>
 		<!--<button class="btn"><i class="icon-cog"></i></button>
 		<button class="btn dropdown-toggle" data-toggle="dropdown">
 			<span class="caret"></span>
