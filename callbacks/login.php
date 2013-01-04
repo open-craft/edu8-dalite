@@ -4,10 +4,12 @@ function post (\Symfony\Component\HttpFoundation\Request $request, &$a){
         $connection = \Edu8\Config::initDb();
         $db_statement = \Edu8\Sql::runStatement($connection,
                 'login', ['login' => $a['request']['log']]);
-        $a['student'] =  $db_statement->fetchAll();
-        
-        if(count($a['student']) && $a['student']['password'] === $a['request']['pass'])
+        $students =  $db_statement->fetchAll();
+        if(count($students)){
+            $a['student'] = $students[0];
+        if($a['student']['password'] === $a['request']['pass'])
             $a['auth'] = true;
+        }
     }
 }
 ?>
