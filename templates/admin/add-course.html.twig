@@ -7,7 +7,9 @@
 
 {% include '/admin/navbar.html.twig' %}
 
-
+						
+    
+    <form id="form" class="form-search" ACTION="" METHOD="POST" enctype="multipart/form-data">
 <div class="accordion" id="accordion2">
 
 	<section class="generic teal">
@@ -25,8 +27,7 @@
 						<p class="greyed"></p>
 					</div>
                                         <div class="fill-info">					
-						<form class="form-search">
-                                                    <input type="text" class="input-medium search-query" placeholder="">
+                                                   <input type="text" class="input-medium search-query" placeholder="">
 						</form>
 					</div>
 				</div>
@@ -46,7 +47,7 @@
 					</div>
 
 					<div class="fill-info">					
-                                                <button class="btn">Choose CSV Student List &raquo;</button><!--<span class="greyed">Student list uploaded</span>-->	
+                                            <input type=file><button class="btn">Choose CSV Student List &raquo;</button></input><!--<span class="greyed">Student list uploaded</span>-->	
                                                 <p style="margin-top: 8px;"><a href="#"><em>Get a blank Students-List CSV template file</em></a></p>
 					</div>
 				</div>
@@ -73,7 +74,7 @@
 	</section>
 	
 </div>
-	
+</form>
 </section>
 
 <footer id="main-footer"></footer>
