@@ -57,12 +57,12 @@
         <div class="answer-form" >
         <form id="form" action="/admin" method="POST" class="form-horizontal" style="margin: .5em 1em 0 1em;">  
             <label>Assignment title: </label>
-            <input type="text" class="input-medium search-query" placeholder="">
+            <input name="name" type="text" class="input-medium search-query" placeholder="">
             <label>Course : </label>
             <select>
                 <option value="noCourse">Choose a course</option>
                 {% for course in courses %}
-                <option value="{{course['course_']}}">{{course['name']}}</option>
+                <option name ="course" value="{{course['course_']}}">{{course['name']}}</option>
                 {% endfor %}
             </select><input type="hidden" id="PostField" name="postvar" value="">
         </form>

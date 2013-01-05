@@ -1,10 +1,13 @@
 <?php
 function post (\Symfony\Component\HttpFoundation\Request $request, &$a){
 
-    $uploaded = $request['files']['file'];
+    $uploaded = $request.files;
     if($uploaded.isValid()){
         #do mysql import
-        echo here;  
+        $err = 0;
+        system('mysql -u root -p xxxxxx < '.$uploaded, $err);
+        if(err)
+            throw new Edu8\Exception("import error");
     }
             
 }
