@@ -97,3 +97,4 @@ ALTER TABLE `course` ADD `professor_` INT( 10 ) NOT NULL AFTER `course_`;
 UPDATE `course` SET `professor_` = '200' WHERE `course`.`course_` =200;
 ALTER TABLE `student` CHANGE `fname` `firstname` VARCHAR( 24 ) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL ,
 CHANGE `lname` `lastname` VARCHAR( 24 ) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL 
+ALTER TABLE `assignment_question` CHANGE `order` `ord` INT( 11 ) UNSIGNED NOT NULL DEFAULT '0'

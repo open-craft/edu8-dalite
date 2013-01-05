@@ -59,10 +59,10 @@
             <label>Assignment title: </label>
             <input name="name" type="text" class="input-medium search-query" placeholder="">
             <label>Course : </label>
-            <select>
+            <select name="course">
                 <option value="noCourse">Choose a course</option>
                 {% for course in courses %}
-                <option name ="course" value="{{course['course_']}}">{{course['name']}}</option>
+                <option value="{{course['course_']}}">{{course['name']}}</option>
                 {% endfor %}
             </select><input type="hidden" id="PostField" name="postvar" value="">
         </form>

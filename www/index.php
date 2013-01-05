@@ -61,7 +61,9 @@ function main() {
             include $attribs['php_file'];
             post($request, $twig_vars);
         }
-    }catch(Exception $e){}
+    }catch(Routing\Exception\ResourceNotFoundException $e){
+       
+    }
 
     //Dispatch build() from appropriate file
     if(is_file($request->attributes->get('php_file'))){
