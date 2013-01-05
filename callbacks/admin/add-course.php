@@ -11,6 +11,8 @@ function post (\Symfony\Component\HttpFoundation\Request $request, &$a){
         system('rm /tmp/student.csv');
         if(!noerr)
             throw new Edu8\Exception("import error");
+        
+        ## get use the where in (logins) from the file to get the student_ ids to add to student_course
     }
             
 }
