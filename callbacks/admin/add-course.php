@@ -2,7 +2,7 @@
 
 function readLogins($path) {
     foreach (file($path) as $row) {
-        $logins[] = explode(',', $row)[1];
+        $logins[] = ltrim(rtrim(explode(',', $row)[1],"\""),"\"");
     }
     array_shift($logins); //drop the first element
 
@@ -29,8 +29,8 @@ function post(\Symfony\Component\HttpFoundation\Request $request, &$a) {
         $course_id = $connection->lastInsertId();
 
         ## get use the where in (logins) from the file to get the student_ ids to add to student_course
-        $sql = Edu8\Sql::getStatement('insert-students-by-login');
-        $connection->executeQuery($sql, [$course_id, $params], [\PDO::PARAM_INT, \Doctrine\DBAL\Connection::PARAM_INT_ARRAY]);
+            $sql = Edu8\Sql::getStatement('insert-students-by-login');
+        $connection->executeQuery($sql, [$course_id, $params], [\PDO::PARAM_INT, \Doctrine\DBAL\Connection::PARAM_STR_ARRAY]);
     }
 }
 
