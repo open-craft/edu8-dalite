@@ -16,8 +16,9 @@ function post(\Symfony\Component\HttpFoundation\Request $request, &$a) {
         #do mysql import
         $noerr = 1;
         $file = $uploaded->get('file')->getPathname();
+        system('chmod 444 '.$file);
         system('ln -s ' . $file . ' /tmp/student.csv');
-        system('mysqlimport --ignore-lines=1 -vv --local --fields-enclosed-by="\"" --fields-terminated-by="," -u root --password=xxxxxx dalite /tmp/student.csv', $noerr);
+        system('mysqlimport --ignore-lines=1 -vv --local --fields-enclosed-by="\\"" --fields-terminated-by="," -u root --password=xxxxxx dalite /tmp/student.csv', $noerr);
         $params = readLogins('/tmp/student.csv');
         system('rm /tmp/student.csv');
         if (!noerr || !count($params))
