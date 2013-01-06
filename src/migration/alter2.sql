@@ -96,5 +96,5 @@ ALTER TABLE `dalite`.`question` ADD COLUMN `media2` VARCHAR(45) NULL  AFTER `med
 ALTER TABLE `course` ADD `professor_` INT( 10 ) NOT NULL AFTER `course_`;
 UPDATE `course` SET `professor_` = '200' WHERE `course`.`course_` =200;
 ALTER TABLE `student` CHANGE `fname` `firstname` VARCHAR( 24 ) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL ,
-CHANGE `lname` `lastname` VARCHAR( 24 ) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL 
+CHANGE `lname` `lastname` VARCHAR( 24 ) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL;
 ALTER TABLE `course` CHANGE `accessible` `accessible` TINYINT( 1 ) NOT NULL DEFAULT '1';
