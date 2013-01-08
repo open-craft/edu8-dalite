@@ -37,6 +37,12 @@
         {% include 'form-begin.html.twig' with {'action': '/question-part4'} %}
         <div class="control-group question">
           <p>4.Consider the problem again, noting the rationales below that have been provided by other students. They may, or may not, cause you to reconsider your answer. Read them, and select your final answer...</p>
+        <article class="student-rationale">
+          <!--<h2>Your rationale</h2>-->
+          <h2>Your answer was: {{ request['answer'] }}</h2>
+          <p>{{request['student_rationale']}}</p>
+          <!--<h2>Your answer was:  request['answer'] }}</h2>-->
+        </article>
         </div>
       </div>
       <div class="clear"></div>
