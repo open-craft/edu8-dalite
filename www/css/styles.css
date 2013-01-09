@@ -629,6 +629,39 @@ body {
 	float: left;
 	width: 362px;
 }
+
+        #main-content article.part-3 .answer-form article.student-rationale {
+              /*background: #F7F8FB;*/
+              background: #FFF;
+      }
+
+              #main-content article.part-3 .answer-form article.student-rationale h2:first-of-type {
+                      margin: 0;
+                      font-size: 0.9375em;
+                      text-align: center;
+                      /*background-color: #C5BDD9;
+                      color: #6660A3;*/
+                      background-color: #7A7EA0;
+                      color: #fff;
+                      border-radius: 10px 10px 0 0;
+                      border-bottom: 2px solid #7967a7;
+              }
+              /*#main-content article.part-4 .answer-form article.student-rationale h2:last-of-type {
+                      margin: 0;
+                      font-size: 0.9375em;
+                      text-align: center;
+                      background-color: #C5BDD9;
+                      color: #6660A3;
+                      border-radius: 0 0 10px 10px;
+                      border-top: 2px solid #7967a7;
+              }*/
+              #main-content article.part-3 .answer-form article.student-rationale p {
+                      color: #6661A3;
+                      padding: 20px;
+                      font-size: 0.85em;
+                      font-weight: bold;
+              }
+                        
 	#main-content article.part-3 .standalone-rationale article {
 		background-color: #fff;
                 border: 2px solid #7967a7;
