@@ -629,7 +629,12 @@ body {
 	float: left;
 	width: 362px;
 }
-
+	#main-content article.part-3 .answer-form article.student-rationale {
+		border: 2px solid #7967a7;
+		border-radius: 12px;
+		font-family: "Cousine", sans-serif;
+		margin-bottom: 20px;
+	}
         #main-content article.part-3 .answer-form article.student-rationale {
               /*background: #F7F8FB;*/
               background: #FFF;
