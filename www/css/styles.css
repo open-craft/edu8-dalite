@@ -610,6 +610,11 @@ body {
 	border-bottom: 0;
 }
 
+#main-content article.part-3 .answer-form {
+	width: 315px;
+	margin-top: 10px;
+}
+
 #main-content article.part-3 section.question input.btn {
         background: url("../img/glyphicons-check-white.png") no-repeat scroll 10px 6px #0074CC;
         padding: 5px 14px 6px 31px;
