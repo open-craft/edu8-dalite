@@ -141,7 +141,8 @@ body {
 ------------------------------------------------------------------------------*/
 #main-content section.question .img-upload {
 	float: left;
-	width: 621px;
+	/*width: 621px;*/
+        width: 606px;
 	padding: 12px 0 30px;
 }
 	#main-content section.question .img-upload img {
@@ -611,7 +612,7 @@ body {
 }
 
 #main-content article.part-3 .answer-form {
-	width: 315px;
+	width: 293px;
 	margin-top: 10px;
 }
 
@@ -730,12 +731,12 @@ body {
 	width: 610px;
 }
 
-#main-content article.part-4 section.question {
+/*#main-content article.part-4 section.question {
 	margin-right: 0;
-}
+}*/
 
 #main-content article.part-4 .answer-form {
-	width: 315px;
+	width: 293px;
 	margin-top: 10px;
 }
 	#main-content article.part-4 .answer-form article {
