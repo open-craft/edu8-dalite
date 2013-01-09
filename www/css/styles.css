@@ -100,7 +100,7 @@ body {
 ============================================================================= */
 #main-content {
 	width: 980px;
-	/*margin: 10px 0 0 50px;*/
+	/*margin: 10px 0 0 50px; changed so it will float middle and will not give scroll bar in 1024px screens*/
         margin: 10px auto 0 auto;
 }
 /* 3.10 Main-Content - Question
