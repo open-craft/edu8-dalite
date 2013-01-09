@@ -624,9 +624,9 @@ body {
 #main-content article.part-3 .left {
 	border-right: 1px solid #D7CCD6;
         float: left;
-        margin-left: 30px;
-        margin-right: 65px;
-        padding-right: 65px;
+        margin-left: 59px;
+        margin-right: 48px;
+        padding-right: 52px;
         width: 362px;
 }
 #main-content article.part-3 .right {
@@ -636,7 +636,8 @@ body {
 	width: 362px;
 }
 	#main-content article.part-3 .answer-form article.student-rationale {
-		border: 2px solid #7967a7;
+		/*border: 2px solid #7967a7;*/
+                border: 2px solid #B0B4D6;
 		border-radius: 12px;
 		font-family: "Cousine", sans-serif;
 		margin-bottom: 20px;
@@ -651,11 +652,16 @@ body {
                       font-size: 0.9375em;
                       text-align: center;
                       /*background-color: #C5BDD9;
-                      color: #6660A3;*/
+                      color: #6660A3;
+                      background-color: #7A7EA0;
                       background-color: #7A7EA0;
                       color: #fff;
                       border-radius: 10px 10px 0 0;
-                      border-bottom: 2px solid #7967a7;
+                      border-bottom: 2px solid #7967a7;*/
+                      background-color: #FFFFFF;
+                      border-bottom: 2px solid #B0B4D6;
+                      border-radius: 9px 9px 0 0;
+                      color: #7D78BE;
               }
               /*#main-content article.part-4 .answer-form article.student-rationale h2:last-of-type {
                       margin: 0;
@@ -667,15 +673,16 @@ body {
                       border-top: 2px solid #7967a7;
               }*/
               #main-content article.part-3 .answer-form article.student-rationale p {
-                      color: #6661A3;
+                      color: #7D78BE; /*color: #6661A3;*/
                       padding: 20px;
                       font-size: 0.85em;
                       font-weight: bold;
               }
                         
 	#main-content article.part-3 .standalone-rationale article {
-		background-color: /*#fff*/#BECFE0;
-                border: 2px solid #7967a7;
+		background-color: #CBD3DB;
+                border: 2px solid #4B4266;/*background-color: #fff#BECFE0;
+                border: 2px solid #7967a7;*/
 		border-radius: 12px;
 		font-family: "Cousine", sans-serif;
 		margin-bottom: 20px;
@@ -683,10 +690,12 @@ body {
 		#main-content article.part-3 .standalone-rationale article h2 {
 			margin: 0;
 			font-size: 1em;
-			text-align: center;
-			background-color: #57538E;
+			text-align: center;			
 			color: #ffffff;
-			border-radius: 10px 10px 0 0;
+			background-color: #4B4266;
+                        border-radius: 8px 8px 0 0;
+                        /*background-color: #57538E;
+                        border-radius: 10px 10px 0 0;*/
 			font-weight: normal;
 		}
 		#main-content article.part-3 .standalone-rationale article h2 span {
@@ -718,7 +727,7 @@ body {
 			padding-bottom: 20px;
 			font-size: .75em;
 			font-weight: bold;
-			border-bottom: 1px solid #D7CCD6;
+			border-bottom: 1px solid #A79CA6;
 		}
                 
                 #main-content article.part-3 .standalone-rationale article p:last-of-type {
