@@ -97,10 +97,10 @@ body {
 	}
         
         .drop-log-out ul {
-                margin-right: 0;  
+                right: 0;  
 	}
         .drop-log-out .dropdown-menu  {
-                minimum-width: 110px !important;  
+                min-width: 110px !important;  
 	}
         .drop-log-out .dropdown-menu a {
                 font-size: .8em !important;  
