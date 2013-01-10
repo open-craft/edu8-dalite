@@ -28,7 +28,7 @@ function post(\Symfony\Component\HttpFoundation\Request $request, &$a) {
         
         system('mysqlimport --ignore-lines=1 -vv --local --columns=login,password,firstname,lastname --fields-terminated-by="," -u root --password=xxxxxx dalite /tmp/student.csv', $noerr);
         $params = readLogins('/tmp/student.csv');
-        //system('rm /tmp/student.csv');
+        system('rm /tmp/student.csv');
         if (!noerr || !count($params))
             throw new Edu8\Exception("import error");
 
