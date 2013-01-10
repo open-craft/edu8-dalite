@@ -95,6 +95,17 @@ body {
 	.btn {
 		padding-right: 12px;
 	}
+        
+        .drop-log-out ul {
+                margin-right: 0;  
+	}
+        .drop-log-out .dropdown-menu  {
+                minimum-width: 110px !important;  
+	}
+        .drop-log-out .dropdown-menu a {
+                font-size: .8em !important;  
+	}
+        
 /* =============================================================================
    2 - Main Content
 ============================================================================= */
