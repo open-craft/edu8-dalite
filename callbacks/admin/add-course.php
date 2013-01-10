@@ -22,11 +22,11 @@ function post(\Symfony\Component\HttpFoundation\Request $request, &$a) {
         //Add quotes to first column
         $file = file($filename,   FILE_IGNORE_NEW_LINES |  FILE_SKIP_EMPTY_LINES);
         foreach($file as $line){
-            fputs($outfile, str_replace('^,', '^"",', $line). PHP_EOL);
+            fputs($outfile, $line . PHP_EOL);
         }
         fclose($outfile);
         
-        system('mysqlimport --ignore-lines=1 -vv --local--columns=login,password,firstname,lastname --fields-optionally-enclosed-by="\\"" --fields-terminated-by="," -u root --password=xxxxxx dalite /tmp/student.csv', $noerr);
+        system('mysqlimport --ignore-lines=1 -vv --local --columns=login,password,firstname,lastname --fields-terminated-by="," -u root --password=xxxxxx dalite /tmp/student.csv', $noerr);
         $params = readLogins('/tmp/student.csv');
         //system('rm /tmp/student.csv');
         if (!noerr || !count($params))
