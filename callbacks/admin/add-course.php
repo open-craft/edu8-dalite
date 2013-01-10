@@ -16,15 +16,19 @@ function post(\Symfony\Component\HttpFoundation\Request $request, &$a) {
         #do mysql import
         $noerr = 1;
         $filename = $uploaded->get('file')->getPathname();
-        system('chmod 644 '.$filename);
-        system('ln -s ' . $filename . ' /tmp/student.csv');
-        $file = file_get_contents('/tmp/student.csv');
-        $fileout = str_replace('^,', '^"",', $file);
-        // write the file
-        file_put_contents('/tmp/student.csv', $fileout);
-        system('mysqlimport --ignore-lines=1 -vv --local --fields-enclosed-by="\\"" --fields-terminated-by="," -u root --password=xxxxxx dalite /tmp/student.csv', $noerr);
+        system('chmod 444 '.$filename);
+//        system('ln -s ' . $filename . ' /tmp/student.csv');
+        $outfile = fopen('/tmp/student.csv', 'w');
+        //Add quotes to first column
+        $file = file($filename,   FILE_IGNORE_NEW_LINES |  FILE_SKIP_EMPTY_LINES);
+        foreach($file as $line){
+            fputs($outfile, str_replace('^,', '^"",', $line). PHP_EOL);
+        }
+        fclose($outfile);
+        
+        system('mysqlimport --ignore-lines=1 -vv --local--columns=login,password,firstname,lastname --fields-optionally-enclosed-by="\\"" --fields-terminated-by="," -u root --password=xxxxxx dalite /tmp/student.csv', $noerr);
         $params = readLogins('/tmp/student.csv');
-        system('rm /tmp/student.csv');
+        //system('rm /tmp/student.csv');
         if (!noerr || !count($params))
             throw new Edu8\Exception("import error");
 
