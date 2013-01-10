@@ -2,8 +2,9 @@
 
 function readLogins($path) {
     foreach (file($path) as $row) {
-        $logins[] = ltrim(rtrim(explode(',', $row)[1],"\""),"\"");
+        $logins[] = ltrim(rtrim(explode(',', $row)[0],"\""),"\"");
     }
+    array_shift($logins); //drop the first line
 
     return $logins;
 }
