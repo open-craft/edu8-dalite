@@ -15,9 +15,13 @@ function post(\Symfony\Component\HttpFoundation\Request $request, &$a) {
     if ($uploaded->has('file')) {
         #do mysql import
         $noerr = 1;
-        $file = $uploaded->get('file')->getPathname();
-        system('chmod 444 '.$file);
-        system('ln -s ' . $file . ' /tmp/student.csv');
+        $filename = $uploaded->get('file')->getPathname();
+        system('chmod 644 '.$filename);
+        system('ln -s ' . $filename . ' /tmp/student.csv');
+        $file = file_get_contents('/tmp/student.csv');
+        $fileout = str_replace('^,', '^"",', $file);
+        // write the file
+        file_put_contents('/tmp/student.csv', $fileout);
         system('mysqlimport --ignore-lines=1 -vv --local --fields-enclosed-by="\\"" --fields-terminated-by="," -u root --password=xxxxxx dalite /tmp/student.csv', $noerr);
         $params = readLogins('/tmp/student.csv');
         system('rm /tmp/student.csv');
