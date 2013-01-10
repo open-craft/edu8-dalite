@@ -97,6 +97,7 @@ body {
 	}
         
         .drop-log-out ul {
+                left: auto;
                 right: 0;  
 	}
         .drop-log-out .dropdown-menu  {
