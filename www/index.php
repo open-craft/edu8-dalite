@@ -105,7 +105,7 @@ try {
             '=== TOP level Exception DEBUG handler === CLASS:'
             . get_class($e) . 'Code:' . $e->getCode(). $e->getMessage();
     
-    $response = new Response($twig->render('error.html.twig', $twig_vars)
+    $response = new \Symfony\Component\HttpFoundation\Response($twig->render('error.html.twig', $twig_vars)
             , $e->getCode() == 404 ? 404 : 500);
     
     $response->send();
