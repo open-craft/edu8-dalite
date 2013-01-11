@@ -11,15 +11,14 @@ function readLogins($path) {
 
 function post(\Symfony\Component\HttpFoundation\Request $request, &$a) {
     $uploaded = $request->files;
+    ini_set("auto_detect_line_endings", true);
 
     if ($uploaded->has('file')) {
         #do mysql import
         $noerr = 1;
         $filename = $uploaded->get('file')->getPathname();
         system('chmod 444 '.$filename);
-//        system('ln -s ' . $filename . ' /tmp/student.csv');
         $outfile = fopen('/tmp/student.csv', 'w');
-        //Add quotes to first column
         $file = file($filename,   FILE_IGNORE_NEW_LINES |  FILE_SKIP_EMPTY_LINES);
         foreach($file as $line){
             fputs($outfile, $line . PHP_EOL);
@@ -31,6 +30,8 @@ function post(\Symfony\Component\HttpFoundation\Request $request, &$a) {
         if (!noerr || !count($params))
             throw new Edu8\Exception("import error");
 
+        system('rm /tmp/student.csv');
+        
         $connection = \Edu8\Config::initDb();
         $connection->insert('course', ['professor_' => $a['student']['student_'], '`name`' => $a['request']['name'], '`accessible`' => '1']);
         $course_id = $connection->lastInsertId();
