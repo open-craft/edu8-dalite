@@ -35,15 +35,11 @@ function main() {
     Http::SetSession($twig_vars);
     
     if ($twig_vars['auth'] && $file_root === '/login') {
-        $response = new RedirectResponse('/');
-        $response->send();
-        return;
+        Http::Redirect('/');
     }
     
     if (!$twig_vars['auth'] && $file_root !== '/login') {
-        $response = new RedirectResponse('/login');
-        $response->send();
-       return;
+        Http::Redirect('/login');
     }
 
     //Merge session and post variables 
