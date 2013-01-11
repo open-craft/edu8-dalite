@@ -30,6 +30,7 @@ function post(\Symfony\Component\HttpFoundation\Request $request, &$a) {
         if (!noerr || !count($params))
             throw new Edu8\Exception("import error");
 
+        $params[] = $a['student']['login'];
         system('rm /tmp/student.csv');
         
         $connection = \Edu8\Config::initDb();
