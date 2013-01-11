@@ -4,7 +4,7 @@ function build(\Symfony\Component\HttpFoundation\Request $request, &$a) {
     $connection = \Edu8\Config::initDb();
     $q = $a['question'][$a['question_num']];
 
-    if($a['answer'] == $q['answer']) 
+    if($a['request']['answer'] == $q['answer']) 
         $second_choice = $q['second_choice'];
     else
         $second_choice = $a['request']['answer'];

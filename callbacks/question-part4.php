@@ -11,10 +11,15 @@ function preg_grep_keys( $pattern, $input, $flags = 0 )
     return $vals;
 }
 
-function post (\Symfony\Component\HttpFoundation\Request $request, &$a){
-    $concepts = implode(",", preg_grep_keys('/^tag/',$a['request']));    
-    $a['question_num']++;
-    if($a['question_num'] > count($a['question']))
-        $a['question_num'] = -1;
+function post(\Symfony\Component\HttpFoundation\Request $request, &$a) {
+    if(array_key_exists('question_num', $a)) {
+        $concepts = implode(",", preg_grep_keys('/^tag/', $a['request']));
+        $a['question_num']++;
+        if ($a['question_num'] >= count($a['question'])) {
+            unset($a['question']);
+            unset($a['question_num']);
+            Edu8\Http::Redirect('/', $a);
+        }
+    }
 }
 ?>

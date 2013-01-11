@@ -3,15 +3,13 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing;
+use Edu8\Http;
 
 function main() {
     $request = Request::createFromGlobals();
-    $session = new \Symfony\Component\HttpFoundation\Session\Session();
-    $session->start();
-   
+    Http::Init();
+    
     //Get routes and match with incomming url
     $context = new Routing\RequestContext();
     $context->fromRequest($request);
@@ -26,7 +24,7 @@ function main() {
         $file_root = rtrim($request->getPathInfo(),'/');
         $slug = '';//$request->attributes->get('slug');
     }
-    $twig_vars = $session->get('twig_vars', []);
+    $twig_vars = Http::GetSession();
     
    
    if(empty($twig_vars['request']))
@@ -34,7 +32,7 @@ function main() {
     else
         $twig_vars['request'] = array_merge($twig_vars['request'],$request->request->all());
   
-    $session->set('twig_vars', $twig_vars);
+    Http::SetSession($twig_vars);
     
     if ($twig_vars['auth'] && $file_root === '/login') {
         $response = new RedirectResponse('/');
@@ -70,13 +68,13 @@ function main() {
            include $request->attributes->get('php_file');
         build($request, $twig_vars);
     }
-    $session->set('twig_vars', $twig_vars);
+    Http::SetSession($twig_vars);
 
     //Render twig with varables assembled in build()
     $loader = new Twig_Loader_Filesystem(__DIR__ . '/../templates');
     $twig = new Twig_Environment($loader);
 
-    $response = new Response($twig->render($file_root . $slug . '.html.twig', $twig_vars));
+    $response = new Symfony\Component\HttpFoundation\Response($twig->render($file_root . $slug . '.html.twig', $twig_vars));
     $response->send();
 }
 
