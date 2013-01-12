@@ -9,7 +9,7 @@
 
     </style>
     <script>
-    $(function() {
+   function main() {
         $( "#sortable1, #sortable2, #sortable3" ).sortable({
 	            connectWith: ".connectedSortable"
 		            }).disableSelection();
@@ -20,8 +20,8 @@
         $("#sortable1 li").live('click', function(){
 	    $('#modal-img').attr("src","http://dalite.oise.utoronto.ca/src/php/pages/qimg/" + $(this).data("media") +".jpg");
             $('#modal-content').modal('show');
-        });
-			     }); 
+         });
+			     } 
 
     </script>
     

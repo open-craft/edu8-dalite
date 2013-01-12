@@ -24,3 +24,14 @@
 			}
 		</style>
 	<![endif]-->
+        <script type="text/javascript">
+                $(function() {
+                    if (typeof main!='undefined')
+                        main();
+                    {% if message_dlg is defined %}
+                    $('#modal-message').innerHTML = '{{ message_dlg }}';
+                    $('#modal-message-dlg').modal('show');
+                    {% endif %}
+                    
+                });
+        </script>

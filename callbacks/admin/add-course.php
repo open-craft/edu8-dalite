@@ -38,7 +38,7 @@ function post(\Symfony\Component\HttpFoundation\Request $request, &$a) {
         $course_id = $connection->lastInsertId();
 
         ## get use the where in (logins) from the file to get the student_ ids to add to student_course
-            $sql = Edu8\Sql::getStatement('insert-students-by-login');
+        $sql = Edu8\Sql::getStatement('insert-students-by-login');
         $connection->executeQuery($sql, [$course_id, $params], [\PDO::PARAM_INT, \Doctrine\DBAL\Connection::PARAM_STR_ARRAY]);
     }
 }

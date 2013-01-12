@@ -44,6 +44,7 @@ function main() {
 
     //Merge session and post variables 
   try{
+      if(isset($_SERVER['HTTP_REFERER'])){
         //Get routes and match with refer url
         $routes2 = Edu8\Route::getRoutes(__DIR__ . '/../callbacks/');
         $matcher2 = new Routing\Matcher\UrlMatcher($routes2, $context);
@@ -55,6 +56,7 @@ function main() {
             include $attribs['php_file'];
             post($request, $twig_vars);
         }
+      }
     }catch(Routing\Exception\ResourceNotFoundException $e){
        
     }
@@ -64,7 +66,6 @@ function main() {
            include $request->attributes->get('php_file');
         build($request, $twig_vars);
     }
-    Http::SetSession($twig_vars);
 
     //Render twig with varables assembled in build()
     $loader = new Twig_Loader_Filesystem(__DIR__ . '/../templates');
@@ -72,6 +73,9 @@ function main() {
 
     $response = new Symfony\Component\HttpFoundation\Response($twig->render($file_root . $slug . '.html.twig', $twig_vars));
     $response->send();
+    unset($twig_vars['message_dlg']);
+    Http::SetSession($twig_vars);
+
 }
 
 try {

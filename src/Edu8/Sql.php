@@ -14,7 +14,7 @@ class Sql {
     }
 
 
-    public static function runStatement($connection, $statement, $vars) {
+    public static function runStatement($connection, $statement, $vars = []) {
              $db_statement = $connection->prepare(Sql::getStatement($statement));
             foreach($vars as $key => $val){
                 $db_statement->bindValue($key, $val);
