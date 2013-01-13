@@ -34,11 +34,11 @@ function main() {
   
     Http::SetSession($twig_vars);
     
-    if ($twig_vars['auth'] && $file_root === '/login') {
+    if (isset($twig_vars['auth']) && $file_root === '/login') {
         Http::Redirect('/');
     }
     
-    if (!$twig_vars['auth'] && $file_root !== '/login') {
+    if (!isset($twig_vars['auth']) && $file_root !== '/login') {
         Http::Redirect('/login');
     }
 
