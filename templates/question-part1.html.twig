@@ -1,10 +1,10 @@
-{% include 'head.html' %}
-{% include 'header.html' %}
+{% include 'head.html.twig' %}
+{% include 'header.html.twig' %}
 {% include 'init.twig' %}
 
 {% set q = question[question_num] %}
 <section id="main-content">
-  {% include 'question-header.html.twig' with {'class': 'question part-1'} %}
+  {% include 'question-header.html.twig.twig' with {'class': 'question part-1'} %}
     <section class="question">
     <div id="error_msg"></div>
       <div class="img-upload">
