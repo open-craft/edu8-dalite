@@ -511,6 +511,7 @@ body {
     background-image: url("../img/glyphicons-pencil-white.png");
     background-position: 11px 9px;
     background-repeat: no-repeat;
+    border-radius: 11px 11px 11px 11px;
     color: #1D60AD;
     height: 34px;
     padding: 10px 10px 25px 30px;
