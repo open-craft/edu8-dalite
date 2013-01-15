@@ -481,8 +481,13 @@ body {
     background-color: #F5F5F5;
     border: 1px solid #859598;
     border-radius: 10px 10px 10px 10px;
-    margin-top: 42px;
+    margin-top: 25px;
 }
+
+#main-content article.available-courses p {
+    margin-top: 25px;
+}
+
 
 #main-content article.available-courses header hgroup h1 {
     background-color: #3c3962;
