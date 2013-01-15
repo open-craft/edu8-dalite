@@ -655,10 +655,12 @@ body {
 }
 	#main-content article.part-3 .answer-form article.student-rationale {
 		/*border: 2px solid #7967a7;*/
-                border: 2px solid #B0B4D6;
-		border-radius: 12px;
-		font-family: "Cousine", sans-serif;
-		margin-bottom: 20px;
+                border-bottom: 1px solid #B0B4D6;
+                /*border-radius: 12px 12px 12px 12px;*/
+                border-top: 1px solid #B0B4D6;
+                font-family: "Cousine",sans-serif;
+                margin-bottom: 20px;
+                padding: 5px;
 	}
         #main-content article.part-3 .answer-form article.student-rationale {
               /*background: #F7F8FB;*/
@@ -677,9 +679,14 @@ body {
                       border-radius: 10px 10px 0 0;
                       border-bottom: 2px solid #7967a7;*/
                       background-color: #FFFFFF;
-                      border-bottom: 2px solid #B0B4D6;
-                      border-radius: 9px 9px 0 0;
+                      /*border-radius: 9px 9px 0 0;
+                      border-top: 0 solid #B0B4D6;*/
                       color: #7D78BE;
+                      font-family: 'Cousine',sans-serif;
+                      font-size: 0.85em;
+                      font-weight: normal;
+                      margin: 0;
+                      text-align: left;
               }
               /*#main-content article.part-4 .answer-form article.student-rationale h2:last-of-type {
                       margin: 0;
@@ -691,10 +698,10 @@ body {
                       border-top: 2px solid #7967a7;
               }*/
               #main-content article.part-3 .answer-form article.student-rationale p {
-                      color: #7D78BE; /*color: #6661A3;*/
-                      padding: 20px;
+                      color: #7D78BE;
                       font-size: 0.85em;
-                      font-weight: bold;
+                      font-weight: normal;
+                      padding: 9px 10px 1px 5px;
               }
                         
 	#main-content article.part-3 .standalone-rationale article {
