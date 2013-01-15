@@ -972,3 +972,8 @@ div.center {
 	width: 100%;
 	text-align: center;
 }
+
+.modal-body {
+	min-height: 120px;
+        padding: 34px 40px 15px;
+}
