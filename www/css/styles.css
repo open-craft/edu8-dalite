@@ -514,7 +514,7 @@ body {
     color: #1D60AD;
     height: 34px;
     padding: 10px 10px 25px 30px;
-    text-shadow: 0 !important;
+    text-shadow: none !important;
 }
 
 .available-course input.btn-primary:hover {
