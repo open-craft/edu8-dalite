@@ -977,3 +977,7 @@ div.center {
 	min-height: 120px;
         padding: 34px 40px 15px;
 }
+
+.modal-header {
+    background-color: #F5F5F5;
+}
