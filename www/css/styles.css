@@ -659,12 +659,13 @@ body {
 }
 	#main-content article.part-3 .answer-form article.student-rationale {
 		/*border: 2px solid #7967a7;*/
-                border-bottom: 1px solid #B0B4D6;
+                /*border-bottom: 1px solid #B0B4D6;8\
                 /*border-radius: 12px 12px 12px 12px;*/
-                border-top: 1px solid #B0B4D6;
+                /*border-top: 1px solid #B0B4D6;*/
+                box-shadow: 3px 3px 3px #CECECE;
                 font-family: "Cousine",sans-serif;
                 margin-bottom: 20px;
-                padding: 5px;
+                padding: 15px;
 	}
         #main-content article.part-3 .answer-form article.student-rationale {
               /*background: #F7F8FB;*/
@@ -685,10 +686,11 @@ body {
                       background-color: #FFFFFF;
                       /*border-radius: 9px 9px 0 0;
                       border-top: 0 solid #B0B4D6;*/
-                      color: #7D78BE;
+                      color: #727272;
                       font-family: 'Cousine',sans-serif;
-                      font-size: 0.85em;
+                      font-size: 0.8em;
                       font-weight: normal;
+                      line-height: 2em;
                       margin: 0;
                       text-align: left;
               }
@@ -702,10 +704,11 @@ body {
                       border-top: 2px solid #7967a7;
               }*/
               #main-content article.part-3 .answer-form article.student-rationale p {
-                      color: #7D78BE;
-                      font-size: 0.85em;
+                      color: #727272;;
+                      font-size: 0.8em;
                       font-weight: normal;
-                      padding: 9px 10px 1px 5px;
+                      margin-bottom: 5px;
+                      padding: 4px 10px 0 0;
               }
                         
 	#main-content article.part-3 .standalone-rationale article {
@@ -718,7 +721,7 @@ body {
 	}
 		#main-content article.part-3 .standalone-rationale article h2 {
 			margin: 0;
-			font-size: 1em;
+			font-size: .9em;
 			text-align: center;			
 			color: #ffffff;
 			background-color: #4B4266;
