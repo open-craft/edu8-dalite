@@ -1,1 +1,1 @@
-SELECT * FROM question
+SELECT * FROM question WHERE `enabled` = 1
