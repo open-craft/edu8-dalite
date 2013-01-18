@@ -1,6 +1,6 @@
 <?php
 
-function build(\Symfony\Component\HttpFoundation\Request $request, &$a) {
+function build(&$a) {
     $connection = \Edu8\Config::initDb();
     $q = $a['question'][$a['question_num']];
 

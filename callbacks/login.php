@@ -1,5 +1,5 @@
 <?php
-function post (\Symfony\Component\HttpFoundation\Request $request, &$a){
+function post (&$a){
     if($a['request']['log']){
         $connection = \Edu8\Config::initDb();
         $db_statement = \Edu8\Sql::runStatement($connection,

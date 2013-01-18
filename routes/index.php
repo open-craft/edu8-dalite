@@ -1,5 +1,5 @@
 <?php
-function build (\Symfony\Component\HttpFoundation\Request $request,&$a){
+function build (&$a){
         $connection = \Edu8\Config::initDb();
         $db_statement = \Edu8\Sql::runStatement($connection,
                 'student_assignment', ['student_' => $a['student']['student_']]);

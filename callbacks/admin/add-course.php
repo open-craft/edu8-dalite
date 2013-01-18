@@ -9,8 +9,8 @@ function readLogins($path) {
     return $logins;
 }
 
-function post(\Symfony\Component\HttpFoundation\Request $request, &$a) {
-    $uploaded = $request->files;
+function post(&$a) {
+    $uploaded = $a['request']['files'];
     ini_set("auto_detect_line_endings", true);
 
     if ($uploaded->has('file')) {

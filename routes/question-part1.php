@@ -1,6 +1,6 @@
 <?php
 
-function build(\Symfony\Component\HttpFoundation\Request $request, &$a) {
+function build(&$a) {
  
     if(!array_key_exists('question_num', $a) || ($a['assignment'] != $a['request']['assignment'])) {
         $a['assignment'] = $a['request']['assignment'];

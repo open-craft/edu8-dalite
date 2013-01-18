@@ -1,6 +1,6 @@
 <?php
 
-function post(\Symfony\Component\HttpFoundation\Request $request, &$a) {
+function post(&$a) {
     parse_str($a['request']['postvar']);
     
     if (isset($q)) {
