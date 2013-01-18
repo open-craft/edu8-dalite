@@ -2,7 +2,7 @@
 function build (&$a){
 
     $a = [];
-    $a['auth'] = 0;
+    \Edu8\Http::Redirect('/login',$a);
     
 
 }

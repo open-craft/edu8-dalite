@@ -26,12 +26,12 @@ function main() {
     }
     $twig_vars = Http::GetSession();
 
-
     if (empty($twig_vars['request']))
         $twig_vars['request'] = $request->request->all();
     else
         $twig_vars['request'] = array_merge($twig_vars['request'], $request->request->all());
 
+    $twig_vars['request']['pathname'] = $request->getPathInfo();
     if ($request->files->has('file')) {
         $twig_vars['request']['file'] = $request->files->get('file')->getPathname();
     }

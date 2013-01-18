@@ -12,9 +12,7 @@ class Http {
     
     public static function SetSession(&$vars)
     {
-        if (Http::$session && $vars) {
             Http::$session->set('twig_vars', $vars);
-        }        
     }
     
     public static function GetSession()
@@ -25,10 +23,9 @@ class Http {
         return Http::$session->get('twig_vars', []);
     }
 
-    public static function Redirect($url, &$vars = NULL) {
-        if($vars)
-            Http::SetSession($vars);
-        
+    public static function Redirect($url, &$vars) {
+        if(isset($vars))
+            Http::SetSession($vars);        
         $response = new \Symfony\Component\HttpFoundation\RedirectResponse($url);
         $response->send();
         exit(0);
