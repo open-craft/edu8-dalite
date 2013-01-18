@@ -25,15 +25,18 @@ function main() {
         $slug = '';//$request->attributes->get('slug');
     }
     $twig_vars = Http::GetSession();
-    
-   
-   if(empty($twig_vars['request']))
+
+
+    if (empty($twig_vars['request']))
         $twig_vars['request'] = $request->request->all();
     else
-        $twig_vars['request'] = array_merge($twig_vars['request'],$request->request->all());
-  
+        $twig_vars['request'] = array_merge($twig_vars['request'], $request->request->all());
+
+    if ($request->files->has('file')) {
+        $twig_vars['request']['file'] = $request->files->get('file')->getPathname();
+    }
     Http::SetSession($twig_vars);
-    
+
     if (isset($twig_vars['auth']) && $file_root === '/login') {
         Http::Redirect('/');
     }
@@ -54,7 +57,7 @@ function main() {
         //Dispatch post() from appropriate file
         if(is_file($attribs['php_file'])){
             include $attribs['php_file'];
-            post($request, $twig_vars);
+            post($twig_vars);
         }
       }
     }catch(Routing\Exception\ResourceNotFoundException $e){
@@ -64,7 +67,7 @@ function main() {
     //Dispatch build() from appropriate file
     if(is_file($request->attributes->get('php_file'))){
            include $request->attributes->get('php_file');
-        build($request, $twig_vars);
+        build($twig_vars);
     }
 
     //Render twig with varables assembled in build()

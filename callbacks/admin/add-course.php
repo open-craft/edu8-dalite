@@ -10,13 +10,11 @@ function readLogins($path) {
 }
 
 function post(&$a) {
-    $uploaded = $a['request']['files'];
-    ini_set("auto_detect_line_endings", true);
 
-    if ($uploaded->has('file')) {
+    if (isset($a['request']['file'])) {
+        $filename = $a['request']['file'];
+        ini_set("auto_detect_line_endings", true);
         #do mysql import
-        $noerr = 1;
-        $filename = $uploaded->get('file')->getPathname();
         system('chmod 444 '.$filename);
         $outfile = fopen('/tmp/student.csv', 'w');
         $file = file($filename,   FILE_IGNORE_NEW_LINES |  FILE_SKIP_EMPTY_LINES);
