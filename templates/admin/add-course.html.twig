@@ -26,7 +26,8 @@
 						<p class="greyed"></p>
 					</div>
                                         <div class="fill-info">					
-                                                   <input name="name" type="text" class="input-medium search-query" placeholder="">
+			<div id="error-name"></div>
+                                                   <input id="name" name="name" type="text" class="input-medium search-query" placeholder="">
 						
 					</div>
 				</div>
@@ -44,8 +45,8 @@
 					<div class="context">
 						<p class="greyed"></p>
 					</div>
-
 					<div class="fill-info">					
+			<div id="error-file"></div>
                                             <input type="file" name="file" id="file" placeholder="upload Student-List CSV"></input><!--<span class="greyed">Student list uploaded</span>-->	
                                                 <p style="margin-top: 8px;"><a href="/docs/student.csv"><em>Get a blank Students-List CSV template file</em></a></p>
 					</div>
@@ -64,7 +65,7 @@
 					</div>
 
 					<div class="fill-info">
-						<button class="btn btn-success">Save course »</button>
+						<a href="javascript: submitform()"><button type="button" class="btn btn-success">Save course »</button></a>
 					</div>
 			</div>
 			</div>
@@ -74,6 +75,24 @@
 	
 </div>
 </form>
+<script>
+function submitform()
+{
+	if(validateform())
+		$('#form').submit();
+}
+function validateform(){
+	if(!$("#name").val().length){
+		$("#error-name").html('<div class="alert"> <button type="button" class="close" data-dismiss="alert">&times;</button>Name Missing.</div>');
+		return false;
+	}        
+	if(!$("#file").val().length){
+		$("#error-file").html('<div class="alert"> <button type="button" class="close" data-dismiss="alert">&times;</button>File Missing.</div>');
+		return false;
+	}        
+	return true;
+}
+</script>
 </section>
 
 <footer id="main-footer"></footer>
