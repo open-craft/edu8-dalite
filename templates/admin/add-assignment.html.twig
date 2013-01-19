@@ -57,9 +57,11 @@
         <div class="answer-form" >
         <form id="form" action="/admin" method="POST" class="form-horizontal" style="margin: .5em 1em 0 1em;">  
             <label>Assignment title: </label>
-            <input name="name" type="text" class="input-medium search-query" placeholder="">
+			<div id="error-name"></div>
+            <input id="name" name="name" type="text" class="input-medium search-query" placeholder="">
             <label>Course : </label>
-            <select name="course">
+			<div id="error-course"></div>
+            <select id="course" name="course">
                 <option value="noCourse">Choose a course</option>
                 {% for course in courses %}
                 <option value="{{course['course_']}}">{{course['name']}}</option>
@@ -96,6 +98,7 @@
             </div>
         </div></td>
         <td>
+			<div id="error-question"></div>
         <ul id="sortable3" class="connectedSortable addandsort" style="margin: .2em; border: 1px #aaa solid;">
             <li class="ui-state-default ui-state-disabled">DROP &amp; SORT QUESTIONS HERE!!!!!!</li>
         </ul>
@@ -108,9 +111,28 @@ function submitform()
 {
    var qs = $( "#sortable3" ).sortable( "serialize" );
     $('#PostField').val(qs);
-  document.getElementById('form').submit();
+  if(validateform())
+  	$('#form').submit();
 }
-</script>
+function isNumeric(input)
+{
+    return (input - 0) == input && input.length > 0;
+}
+function validateform(){
+	if(!$("#name").val().length){
+		$("#error-name").html('<div class="alert"> <button type="button" class="close" data-dismiss="alert">&times;</button>Missing title.</div>');
+		return false;
+	}        
+	if(!isNumeric($("#course").val())){
+		$("#error-course").html('<div class="alert"> <button type="button" class="close" data-dismiss="alert">&times;</button>Please select a course.</div>');
+		return false;
+	}        
+	if(!$("#PostField").val().length){
+		$("#error-question").html('<div class="alert"> <button type="button" class="close" data-dismiss="alert">&times;</button>No Questions were chosen.</div>');
+		return false;
+	}        
+	return true;
+}
 
     </script>
     <br style="clear: both;" />
