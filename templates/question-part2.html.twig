@@ -36,7 +36,7 @@
 
             <div id="error_rationale"></div>
             <p>3. Provide a rationale for the answer that you chose above:</p>
-            <textarea id="student_rationale" name="student_rationale" class="student-rationale-textbox"></textarea>
+            <textarea id="rationale" name="rationale" class="student-rationale-textbox"></textarea>
             {% include 'form-end.html.twig' %}
           </div>
 
@@ -47,7 +47,7 @@
                 $("#error_answer").html('<div class="alert"> <button type="button" class="close" data-dismiss="alert">&times;</button>Choose an answer.  </div>');
                 return false;
             }        
-            if($("#student_rationale").val().length < 20){
+            if($("#rationale").val().length < 20){
                 $("#error_rationale").html('<div class="alert"> <button type="button" class="close" data-dismiss="alert">&times;</button>Rationale too short.</div>');
                 return false;
             }
