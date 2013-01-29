@@ -2,9 +2,8 @@
 function build (&$a){
     
         $connection = \Edu8\Config::initDb();
-        $questions = \Edu8\Sql::runStatement($connection, 'assignment_question', ['assignment' => "10877"]);
-        $results = \Edu8\Sql::runStatement($connection, 'results', ['assignment' => "10877"]);
-            //$a['request']['assignment']]);
+        $questions = \Edu8\Sql::runStatement($connection, 'assignment_question', ['assignment' => $a['request']['assignment']]);
+        $results = \Edu8\Sql::runStatement($connection, 'results', ['assignment' => $a['request']['assignment']]);
         $a['question_list'] = $questions->fetchAll();
 
         $rows = $results->fetchAll();
