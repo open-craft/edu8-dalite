@@ -1,2 +1,6 @@
-Select * from response join response as r2 on response.student_ = r2.student_ and response.question_ = r2.question_ and response.attempt < r2.attempt join student on response.student_ = student.student_
-WHERE response.assignment_ = :assignment order by response.student_, response.question_
+Select firstname, lastname, student.student_, `order`, response.answer = question.answer as correct from response 
+join student on student.student_ = response.student_
+join assignment_question on assignment_question.assignment_ = response.assignment_ and assignment_question.question_ = response.question_
+join question on question.question_ = response.question_
+WHERE response.assignment_ = :assignment 
+ORDER BY response.student_, assignment_question.`order`, response.attempt
