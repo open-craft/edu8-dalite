@@ -110,7 +110,7 @@
                           <label class="control-label">a) tags to display</label>
                           <div class="controls">
                               <select multiple="multiple" class="colored">
-				{% for concept in concepts %}
+				{% for concept in all_concepts %}
                                       <option value="{{concept}}">{{concept}}</option>> 
                                 {% endfor %}
                               </select>
@@ -119,7 +119,7 @@
                           <label class="control-label">b) correct tags</label>
                           <div class="controls">
                               <select multiple="multiple" class="colored">
-				{% for concept in concepts %}
+				{% for concept in all_concepts %}
                                       <option value="{{concept}}">{{concept}}</option>> 
                                 {% endfor %}
                               </select>
