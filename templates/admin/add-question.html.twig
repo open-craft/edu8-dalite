@@ -33,13 +33,20 @@
                                               <input type="file" name="media1" placeholder="Choose and upload &raquo;">
                                               <input type="hidden" name="filename" id="filename" />
                                               
-                                              <span class="greyed" id="img_success"></span>
+                                          <div id="img_div">
+                                              <img id="img_show" style="display: none;" />
+                                              
+                                              <span class="greyed" style="display: block;" id="img_success"></span>
+                                          </div>
                                           
                                           </p>
                                           
                                           <p style="display: inline;"><input type="radio" name="media1" value="Video"></p>
                                             <label> Youtube Video: </label>
                                             <input type="text" class="input-medium search-query" id="youtube" placeholder="Copy and paste Youtube url here...">
+                                            <div id="youdiv" style="display: none;">
+                                            <iframe style="display: none;" id="youframe" width="420" height="345" ></iframe>
+                                            </div>
 					</div>
                                         
 				</div>
