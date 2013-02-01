@@ -24,18 +24,21 @@ switch($mime_type) {
         break; 
     
     default:
-        $extension = pathinfo($_FILES['media1']['name'])['extension'];
+        $extension = '';
 }
 
-$image_name = pathinfo($_FILES['media1']['name'])['filename'] . '.' . $extension;
-$image_file = 'img-uploads/' . $image_name;
-   
-try {
-    move_uploaded_file($tmp_name, $image_file);
-}
-catch (Exception $e) {
-    print_r($e);    
-}
+if($extension != '') {
+    $image_name = pathinfo($_FILES['media1']['name'])['filename'] . '.' . $extension;
+    
+    $image_file = 'img-uploads/' . $image_name;
+    
+    try {
+        move_uploaded_file($tmp_name, $image_file);
+    }
+    catch (Exception $e) {
+        print_r($e);    
+    }
 
-echo($image_name);
+    echo($image_name);
+}
 ?>
