@@ -6,6 +6,7 @@
 function getUploadedFile($name) {
     $tmp_name = $_FILES[$name]['tmp_name'];
     
+    
     $info = finfo_open(FILEINFO_MIME_TYPE);
     $mime_type = finfo_file($info, $tmp_name);
     finfo_close($info);
