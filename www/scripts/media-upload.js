@@ -8,6 +8,7 @@ Also embeds a youtube video in an iframe.
 
 *****************************************************************/
 
+
 $(document).ready(
         function() {
             $('#collapseOne input[type=radio][name=media1]').change(
