@@ -3,7 +3,7 @@
 	"symfony/http-foundation": "*",
 	"symfony/routing": "*",
     "symfony/finder": "*",
-    "twig/twig": "1.10.*",
+    "twig/twig": "1.12.*",
 	"doctrine/dbal": "2.3.*"
  },
     "autoload": {
