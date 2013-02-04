@@ -18,7 +18,7 @@
     <section class="available-courses">
       <form action="/admin/assignment-results" method="POST" class="form">
         <fieldset>
-          {% for assignment in prof_assignment %}
+          {% for assignment in assignments %}
             <article class="available-course" style="display: block; clear: both;">
               <div class="stassignment-icon" style="float:left;">
                 <input type="submit" name="assignment" value="{{assignment['assignment_']}}" class="btn btn-primary icon-pencil"></input>
