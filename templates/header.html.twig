@@ -12,7 +12,7 @@
 	<div class="btn-group drop-log-out">
           <p style="color: #dbdbdb">
               {% if student %}
-              You are logged in as {{ student['firstname'] }} {{ student['lastname'] }} {{ is_prof? '<a href="https://edu8.ca/admin/">admin</a> | ' : '' }} <a href="/reset"><b>logout</b></a>
+              You are logged in as {{ student['firstname'] }} {{ student['lastname'] }} {{ is_prof ? '<a href="/admin">admin</a> | ' }} <a href="/reset"><b>logout</b></a>
               
               {% else %}
               You are not logged in.
