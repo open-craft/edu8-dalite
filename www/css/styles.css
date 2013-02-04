@@ -6,6 +6,7 @@
 body {
 	background: url(../img/main-bg.jpg) 0 30px no-repeat;
 	border-top: 28px solid #333;
+        font-family: Helvetica,Arial,sans-serif;
 	font-size: 100%;
 }
 /* =============================================================================
