@@ -62,7 +62,7 @@
 				<div class="accordion-inner">
 
 					<div class="context">
-						<p class="greyed">Choose either a video or image to include on the first page ot the question. </p>
+						<p class="greyed">Choose either a video or image to include on the first page of the question, where students select concept tags. This is only used if you want the question to be hidden when students select concept tags; instead, a preliminary video or image can be displayed. The main question image will be displayed on all subsequent pages.</p>
 					</div>
 
 					<div class="fill-info">
@@ -93,7 +93,7 @@
 		
 		<article class="accordion-group">
 			<div class="accordion-heading">
-				<h1><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">Question name </a></h1>
+				<h1><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">Question title </a> <a href="#" rel="tooltip" title="*required field"><span class="fill">*</span></a></h1>
 			</div>
 			<div id="collapseThree" class="accordion-body in collapse">
 				<div class="accordion-inner">
@@ -103,7 +103,7 @@
 					</div>
 
 					<div class="fill-info">
-						  <textarea></textarea><!--<span class="icon-question-sign"></span>-->
+                                          <textarea style="height: 23px !important; width: 65%"></textarea><!--<span class="icon-question-sign"></span>-->
 					</div>
 				</div>
 			</div>
@@ -111,38 +111,37 @@
 		
 		<article class="accordion-group">
 			<div class="accordion-heading">
-				<h1><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">Select Concept Tags</a></h1>
+				<h1><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">Select Concept Tags</a> <a href="#" rel="tooltip" title="*required field"><span class="fill">*</span></a></h1>
 			</div>
 			<div id="collapseFour" class="accordion-body in collapse">
 				<div class="accordion-inner">
 
 					<div class="context">
-						<p class="greyed">Select the correct corresponding tags as well as the full list of tags to be displayed for the question </p>
+						<p class="greyed">Select the concept tags to be displayed for the question by clicking on a concept tag in the menu. To add a further concept tags, hold down the CTL key (MAC = Command/MAC key) and click on all required concept tag names.</p>
 					</div>
 
 					<div class="fill-info">
                                    
-                          <label class="control-label">a) tags to display</label>
-                          <div class="controls">
-                              <select multiple="multiple" class="colored">
-				{% for concept in all_concepts %}
-                                      <option value="{{concept}}">{{concept}}</option>> 
-                                {% endfor %}
-                              </select>
-                              <!--<span class="icon-question-sign"></span>-->
-                          </div> 
-                          <label class="control-label">b) correct tags</label>
-                          <div class="controls">
-                              <select multiple="multiple" class="colored">
-				{% for concept in all_concepts %}
-                                      <option value="{{concept}}">{{concept}}</option>> 
-                                {% endfor %}
-                              </select>
-                              <!--<span class="icon-question-sign"></span>-->
-                          </div> 
-                          
-
-
+                                            <label class="control-label">Concept tags to be displayed</label>
+                                            <div class="controls">
+                                                <select multiple="multiple" class="colored">
+                                                  {% for concept in all_concepts %}
+                                                        <option value="{{concept}}">{{concept}}</option>> 
+                                                  {% endfor %}
+                                                </select>
+                                                <!--<span class="icon-question-sign"></span>-->
+                                            </div> 
+                                            <!--note: disabled, no longer in use
+                                            <label class="control-label">b) correct tags</label>
+                                            <div class="controls">
+                                                <select multiple="multiple" class="colored">-->
+                                                  {#    
+                                                  {% for concept in all_concepts %}
+                                                        <option value="{{concept}}">{{concept}}</option>> 
+                                                  {% endfor %}
+                                                  #}
+                                                <!--</select>
+                                            </div> -->
 
                                         </div>
                                 </div>
@@ -173,7 +172,7 @@
 		
 		<article class="accordion-group">
 			<div class="accordion-heading">
-				<h1><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseSix">Define correct answer variables </a></h1>
+				<h1><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseSix">Define correct answer variables </a> <a href="#" rel="tooltip" title="*required field"><span class="fill">*</span></a></h1>
 			</div>
 			<div id="collapseSix" class="accordion-body in collapse">
 				<div class="accordion-inner">
@@ -243,12 +242,12 @@
 
 		<article class="accordion-group">
 			<div class="accordion-heading">
-				<h1><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseSeven">Add rationale <span class="icon-share-alt"></span></a></h1>
+				<h1><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseSeven">Add example of a good rationale <span class="icon-share-alt"></span></a> <a href="#" rel="tooltip" title="*required field"><span class="fill">*</span></a></h1>
 			</div>
-			<div id="collapseSeven" class="accordion-body">
+			<div id="collapseSeven" class="accordion-body in collapse">
 				<div class="accordion-inner">
 					<div class="context">
-						<p class="greyed">Type in the corect rationale for the question.</p>
+						<p class="greyed">Type in an example of a good rationale for the question.</p>
 					</div>
 
 					<div class="fill-info">
@@ -266,7 +265,7 @@
 				<div class="accordion-inner">
 
 					<div class="context">
-						<p class="greyed">Click button to save your data and add you question to the All Questions List.</p>
+                                          <p class="greyed">Click button to save your data and add your question. It will be available in the <a href="https://edu8.ca/admin/add-assignment">Assignment Builder</a></p>
 					</div>
 
 					<div class="fill-info">
