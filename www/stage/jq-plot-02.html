@@ -5,64 +5,63 @@
 <head>
 	<meta charset="utf-8" />
 
-	<title>JQ Bar Graphs</title>
+	<title>Question Results</title>
     
     <script src="scripts/jquery.js"></script>
     <script src="scripts/dist/jquery.jqplot.js"></script>
     <script src="scripts/dist/plugins/jqplot.barRenderer.js"></script>
 	<script src="scripts/dist/plugins/jqplot.categoryAxisRenderer.js"></script>
     <script src="scripts/dist/plugins/jqplot.pointLabels.js"></script>
+    
     <link rel="stylesheet" type="text/css" href="scripts/dist/jquery.jqplot.min.css" />
+    
+    <style>
+	.chart {width: 700px; height: 200px;}
+	#answers {width: 400px; height: 200px; margin: auto;}
+	</style>
 </head>
 
 <body>
 	<script>
 	$(document).ready(function(){
-    	var s1 = [200, 600, 700, 1000];
-    	var s2 = [460, -210, 690, 820];
-    	var s3 = [-260, -440, 320, 200];
-	
-		var s4 = [200, 600, 700, 1000];
-   	 	var s5 = [460, 210, 690, 820];
-   		var s6 = [260, 440, 320, 200];
+		var tags = [{label: 'Rotational Kinematics'},
+						{label: 'Conservation of Momentum'},
+						{label: 'Conservation of Mechanical Energy'},
+						{label: 'Gravitational Potential Energy'},
+						{label: 'Quantization'},
+						{label: 'Small angle approximation'},
+						{label: 'Wave Model of light'},
+						{label: 'Angular Frequency'},
+						{label: 'Doppler Effect'},
+						{label: 'Huygens Principle'}];
+						
+		var answers = [[5, 19, 1, 3, 1]];
 		
-		var s7 = [200, 600, -700, 1000];
-   	 	var s8 = [460, -210, 690, 820];
-   		var s9 = [-260, 440, 320, 200];
-		
-		var s10 = [20, 60, 70, 100];
-   	 	var s11 = [46, 21, 69, 82];
-   		var s12 = [26, 44, 32, 20];	
-		
-		var s13 = [20, 600, 700, 1000];
-   	 	var s14 = [460, 21, 690, 820];
-   		var s15 = [260, 440, -32, 200];			
-	
-	    var chart0 = [s1, s2, s3];
-		var chart1 = [s1, s2, s3];
-		var chart2 = [s4, s5, s6];
-		var chart3 = [s7, s8, s9];
-		var chart4 = [s10, s11, s12];
-		var chart5 = [s13, s14, s15];
+		var choice_a = [[10], [5], [6], [1], [30], [40], [7], [8], [9], [40]];
+		var choice_b = [[10], [5], [6], [1], [30], [40], [7], [8], [9], [40]];
+		var choice_c = [[10], [5], [6], [1], [30], [40], [7], [8], [9], [40]];
+		var choice_d = [[10], [5], [6], [1], [30], [40], [7], [8], [9], [40]];
+		var choice_e = [[10], [5], [6], [1], [30], [40], [7], [8], [9], [40]];
     
-	    var plot0 = showLabels('chart0');
-    	var plot1 = plot('chart1', chart1, 'Paris', false);
-    	var plot2 = plot('chart2', chart2, 'New York',  false);	
-		var plot3 = plot('chart3', chart3, 'Montreal', false);
-		var plot4 = plot('chart4', chart4, 'London', false);
-		var plot5 = plot('chart5', chart5, 'Luanda', false);
+	    var labels = showLabels('tags');
+		
+		var answers_graph = answersGraph('answers', answers);
+		
+    	var graph_a = choiceGraph('choice_a', choice_a, 'A');
+    	var graph_b = choiceGraph('choice_b', choice_b, 'B');	
+		var graph_c = choiceGraph('choice_c', choice_c, 'C');
+		var graph_d = choiceGraph('choice_d', choice_d, 'D');
+		var graph_e = choiceGraph('choice_e', choice_e, 'E');
 					
 		function showLabels(div) {
 			var ticks = [''];
-			var series =  [{label:'Hotel 1',  showLabel: false}, {label:'Event Regristration 1',  showLabel: false}, {label:'Airfare 1',  showLabel: false}];
 			var seriesDefaults = {renderer: $.jqplot.BarRenderer, rendererOptions: {fillToZero: true}, showTickMarks: false, showTicks: false};
 			var axes = {xaxis: {renderer: $.jqplot.CategoryAxisRenderer, ticks: ticks, showTickMarks: false, showTicks: false, show: false},
-						yaxis: {pad: 1.05, tickOptions: {formatString: '$%d'}, 
-						showTickMarks: false, showTicks: false, show: false}};
+						yaxis: {pad: 1.05, showTickMarks: false, showTicks: false, show: false}};
 						
-			var plot =  $.jqplot(div, [[0], [0], [0]], 
-					{seriesDefaults: seriesDefaults, title: "Legend",
-					series: [{label:'Hotel',  showLabel: showLabels}, {label:'Event Regristration Extra Fee',  showLabel: showLabels}, {label:'Airfare',  showLabel: showLabels}], 
+			var plot =  $.jqplot(div, [[0], [0], [0], [0], [0], [0], [0], [0], [0], [0]], 
+					{seriesDefaults: seriesDefaults, title: "Tags",
+					series: tags, 
 					legend: {show: true, placement: 'insideGrid', location: 'n'},
         			axes: axes,
 					grid: {drawGridLines: false, gridLineColor: '#ffffff', background: '#ffffff'}});
@@ -70,16 +69,31 @@
 			return(plot);
 		}
 		
-		function plot(div, chart, title, showLabels) {
-			var ticks = ['May', 'June', 'July', 'August'];
-			var series =  [{label:'Hotel 1',  showLabel: false}, {label:'Event Regristration 1',  showLabel: false}, {label:'Airfare 1',  showLabel: false}];
+		function answersGraph(div, chart) {
+			var ticks = ['A', 'B', 'C', 'D', 'E'];
 			var seriesDefaults = {renderer: $.jqplot.BarRenderer, rendererOptions: {fillToZero: true}};
-			var axes = {xaxis: {renderer: $.jqplot.CategoryAxisRenderer, ticks: ticks, tickOptions: {showGridline: false}},
-						yaxis: {pad: 1.05, tickOptions: {formatString: '$%d', mark: 'cross', showGridline: false}}};
+			var axes = {xaxis: {renderer: $.jqplot.CategoryAxisRenderer, ticks: ticks, tickOptions: {showGridline: false, showMark: false}},
+						yaxis: {pad: 1.05, min: 0, numberTicks: 6, tickOptions: {formatString: '%d', showMark: false, showGridline: false}}};
 						
 			var plot =  $.jqplot(div, chart, 
-					{seriesDefaults: seriesDefaults, title: 'Paris',
-					series: [{label:'Hotel',  showLabel: showLabels}, {label:'Event Regristration Extra Fee',  showLabel: showLabels}, {label:'Airfare',  showLabel: showLabels}], 
+					{seriesDefaults: seriesDefaults,
+					seriesColors: ['#cccccc'],
+					series: tags, 
+					legend: {show: false, placement: 'insideGrid', location: 'n'},
+        			axes: axes, grid: {background: '#ffffff'}});
+					
+			return(plot);
+		}		
+		
+		function choiceGraph(div, chart, title) {
+			var ticks = [''];
+			var seriesDefaults = {renderer: $.jqplot.BarRenderer, rendererOptions: {fillToZero: true}};
+			var axes = {xaxis: {renderer: $.jqplot.CategoryAxisRenderer, ticks: ticks, tickOptions: {showGridline: false, showMark: false}},
+						yaxis: {pad: 1.05, min: 0, max: 100, numberTicks: 6, tickOptions: {formatString: '%d%', showMark: false, showGridline: false}, label: title}};
+						
+			var plot =  $.jqplot(div, chart, 
+					{seriesDefaults: seriesDefaults,
+					series: tags, 
 					legend: {show: false, placement: 'insideGrid', location: 'n'},
         			axes: axes, grid: {background: '#ffffff'}});
 					
@@ -89,21 +103,23 @@
 	
 	</script>
     
-    <div style="vertical-align: top; margin: auto; width: 900px;">
+    <div style="vertical-align: top; margin: auto; width: 1100px;">
     <div style="display: inline-block;">
-    <div id="chart1" style="height:300px; width:500px;"></div>
+    	<div id="answers"></div>
     
-    <div id="chart2" style="height:300px; width:500px;"></div>
+    	<div id="choice_a" class="chart"></div>
     
-    <div id="chart3" style="height:300px; width:500px;"></div>
+    	<div id="choice_b" class="chart"></div>
     
-    <div id="chart4" style="height:300px; width:500px;"></div>
+   	 	<div id="choice_c" class="chart"></div>
     
-    <div id="chart5" style="height:300px; width:500px;"></div>
+    	<div id="choice_d" class="chart"></div>
+    
+    	<div id="choice_e" class="chart"></div>
     </div>
     
     <div style="display: inline-block; vertical-align: top;">
-    <div id="chart0" style="height:150px; width:300px;"></div>
+    <div id="tags" style="height:300px; width:300px;"></div>
     </div>
     </div>
 </body>
