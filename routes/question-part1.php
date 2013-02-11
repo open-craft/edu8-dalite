@@ -1,7 +1,8 @@
 <?php
 
 function build(&$a) {
- 
+    $a['alpha'] = ['Z','A','B','C','D','E','F','G','H','I'];
+    
     if(!array_key_exists('question_num', $a) || ($a['assignment'] != $a['request']['assignment'])) {
         $a['assignment'] = $a['request']['assignment'];
         $connection = \Edu8\Config::initDb();
