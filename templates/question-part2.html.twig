@@ -21,10 +21,11 @@
                     {{ count }}
                     </label>
                 {% endfor %}
-              {% else %}
+              {% endif %}
+              {% if q['choice_type'] == 'alpha' %}
                 {% for count in 1..q['num_choice'] %}
                     <label class="checkbox">
-                      <input type="radio" name="answer" value="{{ alpha['count'] }}">
+                      <input type="radio" name="answer" value="{{ count }}">
                     {{ alpha[count] }}
                     </label>
                 {% endfor %}
