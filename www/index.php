@@ -45,7 +45,7 @@ function main() {
         Http::Redirect('/login');
     }
 
-     if (!isset($twig_vars['student']['is_professor']) && strpos($file_root,'admin') {
+     if (!$twig_vars['student']['is_professor'] && strpos($file_root,'admin') {
         Http::Redirect('/');
     }
 
