@@ -45,10 +45,6 @@ function main() {
         Http::Redirect('/login');
     }
 
-     if (!$twig_vars['student']['is_professor'] && strpos($file_root,'admin') {
-        Http::Redirect('/');
-    }
-
     //Merge session and post variables 
   try{
       if(isset($_SERVER['HTTP_REFERER'])){
@@ -72,6 +68,10 @@ function main() {
     if(is_file($request->attributes->get('php_file'))){
            include $request->attributes->get('php_file');
         build($twig_vars);
+    }
+
+    if ((!isset($twig_vars['student']['is_professor']) || $twig_vars['student']['is_professor'] == 0) && strpos($file_root,'admin')) {
+        Http::Redirect('/');
     }
 
     //Render twig with varables assembled in build()
