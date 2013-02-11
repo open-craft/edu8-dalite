@@ -45,6 +45,10 @@ function main() {
         Http::Redirect('/login');
     }
 
+     if (!isset($twig_vars['student']['is_professor']) && strpos($file_root,'admin') {
+        Http::Redirect('/');
+    }
+
     //Merge session and post variables 
   try{
       if(isset($_SERVER['HTTP_REFERER'])){
