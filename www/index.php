@@ -69,8 +69,9 @@ function main() {
            include $request->attributes->get('php_file');
         build($twig_vars);
     }
+    Http::SetSession($twig_vars);
 
-    if ((!isset($twig_vars['student']['is_professor']) || $twig_vars['student']['is_professor'] == 0) && strpos($file_root,'admin')) {
+    if ($twig_vars['student']['is_professor'] == 0 && strpos($file_root,'admin')) {
         Http::Redirect('/');
     }
 
@@ -81,7 +82,6 @@ function main() {
     $response = new Symfony\Component\HttpFoundation\Response($twig->render($file_root . $slug . '.html.twig', $twig_vars));
     $response->send();
     unset($twig_vars['message_dlg']);
-    Http::SetSession($twig_vars);
 
 }
 
