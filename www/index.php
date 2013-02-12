@@ -71,7 +71,7 @@ function main() {
     }
     Http::SetSession($twig_vars);
 
-    if (strpos($twig_vars['request']['pathname'],'admin') || !($twig_vars['student']['is_professor'] === 1) ) {
+    if (strpos($twig_vars['request']['pathname'],'admin') && !($twig_vars['student']['is_professor'] === 1) ) {
         Http::Redirect('/');
     }
 
