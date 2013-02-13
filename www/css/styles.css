@@ -642,7 +642,7 @@ body {
 }
 
 #main-content article.part-3 section.question input.btn {
-        background: url("../img/glyphicons-check-white.png") no-repeat scroll 10px 6px #0074CC;
+        background: url("../img/glyphicons-check-white.png") no-repeat scroll 10px 6px #319DF5/*#0074CC8*/;
         padding: 5px 14px 6px 31px;
 }
 
