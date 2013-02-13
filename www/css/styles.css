@@ -732,6 +732,7 @@ body {
                         /*background-color: #57538E;
                         border-radius: 10px 10px 0 0;*/
 			font-weight: normal;
+                        padding: 6px;
 		}
 		#main-content article.part-3 .standalone-rationale article h2 span {
 			position: relative;
