@@ -16,17 +16,7 @@
       <div class="answer-form">
         <article class="student-rationale">
           <!--<h2>Your rationale</h2>-->
-          <h2>Your first and second answers: {{ request['answer'] }}
-          <table class="table regular-table">
-          <tbody>
-            <tr>                        
-              <td style="border-right: 0 !important;"><label style="font-size: 16px;"></label></td>
-              <td style="border-right: 0 !important; padding: 6px 15px !important;"><a href="#" class="red" style="padding: 9px 12px;">A.</a></td>
-              <td style="border-right: 0 !important; padding: 6px 15px !important;"><a href="#" class="green" style="padding: 9px 12px;">B.</a></td>
-            </tr>
-          </tbody>
-        </table> 
-          </h2>
+          <h2>Your answered: <span class="red" style="background-color: #FF0000; border-radius: 5px 5px 5px 5px; display: block; padding: 9px 12px;">A.</span><span class="green" style="background-color: #008000; border-radius: 5px 5px 5px 5px; display: block; padding: 9px 12px;">{{ request['answer'] }}</span></h2>
           <p>{{request['student_rationale']}}</p>
           <!--<h2>Your answer was:  request['answer'] }}</h2>-->
         </article>
