@@ -67,18 +67,22 @@ $(document).ready(
                     }
                 );                
     
-            $('#image').ajaxForm({error: function(data) {alert(data.responseText);},
-                        complete: function(data) {eval(data.responseText);}});
+            $('#form').ajaxForm({error: function(data) {alert(data.responseText);},
+                       complete: function(data) {eval(data.responseText);}});
     
             $('#collapseOne input[type=file]').change(
                     function(filedata) {
-                        $('#image').submit();
+                        $('#form').attr('action', '/media-upload.ajax.php');
+                        $('#form').submit();
+                        $('#form').attr('action', '');
                     }
             );
             
             $('#collapseTwo input[type=file]').change(
                     function(filedata) {
-                        $('#image').submit();
+                        $('#form').attr('action', '/media-upload.ajax.php');
+                        $('#form').submit();
+                        $('#form').attr('action', '');
                     }
             );            
         }
