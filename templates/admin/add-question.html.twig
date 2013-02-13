@@ -13,7 +13,7 @@
 
 	<section class="generic teal">
 		<h1>Add a question</h1>
-                <form action="/media-upload.ajax.php" method="POST" class="form-search" enctype="multipart/form-data" id="image">
+                <form action="" method="POST" class="form-search" enctype="multipart/form-data" id="form">
 		<article class="accordion-group">
 			<div class="accordion-heading">
 				<h1><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">Add main question image/video - A</a> <a href="#" rel="tooltip" title="*required field"><span class="fill">*</span></a></h1>
@@ -89,7 +89,7 @@
 				</div>
 			</div>
 		</article>
-		</form>
+		
 		
 		<article class="accordion-group">
 			<div class="accordion-heading">
@@ -269,11 +269,12 @@
 					</div>
 
 					<div class="fill-info">
-                                            <button type="button" class="btn btn-success">Save question »</button>
+                                            <a href="javascript: submitform()"><button type="button" class="btn btn-success">Save question »</button></a>
 					</div>
 			</div>
 			</div>
 		</article>
+                </form>
 
 	</section>
 	
@@ -281,7 +282,23 @@
 	
 </section>
 
+<script>
+function submitform()
+{
+	if(validateform()) {
+            $('#form').unbind('');
+            $('#form').submit();
+        }
+}
+
+function validateform(){        
+	return true;
+}
+</script>
+
 <footer id="main-footer"></footer>
+
+
 
 </body>
 </html>
