@@ -48,27 +48,27 @@
       <div class="clear"></div>
       <div class="left standalone-rationale">
         <article>
-          <h2><span>Is the answer {{l_answer}}<!-- display right or random wrong answer number here -->? </span></h2>
+          <h2><span>Is the answer: <input type="submit" name="C{{l_answer}}" value="{{l_answer}}" class="btn btn-primary"/> {{l_answer}}<!-- display right or random wrong answer number here -->? </span></h2>
           {% for r in l_rationale %}
           <p>{{ r['rationale'] }}</p>
           {% endfor %}
          
         </article>
         <div class="center">
-            <input type="submit" name="C{{l_answer}}" value="{{l_answer}}" class="btn btn-primary"/>
+            
         </div>
       </div>
 
       <div class="right standalone-rationale">
         <article>
-          <h2><span>Is the answer {{r_answer}}<!-- display right or random wrong answer number here -->?</span></h2>
+          <h2><span>Is the answer: <input type="submit" name="C{{r_answer}}" value="{{r_answer}}" class="btn btn-primary"/> {{r_answer}}<!-- display right or random wrong answer number here -->?</span></h2>
           {% for r in r_rationale %}
           <p>{{ r['rationale'] }}</p>
           {% endfor %}
         </article>
         <div class="center">
         <input type="hidden" name="try" value="here"/>
-            <input type="submit" name="C{{r_answer}}" value="{{r_answer}}" class="btn btn-primary"/>
+            
         </div>
       </div>
           </fieldset>
