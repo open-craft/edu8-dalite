@@ -52,6 +52,8 @@ $(document).ready(
                         
                         $('#collapseOne input[type=radio][name=media1][value=Video]').attr('checked', 'checked');
                         $('#collapseOne input[type=radio][name=media1][value=Video]').trigger('change');
+                        
+                        $('#collapseOne #youtube1_id').val(id);
                     }
                 );
                 
@@ -64,6 +66,8 @@ $(document).ready(
                         
                         $('#collapseTwo input[type=radio][name=media2][value=Video]').attr('checked', 'checked');
                         $('#collapseTwo input[type=radio][name=media2][value=Video]').trigger('change');
+                        
+                        $('#collapseTwo #youtube2_id').val(id);
                     }
                 );                
     
