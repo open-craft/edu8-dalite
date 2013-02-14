@@ -44,6 +44,7 @@
                                           <p style="display: inline;"><input type="radio" name="media1" value="Video"></p>
                                             <label> Youtube Video: </label>
                                             <input type="text" class="input-medium search-query" id="youtube" placeholder="Copy and paste Youtube url here...">
+                                            <input type="hidden" name="youtube1_id" id="youtube1_id"/>
                                             <div id="youdiv" style="display: none;">
                                             <iframe style="display: none;" id="youframe" width="420" height="345" ></iframe>
                                             </div>
@@ -81,6 +82,7 @@
                                         <p style="display: inline;"><input type="radio" name="media2" value="Video"></p>
                                             <label> Youtube Video: </label>
                                             <input type="text" class="input-medium search-query" id="youtube" placeholder="Copy and paste Youtube url here...">
+                                            <input type="hidden" name="youtube2_id" id="youtube2_id" />
                                             <div id="youdiv" style="display: none;">
                                             <iframe style="display: none;" id="youframe" width="420" height="345" ></iframe>
                                             </div>
@@ -103,7 +105,7 @@
 					</div>
 
 					<div class="fill-info">
-                                          <textarea style="height: 23px !important; width: 65%"></textarea><!--<span class="icon-question-sign"></span>-->
+                                            <textarea style="height: 23px !important; width: 65%" name="description" id="description"></textarea><!--<span class="icon-question-sign"></span>-->
 					</div>
 				</div>
 			</div>
@@ -124,7 +126,7 @@
                                    
                                             <label class="control-label">Concept tags to be displayed</label>
                                             <div class="controls">
-                                                <select multiple="multiple" class="colored">
+                                                <select multiple="multiple" class="colored" name="num_choice">
                                                   {% for concept in all_concepts %}
                                                         <option value="{{concept}}">{{concept}}</option>> 
                                                   {% endfor %}
@@ -182,9 +184,11 @@
 					</div>
                                   
 					<div class="fill-info">
-                                          <div style="margin-bottom: 5px;"><label style="display: inline">Select answer style</label>: <input type="radio" name="media1" value="alpha"> alpha (a,b,c) | <input type="radio" name="media1" value="numeric"> numberic (1,2,3)</div>
+                                          <div style="margin-bottom: 5px;"><label style="display: inline">Select answer style</label>: 
+                                                <input type="radio" name="alpha" value="alpha"> alpha (a,b,c) | 
+                                                <input type="radio" name="alpha" value="numeric"> numberic (1,2,3)</div>
 						<label style="display: inline;">Number of choices:</label>
-                                                <select style="width: 50px;">
+                                                <select style="width: 50px;" name="num_choice">
 							  <option>2</option>
 							  <option>3</option>
 							  <option>4</option>
@@ -193,46 +197,46 @@
 
 							<label>Correct answer: </label>
                                                         
-							<label class="checkbox inline" id="inLineLabel1">
-							  <input type="checkbox" id="inlineCheckbox1" value="option1">
+							<label class="checkbox inline" id="inLineLabel1" >
+							  <input type="radio" id="answer" name="answer" value="1">
                                                           <span>1</span>
 							</label>
 							<label class="checkbox inline" id="inLineLabel2">
-							  <input type="checkbox" id="inlineCheckbox2" value="option2">
+							  <input type="radio" id="answer" name="answer" value="2">
                                                           <span>2</span>
 							</label>
 							<label class="checkbox inline" id="inLineLabel3">
-							  <input type="checkbox" id="inlineCheckbox3" value="option3">
+							  <input type="radio" id="answer" name="answer" value="3">
                                                           <span>3</span>
 							</label>
 							<label class="checkbox inline" id="inLineLabel4">
-							  <input type="checkbox" id="inlineCheckbox4" value="option4">
+							  <input type="radio" id="answer" name="answer" value="4">
                                                           <span>4</span>
 							</label>
                                                         <label class="checkbox inline" id="inLineLabel5">
-							  <input type="checkbox" id="inlineCheckbox5" value="option5">
+							  <input type="radio" id="answer" name="answer" value="5">
                                                           <span>5</span>
 							</label>
 
 							<label>Second best answer: </label>
 							<label class="checkbox inline" id="inLineLabel1">
-							  <input type="checkbox" id="inlineCheckbox1" value="option1">
+							  <input type="radio" id="second_choice" name="second_choice" value="1">
                                                           <span>1</span>
 							</label>
 							<label class="checkbox inline" id="inLineLabel2">
-							  <input type="checkbox" id="inlineCheckbox2" value="option2">
+							  <input type="radio" id="second_choice" name="second_choice" value="2">
                                                           <span>2</span>
 							</label>
 							<label class="checkbox inline" id="inLineLabel3">
-							  <input type="checkbox" id="inlineCheckbox3" value="option3">
+							  <input type="radio" id="second_choice" name="second_choice" value="3">
                                                           <span>3</span>
 							</label>
 							<label class="checkbox inline"  id="inLineLabel4">
-							  <input type="checkbox" id="inlineCheckbox4" value="option4">
+							  <input type="radio" id="second_choice" name="second_choice" value="4">
                                                           <span>4</span>
 							</label>
                                                         <label class="checkbox inline"  id="inLineLabel5">
-							  <input type="checkbox" id="inlineCheckbox5" value="option5">
+							  <input type="radio" id="second_choice" name="second_choice" value="5">
                                                           <span>5</span>
 							</label>
 					</div>
@@ -251,7 +255,7 @@
 					</div>
 
 					<div class="fill-info">
-						  <textarea></textarea><!--<span class="icon-question-sign"></span>-->
+						  <textarea name="rationale"></textarea><!--<span class="icon-question-sign"></span>-->
 					</div>
 			</div>
 			</div>
@@ -269,7 +273,7 @@
 					</div>
 
 					<div class="fill-info">
-                                            <a href="javascript: submitform()"><button type="button" class="btn btn-success">Save question »</button></a>
+                                            <a href="javascript: submitform();"><button type="button" class="btn btn-success">Save question »</button></a>
 					</div>
 			</div>
 			</div>
