@@ -853,8 +853,8 @@ body {
 			}                  
                         
                        #main-content article.part-4 .answer-form article.student-rationale h2:first-of-type span { border-radius: 5px 5px 5px 5px; clear: none; display: inline-block; height: 14px; line-height: 1em; margin-right: 6px; padding: 9px 12px; width: 11px;}
-                       #main-content article.part-4 .answer-form article.student-rationale h2:first-of-type span.red { background-color: #FF0000;}
-                       #main-content article.part-4 .answer-form article.student-rationale h2:first-of-type span.green { background-color: #008000;}                     
+                       #main-content article.part-4 .answer-form article.student-rationale h2:first-of-type span.red { display: none; /*background-color: #FF0000;*/}
+                       #main-content article.part-4 .answer-form article.student-rationale h2:first-of-type span.green { /*background-color: #008000;*/}                     
                        
 			/*#main-content article.part-4 .answer-form article.student-rationale h2:last-of-type {
 				margin: 0;
