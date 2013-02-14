@@ -8,9 +8,9 @@ by letters or numbers.
 
 $(document).ready(
         function() {            
-            $('#collapseSix input[name=media1][value=numeric]').attr('checked', true);
+            $('#collapseSix input[name=alpha][value=numeric]').attr('checked', true);
             
-            $('#collapseSix input[name=media1]').change(
+            $('#collapseSix input[name=alpha]').change(
                     function(data) {
                         if(data.target.value === 'alpha') {
                             setChoicesToAlpha();
