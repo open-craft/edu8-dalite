@@ -126,11 +126,12 @@
                                    
                                             <label class="control-label">Concept tags to be displayed</label>
                                             <div class="controls">
-                                                <select multiple="multiple" class="colored" name="num_choice">
+                                                <input type="hidden" name="concept_list" id="concept_list" />
+                                                <select multiple="multiple" class="colored" name="concepts" id="concepts">
                                                   {% set i = 0 %}
                                                   {% for concept in all_concepts %}                                                        
-                                                        <option name="AddQuestionTag{{i}}"  value="{{concept}}">{{concept}}</option>>
-                                                        {% i++ %}
+                                                        <option name="AddQuestion{{i}}"  value="{{concept}}">{{concept}}</option>>
+                                                        {% set i = i + 1 %}
                                                   {% endfor %}
                                                 </select>
                                                 <!--<span class="icon-question-sign"></span>-->
@@ -292,6 +293,7 @@
 function submitform()
 {
 	if(validateform()) {
+            $('#concept_list').val($('#concepts').val());
             $('#form').unbind('');
             $('#form').submit();
         }
