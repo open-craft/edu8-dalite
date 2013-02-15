@@ -127,8 +127,10 @@
                                             <label class="control-label">Concept tags to be displayed</label>
                                             <div class="controls">
                                                 <select multiple="multiple" class="colored" name="num_choice">
-                                                  {% for concept in all_concepts %}
-                                                        <option value="{{concept}}">{{concept}}</option>> 
+                                                  {% set i = 0 %}
+                                                  {% for concept in all_concepts %}                                                        
+                                                        <option name="AddQuestionTag{{i}}" tag value="{{concept}}">{{concept}}</option>>
+                                                        {% i++ %}
                                                   {% endfor %}
                                                 </select>
                                                 <!--<span class="icon-question-sign"></span>-->
