@@ -3,7 +3,6 @@
 function post(&$a) {
     //print_r($a);
     
-    
     //Youtube videos (11 character id) or uploaded images
     $media1 = '';
     
@@ -32,12 +31,16 @@ function post(&$a) {
         $alpha = 0;
     }  
     
+    $answer = $a['request']['answer'] == null ? 0 : $a['request']['answer'];
+    $second_choice = $a['request']['second_choice'] == null ? 0 : $a['request']['second_choice'];
+    
     $sql_args = ['media1' => $media1, 'media2' => $media2, 
                 'description' => $a['request']['description'],
                 'num_choice' => $a['request']['num_choice'],
                 'alpha' => $alpha,
-                'answer' => $a['request']['answer'],
-                'second_choice' => $a['request']['second_choice'],
+                'answer' => $answer,
+                'second_choice' => $second_choice,
+                'concepts' => $a['request']['concept_list'],
                 'rationale' => $a['request']['rationale']];
     
     //print_r($sql_args);
