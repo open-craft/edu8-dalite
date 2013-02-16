@@ -24,9 +24,10 @@
 
 					<div class="context">
 						<p class="greyed">Choose either a video or image to include on the first page of the question. </p>
-					</div>
-                                        
+					</div>                                                                           
+                                    
 					<div class="fill-info">
+                                          <div id="media_error"></div>
                                           <p>
                                           
                                               <input type="radio" name="media1" value="Image" checked="checked"> Image:                                               
@@ -102,9 +103,10 @@
 
 					<div class="context">
 						<p class="greyed">The question name must follow the conventions of course name abreviation plus question and number: LynDynQ14.</p>
-					</div>
+					</div>                                                                        
 
 					<div class="fill-info">
+                                            <div id="description_error"></div>
                                             <textarea style="height: 23px !important; width: 65%" name="description" id="description"></textarea><!--<span class="icon-question-sign"></span>-->
 					</div>
 				</div>
@@ -123,7 +125,7 @@
 					</div>
 
 					<div class="fill-info">
-                                   
+                                            <div id="concepts_error"></div>
                                             <label class="control-label">Concept tags to be displayed</label>
                                             <div class="controls">
                                                 <input type="hidden" name="concept_list" id="concept_list" />
@@ -187,6 +189,7 @@
 					</div>
                                   
 					<div class="fill-info">
+                                          <div id="choice_error"></div>
                                           <div style="margin-bottom: 5px;"><label style="display: inline">Select answer style</label>: 
                                                 <input type="radio" name="alpha" value="alpha"> alpha (a,b,c) | 
                                                 <input type="radio" name="alpha" value="numeric"> numberic (1,2,3)</div>
@@ -258,7 +261,8 @@
 					</div>
 
 					<div class="fill-info">
-						  <textarea name="rationale"></textarea><!--<span class="icon-question-sign"></span>-->
+                                            <div id="rationale_error"></div>
+                                            <textarea name="rationale"></textarea><!--<span class="icon-question-sign"></span>-->
 					</div>
 			</div>
 			</div>
@@ -292,15 +296,68 @@
 <script>
 function submitform()
 {
+        //Clears the error messages before submitting.
+        $('#rationale_error').html('');
+        $('#choice_error').html('');
+        $('#concepts_error').html('');
+        $('#description_error').html('');
+        $('#media_error').html('');
+        
 	if(validateform()) {
-            $('#concept_list').val($('#concepts').val());
+            //$('#concept_list').val($('#concepts').val());
+            //Begin dom version of above javascript line.
+            var concepts = document.getElementById('concepts');
+            var selected_concepts = [];
+            
+            for(var i = 0; i < concepts.options.length; i++) {
+                if(concepts.options[i].selected) {
+                    selected_concepts.push(concepts.options[i].value);
+                }
+            }
+        
+            selected_concepts = selected_concepts.join(',');
+            document.getElementById('concept_list').value = selected_concepts;
+            //End dom version of above javascript line.
+            
             $('#form').unbind('');
             $('#form').submit();
         }
 }
 
-function validateform(){        
-	return true;
+function validateform(){
+        var valid = true;
+        
+        if($('#collapseSeven #rationale').val() == '') {
+            $('#rationale_error').html('<div class="alert"> <button type="button" class="close" data-dismiss="alert">&times;</button>Please enter a rationale.</div>');
+            $('html,body').animate({scrollTop: $('#collapseSeven').offset().top},'slow');
+            valid = false;
+        }
+ 
+        if($('#collapseSix #answer:checked').val() == undefined || $('#collapseSix #second_choice:checked').val() == undefined) {
+            $('#choice_error').html('<div class="alert"> <button type="button" class="close" data-dismiss="alert">&times;</button>Please select a first and second correct answer for the question.</div>');
+            $('html,body').animate({scrollTop: $('#collapseSix').offset().top},'slow');
+            valid = false;
+        }
+        
+        if($('#collapseFour #concepts').val() == null) {
+            $('#concepts_error').html('<div class="alert"> <button type="button" class="close" data-dismiss="alert">&times;</button>Please choose at least one concept from the list below.</div>');
+            $('html,body').animate({scrollTop: $('#collapseFour').offset().top},'slow');
+            valid = false;
+        }
+        
+        if($('#collapseThree #description').val() == '') {
+            $('#description_error').html('<div class="alert"> <button type="button" class="close" data-dismiss="alert">&times;</button>Please enter a question.</div>');
+            $('html,body').animate({scrollTop: $('#collapseThree').offset().top},'slow');
+            valid = false;
+        }
+        
+        if($('#collapseOne #filename').val() == '' && $('#collapseOne #youtube1_id').val() == '') {
+            $('#media_error').html('<div class="alert"> <button type="button" class="close" data-dismiss="alert">&times;</button>Please upload an image or add a youtube video.</div>');
+            $('html,body').animate({scrollTop: $('#collapseOne').offset().top},'slow');
+            valid = false;
+        }
+    
+	return valid;
 }
 </script>
 
