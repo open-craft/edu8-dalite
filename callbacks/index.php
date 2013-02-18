@@ -1,6 +1,7 @@
 <?php
 
-function build(&$a) {
+function post(&$a) {
+
     unset($a['message_dlg']);
 }
 

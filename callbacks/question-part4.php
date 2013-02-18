@@ -8,7 +8,10 @@ function post(&$a) {
             unset($a['question_num']); 
             $a['message_dlg'] = 'Bravo, you have completed this assignment';
             Edu8\Http::Redirect('/', $a);
+        } else {
+            unset($a['message_dlg']);
         }
     }
+    
 }
 ?>
