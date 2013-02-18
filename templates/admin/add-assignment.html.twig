@@ -83,7 +83,7 @@
             <div id="tabs-1"   style="height: 400px;overflow: scroll;">
                 <ul id="sortable1" class="connectedSortable ui-helper-reset">
                 {% for q in all_questions %}
-                    <li id="q={{ q['question_'] }}" data-media="{{ q['media1'] }}" class="ui-state-default">{{ q['description'] }}</li>
+                    <li id="q={{ q['question_'] }}" data-media="{{ q['media1'] }}" class="ui-state-default">{{ q['description'] }} q-id: {{q['question_']}}</li>
                     {% endfor %}
                 </ul>
             </div>
