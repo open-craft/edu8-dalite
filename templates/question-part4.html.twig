@@ -5,20 +5,16 @@
 {% set q = question[question_num] %}
 
 <section id="main-content">
-
     {% include 'question-header.html.twig' with {'class': 'question part-4'} %}
-
     <section class="question">
       <div class="img-upload">
             {% include 'media.html.twig' with {'media': q['media1'], 'type': 'image'} %}
       </div>
-
       <div class="answer-form">
         <article class="student-rationale">
-          <h2>You answered: <span class="red">1</span><span class="green">{{ request['answer'] }}</span></h2>
+          <h2>You answered: <span class="red">{{ request['answer'] }}</span><span class="green">{{ request['second_answer'] }}</span></h2>
           <p>{{request['rationale']}}</p>
         </article>
-        
         <article class="correct-rationale">
           <h2><span>Example of good rationale</span></h2>
           <p>{{ q['rationale'] }}</p>
@@ -27,7 +23,6 @@
       </div>
       <div class="clear"></div>
     </section>
-
   </article>
 </section>
 {% include 'footer.html' %}
