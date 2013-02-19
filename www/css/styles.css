@@ -183,7 +183,7 @@ body {
                         font-size: 0.9375em;*/
 			color: #5F5089;
 			font-size: 1em;
-                        line-height: 1.2em;
+                        line-height: 1.3em;
 		}
 		#main-content section.question .answer-form .control-group label {
 			/*font-family: 'Cousine', sans-serif;
@@ -634,7 +634,6 @@ body {
         padding: 0 5px;
 }
 #main-content article.part-2 section.question .answer-form label.checkbox input {
-        border: 1px solid grey;
         margin-bottom: .5em !important;
         
 }
@@ -655,6 +654,10 @@ body {
 	width: 293px;
 	margin-top: 0px;
 }
+
+#main-content article.part-3 section.question .answer-form .control-group {
+		margin-top: 13px;
+	}
 
 #main-content article.part-3 section.question input.btn {
         background: url("../img/glyphicons-check-white.png") no-repeat scroll 10px 6px #319DF5/*#0074CC8*/;
@@ -705,8 +708,9 @@ body {
                       /*border-radius: 9px 9px 0 0;
                       border-top: 0 solid #B0B4D6;*/
                       color: #727272;
-                      font-family: 'Cousine',sans-serif;
-                      font-size: 0.8em;
+                      /*font-family: 'Cousine',sans-serif;
+                      font-size: 0.8em;*/
+                      font-size: .9em;
                       font-weight: normal;
                       line-height: 2em;
                       margin: 0;
@@ -723,7 +727,7 @@ body {
               }*/
               #main-content article.part-3 .answer-form article.student-rationale p {
                       color: #727272;;
-                      font-size: 0.8em;
+                      font-size: 0.9em;
                       font-weight: normal;
                       margin-bottom: 5px;
                       padding: 4px 10px 0 0;
