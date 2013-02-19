@@ -206,10 +206,13 @@ body {
 #main-content section.question .answer-form textarea {
     border: 2px #5C5299 solid;
     color: #3739C5;
-    font-size: 16px;
+    font-family: verdana, arial, helvetica, sans-serif;
+    /*font-size: 16px;*/
+    font-size: .94em;
     height: 200px;
     padding: 8px;
-    width: 316px;
+    /*width: 316px;*/
+    width: 329px;
 }
 
 #main-content section.question .answer-form button.next-page {
@@ -727,7 +730,7 @@ body {
               }*/
               #main-content article.part-3 .answer-form article.student-rationale p {
                       color: #727272;;
-                      font-size: 0.9em;
+                      font-size: 0.85em;
                       font-weight: normal;
                       margin-bottom: 5px;
                       padding: 4px 10px 0 0;
