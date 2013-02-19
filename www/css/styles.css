@@ -509,10 +509,13 @@ body {
     border-radius: 10px 10px 0 0;
     border-bottom:1px solid #859598;
     color: #dfd29f;
-    font-family: 'Cousine', sans-serif;
+    /*font-family: 'Cousine', sans-serif;
     font-size: 1.25em;
     height: 58px;
-    line-height: 58px;
+    line-height: 58px;*/
+    font-size: 1.1em;
+    height: 53px;
+    line-height: 55px;
     padding: 0 37px;		
 }
 
@@ -548,6 +551,7 @@ body {
 }
 
 .stassignment-details {
+    font-size: 0.9em;
     margin: 0 0 0 15px;
 }
 
