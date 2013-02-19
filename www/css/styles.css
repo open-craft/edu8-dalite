@@ -737,7 +737,7 @@ body {
                       border-top: 2px solid #7967a7;
               }*/
               #main-content article.part-3 .answer-form article.student-rationale p {
-                      color: #727272;;
+                      color: #727272 !important;
                       font-size: 0.9em;
                       font-weight: normal;
                       margin-bottom: 5px;
@@ -746,7 +746,8 @@ body {
                         
 	#main-content article.part-3 .standalone-rationale article {
 		background-color: #CBD3DB;
-                border: 2px solid #4B4266;/*background-color: #fff#BECFE0;
+                border: 2px solid #70678B;
+                /*background-color: #fff#BECFE0;
                 border: 2px solid #7967a7;*/
 		border-radius: 12px;
 		/*font-family: "Cousine", sans-serif;*/
