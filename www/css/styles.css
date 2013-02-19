@@ -891,7 +891,7 @@ body {
 			}                  
                         
                        #main-content article.part-4 .answer-form article.student-rationale h2:first-of-type span { border-radius: 5px 5px 5px 5px; clear: none; color: #fff; display: inline-block; height: 10px; line-height: .8em; margin-right: 6px; padding: 8px 12px 8px 9px; width: 7px;}
-                       #main-content article.part-4 .answer-form article.student-rationale h2:first-of-type span.red { /* display: none;*/ background-color: #FF0000; border: 2px solid #F0F0F0; color: #fff;}
+                       #main-content article.part-4 .answer-form article.student-rationale h2:first-of-type span.red { /* display: none;*/ background-color: #ED0017; border: 2px solid #F0F0F0; color: #fff;}
                        #main-content article.part-4 .answer-form article.student-rationale h2:first-of-type span.green { background-color: #008000; color: #fff;}                     
                        
 			/*#main-content article.part-4 .answer-form article.student-rationale h2:last-of-type {
