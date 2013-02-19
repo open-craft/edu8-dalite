@@ -863,7 +863,7 @@ body {
 			color: #5F5089;
                         padding: 20px;
 			font-size: 0.85em;
-			font-weight: bold;
+			font-weight: normal;
 		}
 
 		#main-content article.part-4 .answer-form article.student-rationale {
@@ -877,7 +877,7 @@ body {
 				text-align: center;
 				/*background-color: #C5BDD9;
 				color: #6660A3;*/
-                                background-color: #7A7EA0;
+                                background-color: #b7aa86;
 				color: #fff;
 				border-radius: 8px 8px 0 0;
 				border-bottom: 2px solid #7967a7;
@@ -901,7 +901,7 @@ body {
 				color: #6661A3;
 				padding: 20px;
 				font-size: 0.8em;
-				font-weight: bold;
+				font-weight: normal;
 			}
                         
 /* 5.5 Main-Content - Profs admin
