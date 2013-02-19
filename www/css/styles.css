@@ -187,9 +187,9 @@ body {
 		}
 		#main-content section.question .answer-form .control-group label {
 			/*font-family: 'Cousine', sans-serif;
-                        font-size: 0.9375em;*/
+                        font-size: 1em;*/
 			color: #3739C5;
-			font-size: 1em;
+			font-size: 0.9em;
 			margin: 0;
                         border-bottom: 1px solid #C4B7D2;
 			padding: 5px 0;
