@@ -667,6 +667,11 @@ body {
         padding: 5px 14px 6px 31px;
 }
 
+#main-content article.part-3 section.question .answer-form .control-group p {
+			/*color: #5F5089;*/
+                        color: #52437C;
+		}
+
 #main-content article.part-3 .left {
 	border-right: 1px solid #D7CCD6;
         float: left;
@@ -788,7 +793,7 @@ body {
 			margin: 20px;
 			padding-bottom: 20px;
 			font-size: .9em;
-			font-weight: bold;
+			font-weight: normal;
 			border-bottom: 1px solid #A79CA6;
 		}
                 
