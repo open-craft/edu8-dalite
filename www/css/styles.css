@@ -633,6 +633,11 @@ body {
         float: left; 
         padding: 0 5px;
 }
+#main-content article.part-2 section.question .answer-form label.checkbox input {
+        border: 1px solid grey;
+        margin-bottom: .5em !important;
+        
+}
 #main-content  article.part-2 section.question .answer-form p {
     color: #5F5089;
     font-family: 'Cousine',sans-serif;
