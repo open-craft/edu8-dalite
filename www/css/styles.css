@@ -670,14 +670,17 @@ body {
 #main-content article.part-3 .left {
 	border-right: 1px solid #D7CCD6;
         float: left;
-        margin-left: 59px;
+        /*margin-left: 59px;
         margin-right: 48px;
         padding-right: 52px;
-        width: 362px;
+        width: 362px;*/
+        margin: 20px 55px 0 44px;
+        padding-right: 56px;
+        width: 372px;
 }
 #main-content article.part-3 .right {
 	padding: 0;
-	margin: 0;
+	margin: 20px 0 0;
 	float: left;
 	width: 362px;
 }
@@ -687,7 +690,7 @@ body {
                 /*border-radius: 12px 12px 12px 12px;*/
                 /*border-top: 1px solid #B0B4D6;*/
                 box-shadow: 3px 3px 3px #CECECE;
-                font-family: "Cousine",sans-serif;
+                /*font-family: "Cousine",sans-serif;*/
                 margin-bottom: 20px;
                 padding: 15px;
 	}
@@ -730,7 +733,7 @@ body {
               }*/
               #main-content article.part-3 .answer-form article.student-rationale p {
                       color: #727272;;
-                      font-size: 0.85em;
+                      font-size: 0.9em;
                       font-weight: normal;
                       margin-bottom: 5px;
                       padding: 4px 10px 0 0;
@@ -741,15 +744,16 @@ body {
                 border: 2px solid #4B4266;/*background-color: #fff#BECFE0;
                 border: 2px solid #7967a7;*/
 		border-radius: 12px;
-		font-family: "Cousine", sans-serif;
+		/*font-family: "Cousine", sans-serif;*/
 		margin-bottom: 20px;
 	}
 		#main-content article.part-3 .standalone-rationale article h2 {
 			margin: 0;
-			font-size: .9em;
+			font-size: 1em;
 			text-align: center;			
 			color: #ffffff;
-			background-color: #4B4266;
+			/*background-color: #4B4266;*/
+                        background-color: #5D5478;
                         border-radius: 8px 8px 0 0;
                         /*background-color: #57538E;
                         border-radius: 10px 10px 0 0;*/
@@ -780,10 +784,10 @@ body {
 				width: 16px;
 			}
 		#main-content article.part-3 .standalone-rationale article p {
-			color: #333333;
+			color: #515151;
 			margin: 20px;
 			padding-bottom: 20px;
-			font-size: .75em;
+			font-size: .9em;
 			font-weight: bold;
 			border-bottom: 1px solid #A79CA6;
 		}
@@ -875,7 +879,7 @@ body {
 			}                  
                         
                        #main-content article.part-4 .answer-form article.student-rationale h2:first-of-type span { border-radius: 5px 5px 5px 5px; clear: none; display: inline-block; height: 14px; line-height: 1em; margin-right: 6px; padding: 9px 12px; width: 11px;}
-                       #main-content article.part-4 .answer-form article.student-rationale h2:first-of-type span.red { display: none; /*background-color: #FF0000;*/}
+                       #main-content article.part-4 .answer-form article.student-rationale h2:first-of-type span.red { /* display: none; background-color: #FF0000;*/}
                        #main-content article.part-4 .answer-form article.student-rationale h2:first-of-type span.green { /*background-color: #008000;*/}                     
                        
 			/*#main-content article.part-4 .answer-form article.student-rationale h2:last-of-type {
