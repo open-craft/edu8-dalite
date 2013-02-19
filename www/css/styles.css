@@ -31,7 +31,8 @@ body {
 		border-top: 1px solid #A3AFB1;
 	}
 	
-		#header hgroup h1 {
+		/*this is for the Dalite Header logo */
+                #header hgroup h1 {
 			font-family: 'Ubuntu', sans-serif;
 			font-size: 2.75em;
 			text-transform: uppercase;
@@ -61,8 +62,10 @@ body {
 			}
 
 		#header hgroup h2 {
-			font-family: 'Cousine', sans-serif;
-			font-size: 0.75em;
+			/*font-family: 'Cousine', sans-serif;
+			font-size: 0.75em;*/
+                        font-family: verdana, arial, helvetica, sans-serif;
+                        font-size: 0.75em;
 			margin: -67px 0 0 33px;
 			color: #a4a4a4;
 			float: left;
@@ -75,8 +78,10 @@ body {
 }
 	.drop-log-out p {
 		float: left;
-		font-family: 'Cousine', sans-serif;
-		font-size: 0.75em;
+		/*font-family: 'Cousine', sans-serif;
+                font-size: 0.75em;*/
+                font-family: verdana, arial, helvetica, sans-serif;
+                font-size: 0.75em;
 		margin-right: 10px;
 		line-height: 26px;
 	}
@@ -127,9 +132,11 @@ body {
 	#main-content article.question header hgroup h1 {
 		/*color: #DFD29F;*/
                 color: #D8D7C2;
-		font-family: 'Cousine', sans-serif;
-		font-size: 1.25em;
-		line-height: 58px;
+		/*font-family: 'Cousine', sans-serif;
+		font-size: 1.25em;*/
+                font-family: verdana, arial, helvetica, sans-serif;
+                font-size: 0.75em;
+                line-height: 58px;
 		padding: 0 37px;
 		height: 58px;
 		background-color: #333333;
@@ -172,7 +179,7 @@ body {
 		margin-top: 20px;
 	}
 		#main-content section.question .answer-form .control-group p/*:first-of-type*/ {
-			font-family: 'Cousine', sans-serif;
+			/*font-family: 'Cousine', sans-serif;*/
 			color: #5F5089;
 			font-size: 0.9375em;
 		}
