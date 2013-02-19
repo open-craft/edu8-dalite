@@ -183,9 +183,11 @@ body {
                         font-size: 0.9375em;*/
 			color: #5F5089;
 			font-size: 1em;
+                        line-height: 1.2em;
 		}
 		#main-content section.question .answer-form .control-group label {
-			font-family: 'Cousine', sans-serif;
+			/*font-family: 'Cousine', sans-serif;
+                        font-size: 0.9375em;*/
 			color: #3739C5;
 			font-size: 1em;
 			margin: 0;
