@@ -20,6 +20,7 @@ function post(&$a) {
 
         foreach ($file as $line) {
             fputs($outfile, $line . PHP_EOL);
+        }
             fclose($outfile);
 
             system('mysqlimport --ignore-lines=1 -vv --local --columns=login,password,firstname,lastname --fields-terminated-by="," -u root --password=xxxxxx dalite /tmp/student.csv', $noerr);
@@ -38,7 +39,6 @@ function post(&$a) {
             ## get use the where in (logins) from the file to get the student_ ids to add to student_course
             $sql = Edu8\Sql::getStatement('insert-students-by-login');
             $connection->executeQuery($sql, [$course_id, $params], [\PDO::PARAM_INT, \Doctrine\DBAL\Connection::PARAM_STR_ARRAY]);
-        }
     }
 }
 
