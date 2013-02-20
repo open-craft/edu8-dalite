@@ -16,7 +16,7 @@
 				<tr>
 					<th>Student name</th>
                                         {% for i in 1 .. question_list|length %}                                            
-                                            <th colspan="2"><a href="#">Q{{i}}</a></th>
+                                            <th colspan="2"><a href="https://www.edu8.ca/img/{{ question_list[i-1]['media1'] }}">Q{{i}}</a></th>
                                         {% endfor %}
 				</tr>
 			</thead>
