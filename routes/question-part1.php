@@ -21,7 +21,7 @@ function build(&$a) {
             $q['concepts'] = preg_split('/,/', $q['concepts']);
         }
 
-        $a['question_num'] = $q_completed[0]['q_completed'] ? $q_completed[0]['q_completed']>>1 : 0; // div 2 minus 1 or 0
+        $a['question_num'] = $q_completed[0]['q_completed'] >> 1;   // div by 2 | note: >> will have no effect if 0.
 
         if (count($a['question']) <= $a['question_num']) {
             unset($a['question_num']);
