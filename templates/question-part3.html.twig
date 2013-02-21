@@ -49,7 +49,7 @@
                       Is the answer: 
                       <input type="submit" class="btn btn-primary"
                              name="C{{l_answer}}"
-                        {% if q['choice_type'] == 'alpha' %}
+                        {% if q['alpha'] == 1 %}
                              value="{{alpha[l_answer]}}" 
                         {% else %}
                              value="{{l_answer}}"
