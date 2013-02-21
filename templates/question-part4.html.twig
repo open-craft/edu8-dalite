@@ -14,10 +14,22 @@
                     <article class="student-rationale">
                         <h2>You answered: 
                             <a href="#" rel="tooltip" title="Your initial answer">
-                                <span class="{{ answered_correct[0] ? 'green' : 'red' }}">{{ request['answer'] }}</span>
+                                <span class="{{ answered_correct[0] ? 'green' : 'red' }}">
+                                {% if q['alpha'] == 1 %}
+                                    {{ alpha[request['answer']] }}
+                                {% else %}
+                                    {{ request['answer'] }}
+                                {% endif %}                                        
+                                </span>
                             </a>
                             <a href="#" rel="tooltip" title="Your revised answer">
-                                <span class="{{ answered_correct[1] ? 'green' : 'red' }}">{{ request['second_answer'] }}</span>
+                                <span class="{{ answered_correct[1] ? 'green' : 'red' }}">
+                                {% if q['alpha'] == 1 %}
+                                    {{ alpha[request['second_answer']] }}
+                                {% else %}
+                                    {{ request['second_answer'] }}
+                                {% endif %}                                        
+                                </span>
                             </a>
                         </h2>
                         <p>{{request['rationale']}}</p>

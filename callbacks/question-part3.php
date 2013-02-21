@@ -19,10 +19,16 @@ function post(&$a) {
         if (array_key_exists('question_num', $a)) {
             $concepts = implode(",", preg_grep_keys('/^tag/', $a['request']));
             $connection = \Edu8\Config::initDb();
+            if ($a['question']['question_num']['alpha'] == 1) {
+                $numeric = ['A' => '1', 'B' => '2', 'C' => '3', 'D' => '4', 'E' => '5'];
+                $a['request']['second_answer'] = $numeric[preg_grep_keys('/^C/', $a['request'])[0]];
+            } else {
+                $a['request']['second_answer'] = preg_grep_keys('/^C/', $a['request'])[0];
+            }
+            
             //Testing.
-            $a['request']['second_answer'] = preg_grep_keys('/^C/', $a['request'])[0];
             $a['answered_correct'][0] = 0;
-            $a['answered_correct'][0] = 1;
+            $a['answered_correct'][0] = 0;
             try {
                 $connection->insert('response', ['student_' => $a['student']['student_'], 'assignment_' => $a['assignment'], 'question_' => $a['question'][$a['question_num']]['question_'], 'attempt' => '0', 'answer' => $a['request']['answer'], 'rationale' => $a['request']['rationale'], 'concepts' => $concepts]);
                 $connection->insert('response', ['student_' => $a['student']['student_'], 'assignment_' => $a['assignment'], 'question_' => $a['question'][$a['question_num']]['question_'], 'attempt' => '1', 'answer' => $a['request']['second_answer'], 'rationale' => $a['request']['rationale'], 'concepts' => $concepts]);
