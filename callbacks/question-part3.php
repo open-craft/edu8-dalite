@@ -5,7 +5,7 @@ function preg_grep_keys($pattern, $input, $flags = 0) {
     $vals = array();
     $i = 0;
     foreach ($keys as $key) {
-        $vals[$i++] = $input[$key];
+        $vals[$i++] = ltrim($key,'C');
     }
     return $vals;
 }
@@ -19,12 +19,7 @@ function post(&$a) {
         if (array_key_exists('question_num', $a)) {
             $concepts = implode(",", preg_grep_keys('/^tag/', $a['request']));
             $connection = \Edu8\Config::initDb();
-            if ($a['question']['question_num']['alpha'] == 1) {
-                $numeric = ['A' => '1', 'B' => '2', 'C' => '3', 'D' => '4', 'E' => '5'];
-                $a['request']['second_answer'] = $numeric[preg_grep_keys('/^C/', $a['request'])[0]];
-            } else {
-                $a['request']['second_answer'] = preg_grep_keys('/^C/', $a['request'])[0];
-            }
+            $a['request']['second_answer'] = preg_grep_keys('/^C/', $a['request'])[0];
             
             //Testing.
             $a['answered_correct'][0] = 0;
