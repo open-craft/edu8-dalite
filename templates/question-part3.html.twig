@@ -7,13 +7,9 @@
 
 {% set r_rationale = rationales %}
 {% set l_rationale = rationales2 %}
-{% if q['choice_type'] == 'alpha'%}
-{%    set r_answer = alpha[q['answer']]%}
-{%    set l_answer = alpha[other]%}
-{% else%}
-{%    set r_answer = q['answer']%}
-{%    set l_answer = other%}
-{% endif %}
+{% set r_answer = q['answer']%}
+{% set l_answer = other%}
+
 {% if swap %}
 {%    set temp = l_answer %}
 {%    set l_answer = r_answer %}
@@ -47,17 +43,43 @@
       </div>
       <div class="clear"></div>
       <div class="left standalone-rationale">
-        <article>
-          <h2><span>Is the answer: <input type="submit" name="C{{l_answer}}" value="{{l_answer}}" class="btn btn-primary"/></span></h2>
+          <article>
+              <h2>
+                  <span>
+                      Is the answer: 
+                      <input type="submit" class="btn btn-primary"
+                             name="C{{l_answer}}"
+                        {% if q['choice_type'] == 'alpha' %}
+                             value="{{alpha[l_answer]}}" 
+                        {% else %}
+                             value="{{l_answer}}"
+                        {% endif %}
+                      />
+                 </span>
+              </h2>
+
           {% for r in l_rationale %}
           <p>{{ r['rationale'] }}</p>
           {% endfor %}         
-        </article>        
-      </div>
+      </article>        
+    </div>
 
       <div class="right standalone-rationale">
         <article>
-          <h2><span>Is the answer: <input type="submit" name="C{{r_answer}}" value="{{r_answer}}" class="btn btn-primary"/></span></h2>
+              <h2>
+                  <span>
+                      Is the answer: 
+                      <input type="submit" class="btn btn-primary"
+                             name="C{{r_answer}}"
+                        {% if q['choice_type'] == 'alpha' %}
+                             value="{{alpha[r_answer]}}" 
+                        {% else %}
+                             value="{{r_answer}}"
+                        {% endif %}
+                      />
+                 </span>
+              </h2>
+
           {% for r in r_rationale %}
           <p>{{ r['rationale'] }}</p>
           {% endfor %}
