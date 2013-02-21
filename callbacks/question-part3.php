@@ -5,7 +5,7 @@ function preg_grep_keys($pattern, $input, $flags = 0) {
     $vals = array();
     $i = 0;
     foreach ($keys as $key) {
-        $vals[$i++] = int(ltrim($key,'C'));
+        $vals[$i++] = intval(ltrim($key,'C'));
     }
     return $vals;
 }
