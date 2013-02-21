@@ -5,7 +5,17 @@ function preg_grep_keys($pattern, $input, $flags = 0) {
     $vals = array();
     $i = 0;
     foreach ($keys as $key) {
-        $vals[$i++] = intval(ltrim($key,'C'));
+        $vals[$i++] = intval(ltrim($key, 'C'));
+    }
+    return $vals;
+}
+
+function preg_grep_keys_return_values($pattern, $input, $flags = 0) {
+    $keys = preg_grep($pattern, array_keys($input), $flags);
+    $vals = array();
+    $i = 0;
+    foreach ($keys as $key) {
+        $vals[$i++] = $input[$key];
     }
     return $vals;
 }
@@ -17,10 +27,10 @@ function post(&$a) {
     }
     if (!$a['student']['is_professor']) {
         if (array_key_exists('question_num', $a)) {
-            $concepts = implode(",", preg_grep_keys('/^tag/', $a['request']));
+            $concepts = implode(",", preg_grep_keys_return_values('/^tag/', $a['request']));
             $connection = \Edu8\Config::initDb();
             $a['request']['second_answer'] = preg_grep_keys('/^C/', $a['request'])[0];
-            
+
             //Testing.
             $a['answered_correct'][0] = 0;
             $a['answered_correct'][0] = 0;
