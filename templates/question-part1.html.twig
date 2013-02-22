@@ -27,11 +27,21 @@
         {% include 'form-end.html.twig' %}
         <script>
         function validateform(){
-            if(!$("input:checked").length){
-                $("#error_answer").html('<div class="alert"> <button type="button" class="close" data-dismiss="alert">&times;</button>Select at least one.</div>');
-                return false;
-            }        
-            return true;
+            var inputs = document.getElementsByTagName('input');
+            var input_checked = false;
+            
+            for(var i = 0; i < inputs.length; i++) {
+                if(inputs[i].checked == true) {
+                   input_checked = true; 
+                }
+            }
+            
+            if(input_checked == false) {
+                document.getElementById('error_answer').innerHTML = 
+                '<div class="alert"> <button type="button" class="close" data-dismiss="alert">&times;</button>Select at least one.</div>';
+            }
+            
+            return input_checked;
         }
         </script>
       <div class="clear"></div>
