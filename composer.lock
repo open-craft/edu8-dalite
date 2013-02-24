@@ -1,5 +1,5 @@
 {
-    "hash": "ab2c50fc46de1d2b0a960a9f10a6ebbc",
+    "hash": "d17ba3afcc067d4f2b53d0801dfc8f6c",
     "packages": [
         {
             "name": "doctrine/common",
@@ -135,17 +135,17 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v2.1.7",
+            "version": "v2.1.8",
             "target-dir": "Symfony/Component/Finder",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/Finder",
-                "reference": "v2.1.7"
+                "url": "https://github.com/symfony/Finder.git",
+                "reference": "v2.1.8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/Finder/archive/v2.1.7.zip",
-                "reference": "v2.1.7",
+                "url": "https://api.github.com/repos/symfony/Finder/zipball/v2.1.8",
+                "reference": "v2.1.8",
                 "shasum": ""
             },
             "require": {
@@ -177,23 +177,23 @@
         },
         {
             "name": "symfony/http-foundation",
-            "version": "v2.1.7",
+            "version": "v2.1.8",
             "target-dir": "Symfony/Component/HttpFoundation",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/HttpFoundation",
-                "reference": "v2.1.7"
+                "url": "https://github.com/symfony/HttpFoundation.git",
+                "reference": "v2.1.8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/HttpFoundation/archive/v2.1.7.zip",
-                "reference": "v2.1.7",
+                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/v2.1.8",
+                "reference": "v2.1.8",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
-            "time": "2013-01-11 00:31:43",
+            "time": "2013-02-22 18:02:22",
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -220,34 +220,34 @@
         },
         {
             "name": "symfony/routing",
-            "version": "v2.1.7",
+            "version": "v2.1.8",
             "target-dir": "Symfony/Component/Routing",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/Routing",
-                "reference": "v2.1.7"
+                "url": "https://github.com/symfony/Routing.git",
+                "reference": "v2.1.8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/Routing/archive/v2.1.7.zip",
-                "reference": "v2.1.7",
+                "url": "https://api.github.com/repos/symfony/Routing/zipball/v2.1.8",
+                "reference": "v2.1.8",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
             "require-dev": {
-                "doctrine/common": ">=2.2,<2.4-dev",
+                "doctrine/common": ">=2.2,<3.0",
                 "symfony/config": "2.1.*",
                 "symfony/http-kernel": "2.1.*",
                 "symfony/yaml": "2.1.*"
             },
             "suggest": {
-                "doctrine/common": ">=2.2,<2.4-dev",
+                "doctrine/common": "~2.2",
                 "symfony/config": "2.1.*",
                 "symfony/yaml": "2.1.*"
             },
-            "time": "2013-01-09 08:51:07",
+            "time": "2013-02-22 18:53:49",
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -273,22 +273,22 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.12.1",
+            "version": "v1.12.2",
             "source": {
                 "type": "git",
                 "url": "git://github.com/fabpot/Twig.git",
-                "reference": "v1.12.1"
+                "reference": "v1.12.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/fabpot/Twig/archive/v1.12.1.zip",
-                "reference": "v1.12.1",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/v1.12.2",
+                "reference": "v1.12.2",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.4"
             },
-            "time": "2013-01-15 20:03:52",
+            "time": "2013-02-09 18:21:53",
             "type": "library",
             "extra": {
                 "branch-alias": {
