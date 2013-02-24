@@ -3,13 +3,15 @@
 function post(&$a) {
     if (array_key_exists('question_num', $a)) {
         $a['question_num']++;
-
+        
+        if ($a['request']['pathname'] != '/question-part1')
+            unset($a['question_num']);
+        
         //reset request var
         $request = [
             'pathname' => $a['request']['pathname'],
             'assignment' => $a['request']['assignment']];
         unset($a['request']);
-
         $a['request'] = $request;
 
         if ($a['question_num'] >= count($a['question'])) {
@@ -24,4 +26,4 @@ function post(&$a) {
     }
 }
 
-?>
+    ?>
