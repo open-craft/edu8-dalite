@@ -921,7 +921,8 @@ footer#main-footer {
 	/*height: 170px;*/
 	background-color: #333333;
 	margin-top: 50px;
-        min-height: 20px;
+        min-height: 24px;
+        padding: 2px 15px 2px 0;
 }
 /* =============================================================================
    X- Misc Stylesheets
