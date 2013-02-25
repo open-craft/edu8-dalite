@@ -24,7 +24,12 @@ function post(&$a) {
     if ($a['request']['pathname'] != '/question-part4' && $a['request']['pathname'] != '/question-part3') {
         $a['message_dlg'] = 'Please complete this question first.';
         \Edu8\Http::Redirect('/question-part3', $a);
+    } else {
+        if($a['request']['pathname'] == '/question-part4') {
+            unset($a['message_dlg']);
+        }
     }
+    
     if (!$a['student']['is_professor']) {
         if (array_key_exists('question_num', $a)) {
             $concepts = implode(",", preg_grep_keys_return_values('/^tag/', $a['request']));
