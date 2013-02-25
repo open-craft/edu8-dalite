@@ -920,6 +920,7 @@ body {
 footer#main-footer {
 	/*height: 170px;*/
 	background-color: #333333;
+        color: #000;
 	margin-top: 50px;
         min-height: 24px;
         padding: 2px 15px 2px 0;
