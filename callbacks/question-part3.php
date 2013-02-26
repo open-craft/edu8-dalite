@@ -30,7 +30,7 @@ function post(&$a) {
         }
     }
     
-    if (!$a['student']['is_professor'] && $a['request']['pathname'] == '/question-part4') {
+    if ($a['request']['pathname'] == '/question-part4') {
         if (array_key_exists('question_num', $a)) {
             $concepts = implode(",", preg_grep_keys_return_values('/^tag/', $a['request']));
             $connection = \Edu8\Config::initDb();
@@ -39,12 +39,15 @@ function post(&$a) {
             //Testing.
             $a['answered_correct'][0] = 0;
             $a['answered_correct'][0] = 0;
-            try {
-                $connection->insert('response', ['student_' => $a['student']['student_'], 'assignment_' => $a['assignment'], 'question_' => $a['question'][$a['question_num']]['question_'], 'attempt' => '0', 'answer' => $a['request']['answer'], 'rationale' => $a['request']['rationale'], 'concepts' => $concepts]);
-                $connection->insert('response', ['student_' => $a['student']['student_'], 'assignment_' => $a['assignment'], 'question_' => $a['question'][$a['question_num']]['question_'], 'attempt' => '1', 'answer' => $a['request']['second_answer'], 'rationale' => $a['request']['rationale'], 'concepts' => $concepts]);
-            } catch (Exception $e) {
-                unset($e);
-                //echo 'RESUBMIT ignored.';
+            
+            if (!$a['student']['is_professor']) {
+                try {
+                    $connection->insert('response', ['student_' => $a['student']['student_'], 'assignment_' => $a['assignment'], 'question_' => $a['question'][$a['question_num']]['question_'], 'attempt' => '0', 'answer' => $a['request']['answer'], 'rationale' => $a['request']['rationale'], 'concepts' => $concepts]);
+                    $connection->insert('response', ['student_' => $a['student']['student_'], 'assignment_' => $a['assignment'], 'question_' => $a['question'][$a['question_num']]['question_'], 'attempt' => '1', 'answer' => $a['request']['second_answer'], 'rationale' => $a['request']['rationale'], 'concepts' => $concepts]);
+                } catch (Exception $e) {
+                    unset($e);
+                    //echo 'RESUBMIT ignored.';
+                }
             }
         }
     }
