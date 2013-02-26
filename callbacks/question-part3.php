@@ -30,7 +30,7 @@ function post(&$a) {
         }
     }
     
-    if (!$a['student']['is_professor']) {
+    if (!$a['student']['is_professor'] && $a['request']['pathname'] == '/question-part4') {
         if (array_key_exists('question_num', $a)) {
             $concepts = implode(",", preg_grep_keys_return_values('/^tag/', $a['request']));
             $connection = \Edu8\Config::initDb();
