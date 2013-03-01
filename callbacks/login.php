@@ -9,8 +9,10 @@ function post (&$a){
             $a['student'] = $students[0];
             if(!strcmp($a['student']['password'],$a['request']['pwd'])){
                 $a['auth'] = true;
+                return;
             }
         }
-    }
+    $a['message_dlg'] = 'Please provide correct login and password';    
+    } 
 }
 ?>
