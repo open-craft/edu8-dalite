@@ -1,9 +1,8 @@
 <?php
 
 function build(&$a) {
-
-  $a['all_concepts'] = [
-      'Amplitude',
+        $a['all_concepts'] = [
+            'Amplitude',
       'Angular acceleration',
       'Angular frequency',
       'Angular velocity',
@@ -11,9 +10,7 @@ function build(&$a) {
       'Area/integral',
       'Center of Mass',
       'Conservation of Mechanical Energy',
-      'Conservation of Momentum',
-      'Conservation of Momentum in Horizontal Direction',
-      'Conservation of Momentum in Vertical Direction',
+      ['Conservation of Momentum', ['Conservation of Momentum in Horizontal Direction', 'Conservation of Momentum in Vertical Direction']],
       'Constant acceleration',
       'Constant speed',
       'Constant velocity',
@@ -47,9 +44,7 @@ function build(&$a) {
       'KE of ejected electrons',
       'Kinetic Energy',
       'Mass',
-      'Newton\'s 1st Law',
-      'Newton\'s 2nd Law',
-      'Newton\'s 3rd Law',
+      ['Newton\'s laws', ['Newton\'s 1st Law', 'Newton\'s 2nd Law', 'Newton\'s 3rd Law']],
       'Non-zero acceleration',
       'Normal Force/ Contact',
       'Number of photons',
