@@ -2,12 +2,16 @@
 <script type="text/javascript" src="/scripts/jquery.form.js"></script>
 <script type="text/javascript" src="/scripts/multiple-choice-config.js"></script>
 <script type="text/javascript" src="/scripts/media-upload.js"></script>
+<script>
+    $(function() {$("#menu").menu();});
+</script>
+
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
 {% include 'header.html.twig' %}
 
 <section id="main-content">
 
 {% include '/admin/navbar.html.twig' %}
-
 
   <div class="accordion" id="accordion2">
 
@@ -128,13 +132,17 @@
                 <label class="control-label">Concept tags to be displayed</label>
                 <div class="controls">
                   <input type="hidden" name="concept_list" id="concept_list" />
-                  <select multiple="multiple" class="colored" name="concepts" id="concepts">
+                  <!--select multiple="multiple" class="colored" name="concepts" id="concepts">
                                                   {% set i = 0 %}
                                                   {% for concept in all_concepts %}                                                        
                       <option name="AddQuestion{{i}}"  value="{{concept}}">{{concept}}</option>>
                                                         {% set i = i + 1 %}
                                                   {% endfor %}
-                    </select>
+                    </select-->
+                  
+                  <ul id="menu" style="display: inline-block;">
+                      {% include "/concept-tags.html.twig" with {'all_concepts': all_concepts} %}
+                  </ul>
                     <!--<span class="icon-question-sign"></span>-->
                   </div> 
                   <!--note: disabled, no longer in use
