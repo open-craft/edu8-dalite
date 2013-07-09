@@ -1,4 +1,8 @@
 {% include 'head.html.twig' %}
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+<script>
+    $(function() {$("#menu").menu();});
+</script>
 {% include 'header.html.twig' %}
 {% include 'init.twig' %}
 
@@ -14,15 +18,10 @@
             <div class="control-group">
               <p>1. Check the concepts that you think are important in answering the question:</p>
             <div id="error_answer"></div>      
-              <!-- loop generates a list of concepts with check box defined in assignment_concepts -->
-              {% set i = 0 %}
-              {% for concept in q['concepts'] %}
-                <label class="checkbox">
-                  <input type="checkbox" name="tag{{ i }}" value="{{ concept }}">
-                    {{ concept }}	
-                </label>
-              {% set i = i+1 %}
-              {% endfor %}
+            <!-- loop generates a list of concepts with check box defined in assignment_concepts -->
+            <ul id="menu" style="display: inline-block;">
+                {% include "/concept-tags.html.twig" with {'concepts': concepts} %}
+            </ul>
             </div>
         {% include 'form-end.html.twig' %}
         <script>
