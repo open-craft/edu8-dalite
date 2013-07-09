@@ -116,51 +116,7 @@
           </div>
         </article>
 
-        <article class="accordion-group">
-          <div class="accordion-heading">
-            <h1><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">Select Concept Tags</a> <a href="#" rel="tooltip" title="*required field"><span class="fill">*</span></a></h1>
-          </div>
-          <div id="collapseFour" class="accordion-body in collapse">
-            <div class="accordion-inner">
-
-              <div class="context">
-                <p class="greyed">Select the concept tags to be displayed for the question by clicking on a concept tag in the menu. To add a further concept tags, hold down the CTL key (MAC = Command/MAC key) and click on all required concept tag names.</p>
-              </div>
-
-              <div class="fill-info">
-                <div id="concepts_error"></div>
-                <label class="control-label">Concept tags to be displayed</label>
-                <div class="controls">
-                  <input type="hidden" name="concept_list" id="concept_list" />
-                  <!--select multiple="multiple" class="colored" name="concepts" id="concepts">
-                                                  {% set i = 0 %}
-                                                  {% for concept in all_concepts %}                                                        
-                      <option name="AddQuestion{{i}}"  value="{{concept}}">{{concept}}</option>>
-                                                        {% set i = i + 1 %}
-                                                  {% endfor %}
-                    </select-->
-                  
-                  <ul id="menu" style="display: inline-block;">
-                      {% include "/concept-tags.html.twig" with {'all_concepts': all_concepts} %}
-                  </ul>
-                    <!--<span class="icon-question-sign"></span>-->
-                  </div> 
-                  <!--note: disabled, no longer in use
-                  <label class="control-label">b) correct tags</label>
-                  <div class="controls">
-                      <select multiple="multiple" class="colored">-->
-                                                  {#    
-                                                  {% for concept in all_concepts %}
-                                                        <option value="{{concept}}">{{concept}}</option>> 
-                                                  {% endfor %}
-                                                  #}
-                  <!--</select>
-              </div> -->
-
-                </div>
-              </div>
-            </div>
-          </article>
+        
 
           <!--<article class="accordion-group">
                   <div class="accordion-heading">
