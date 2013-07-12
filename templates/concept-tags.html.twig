@@ -1,14 +1,15 @@
 
-{% for concept in all_concepts %} 
+{% for concept in concepts %} 
     {% if concept is iterable %}
         <li><a href="#">{{concept[0]}}</a>
         <ul>
-        {% include "/concept-tags.html.twig" with {'all_concepts': concept[1]} %}
+        {% include "/concept-tags.html.twig" with {'concepts': concept[1]} %}
         </ul>
         </li>
     {% else %}
-        <li><label for="{{concept}}">
-            <input type="checkbox" name="concepts" id="{{concept}}" style="vertical-align: middle;" />
-            <span style="vertical-align: middle;">{{concept}}</span></label></li>
+        <li><label for="tag{{ i }}" class="checkbox">
+            <input type="checkbox" name="concepts" id="tag{{ i }}" name="tag{{ i }}" id="{{concept}}" />
+            {{concept}}</label></li>
+            {% set i = i + 1 %}
     {% endif %}
 {% endfor %}
