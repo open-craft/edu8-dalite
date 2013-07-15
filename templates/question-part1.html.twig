@@ -1,8 +1,18 @@
 {% include 'head.html.twig' %}
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
 <script>
-    $(function() {$("#menu").menu();});
+    $(function() {
+        $("#accordion").accordion({collapsible: true, heightStyle: "content", active: false}); 
+        {% for concept in concepts %}
+        $("#{{ concept[0] }}menu").menu();
+        {% endfor %}
+    });
 </script>
+
+<style>
+        #accordion > li {display: inline; white-space: nowrap;}
+        #accordion > div {}
+</style>
 {% include 'header.html.twig' %}
 {% include 'init.twig' %}
 
@@ -10,20 +20,27 @@
 <section id="main-content">
   {% include 'question-header.html.twig' with {'class': 'question part-1'} %}
     <section class="question">
-    <div id="error_msg"></div>
-      <div class="img-upload">
-            {% include 'media.html.twig' with {'media': q['media1'], 'type': 'image'} %}
-      </div>
         {% include 'form-begin.html.twig' with {'action': '/question-part2'} %}
             <div class="control-group">
               <p>1. Check the concepts that you think are important in answering the question:</p>
             <div id="error_answer"></div>      
             <!-- loop generates a list of concepts with check box defined in assignment_concepts -->
-            <ul id="menu" style="display: inline-block;">
-                {% include "/concept-tags.html.twig" with {'concepts': concepts} %}
+            <div id="accordion">
+            {% for concept in concepts %}
+            <h3>{{ concept[0] }}</h3>
+            <div>
+            <ul id="{{ concept[0] }}menu">
+                {% include "/concept-tags.html.twig" with {'concepts': concept[1]} %}
             </ul>
             </div>
+            {% endfor %}
+            </div>
+            </div>
         {% include 'form-end.html.twig' %}
+    <div id="error_msg"></div>
+      <div class="img-upload">
+            {% include 'media.html.twig' with {'media': q['media1'], 'type': 'image'} %}
+      </div>            
         <script>
         function validateform(){
             var inputs = document.getElementsByTagName('input');
