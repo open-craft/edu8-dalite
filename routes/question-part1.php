@@ -39,7 +39,7 @@ function build(&$a) {
                 ['Extended rigid rotating object',
                     ['About a fixed point',
                     'About a moving point ']]]], 
-            ['What are the relevant variables/quantities?',
+            ['What are the relevant variables or quantities?',
                 [['Forces', 
                     [['Contact Forces', 
                         [['Friction',
