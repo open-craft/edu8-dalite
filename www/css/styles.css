@@ -748,7 +748,9 @@ body {
                       padding: 4px 10px 0 0;
               }
                         
-	#main-content article.part-3 .standalone-rationale article {
+	#main-content article.part-3 .standalone-rationale article,
+        #main-content article.part-3 .selected-standalone-rationale article, 
+        #main-content article.part-3 .deselected-standalone-rationale article {
 		background-color: #CBD3DB;
                 border: 2px solid #70678B;
                 /*background-color: #fff#BECFE0;
@@ -757,7 +759,18 @@ body {
 		/*font-family: "Cousine", sans-serif;*/
 		margin-bottom: 20px;
 	}
-		#main-content article.part-3 .standalone-rationale article h2 {
+        
+        #main-content article.part-3 .selected-standalone-rationale article {
+                background-color: #CBDBD3;
+        }
+        
+        #main-content article.part-3 .deselected-standalone-rationale article {
+                background-color: #ABB3BB;
+        }
+        
+		#main-content article.part-3 .standalone-rationale article h2,
+                #main-content article.part-3 .selected-standalone-rationale article h2, 
+                #main-content article.part-3 .deselected-standalone-rationale article h2 {
 			margin: 0;
 			font-size: .95em;
 			text-align: center;			
@@ -770,10 +783,16 @@ body {
 			font-weight: normal;
                         padding: 6px;
 		}
-		#main-content article.part-3 .standalone-rationale article h2 span {
+                
+		#main-content article.part-3 .standalone-rationale article h2 span, 
+                #main-content article.part-3 .selected-standalone-rationale article h2 span, 
+                #main-content article.part-3 .deselected-standalone-rationale article h2 span {
 			position: relative;
 		}
-		#main-content article.part-3 .standalone-rationale article h2 span:before {
+                
+		#main-content article.part-3 .standalone-rationale article h2 span:before, 
+                #main-content article.part-3 .selected-standalone-rationale article h2 span:before, 
+                #main-content article.part-3 .deselected-standalone-rationale article h2 span:before {
 				content: " ";
 				background: url(../img/star.gif) no-repeat;
 				display: block;
@@ -783,7 +802,9 @@ body {
 				height: 17px;
 				width: 16px;
 			}
-			#main-content article.part-3 .standalone-rationale article h2 span:after {
+			#main-content article.part-3 .standalone-rationale article h2 span:after, 
+                        #main-content article.part-3 .selected-standalone-rationale article h2 span:after, 
+                        #main-content article.part-3 .deselected-standalone-rationale article h2 span:after {
 				content: " ";
 				background: url(../img/star.gif) no-repeat;
 				display: block;
@@ -793,7 +814,9 @@ body {
 				height: 17px;
 				width: 16px;
 			}
-		#main-content article.part-3 .standalone-rationale article p {
+		#main-content article.part-3 .standalone-rationale article p, 
+                #main-content article.part-3 .selected-standalone-rationale article p, 
+                #main-content article.part-3 .deselected-standalone-rationale article p {
 			color: #515151;
 			margin: 20px;
 			padding-bottom: 20px;
@@ -802,7 +825,14 @@ body {
 			border-bottom: 1px solid #A79CA6;
 		}
                 
-                #main-content article.part-3 .standalone-rationale article p:last-of-type {
+                #main-content article.part-3 .selected-standalone-rationale article p:hover {
+                        color: #888888;
+                        cursor: pointer;
+                }
+                
+                #main-content article.part-3 .standalone-rationale article p:last-of-type, 
+                #main-content article.part-3 .selected-standalone-rationale article p:last-of-type, 
+                #main-content article.part-3 .deselected-standalone-rationale article p:last-of-type {
 			border-bottom: 0px !important;
 		}
 /* 5.4 Main-Content - Students - Question part 4
