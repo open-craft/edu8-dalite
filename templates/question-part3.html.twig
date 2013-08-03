@@ -1,4 +1,33 @@
 {% include 'head.html.twig' %}
+<script>
+    function enableChoice(side) {
+        $('#' + side + 'choice').attr('class', side + ' selected-standalone-rationale');
+    }
+    
+    function disableChoice(side) {
+        $('#' + side + 'choice').attr('class', side + ' deselected-standalone-rationale');
+    }
+    
+    function chooseLeftRationale() {}
+    
+    function chooseRightRationale() {}
+    
+    function enableRight() {
+        enableChoice('right');
+        disableChoice('left');
+        chooseLeftRationale = function() {};
+        chooseRightRationale = function(response_) {document.getElementById('response_').value = response_; document.getElementById('form').submit();};
+        document.getElementById('answer').value = document.getElementById('rightButton').value;
+    }
+    
+    function enableLeft() {
+        enableChoice('left');
+        disableChoice('right');
+        chooseRightRationale = function() {};
+        chooseLeftRationale = function(response_) {document.getElementById('response_').value = response_; document.getElementById('form').submit();};
+        document.getElementById('answer').value = document.getElementById('leftButton').value;
+    }    
+</script>
 {% include 'header.html.twig' %}
 {% include 'init.twig' %}
 {% import 'media.html.twig' as media %}
@@ -31,6 +60,8 @@
       </div>
 
         {% include 'form-begin.html.twig' with {'action': '/question-part4'} %}
+        <input type="hidden" id="response_" name="response_" />
+        <input type="hidden" id="answer" name="answer" />
         <div class="control-group question">
           <article class="student-rationale">
             <!--<h2>Your rationale</h2>-->
@@ -46,14 +77,19 @@
           </article>
           <p>4. Consider the problem again, noting the rationales below that have been provided by other students. They may, or may not, cause you to reconsider your answer. Read them, and select your final answer...</p>
         </div>
-      </div>
-      <div class="clear"></div>
-      <div class="left standalone-rationale">
+            
+        </form>
+        </div>
+      <!--/div-->
+      <div style="clear: both;"></div>
+      
+      <div style="clear: both;"></div>
+      <div class="left standalone-rationale" id="leftchoice">
           <article>
               <h2>
                   <span>
                       Is the answer: 
-                      <input type="submit" class="btn btn-primary"
+                      <input type="button" class="btn btn-primary" onclick="enableLeft();" id="leftButton"
                              name="C{{l_answer}}"
                         {% if q['alpha'] == 1 %}
                              value="{{alpha[l_answer]}}" 
@@ -65,17 +101,17 @@
               </h2>
 
           {% for r in l_rationale %}
-          <p>{{ r['rationale'] }}</p>
+          <p onclick="chooseLeftRationale('{{ r['response_'] }}');">{{ r['rationale'] }}</p>
           {% endfor %}         
       </article>        
     </div>
-
-      <div class="right standalone-rationale">
+      
+      <div class="right standalone-rationale" id="rightchoice">
         <article>
               <h2>
                   <span>
                       Is the answer: 
-                      <input type="submit" class="btn btn-primary"
+                      <input type="button" class="btn btn-primary" onclick="enableRight();" id="rightButton"
                              name="C{{r_answer}}"
                         {% if q['alpha'] == 1 %}
                              value="{{alpha[r_answer]}}" 
@@ -87,12 +123,13 @@
               </h2>
 
           {% for r in r_rationale %}
-          <p>{{ r['rationale'] }}</p>
+          <p onclick="chooseRightRationale('{{ r['response_'] }}');">{{ r['rationale'] }}</p>
           {% endfor %}
         </article>
       </div>
-      </form>
-    <div class="clear"></div>
+      
+    <div style="clear: both;"></div>
     </section>
+    </article>
 </section>
 {% include 'footer.html' %}
