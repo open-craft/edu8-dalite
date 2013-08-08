@@ -1,10 +1,13 @@
 {% include 'head.html.twig' %}
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" href="http://cdn.kendostatic.com/2013.2.716/styles/kendo.common.min.css">
+<link rel="stylesheet" href="http://cdn.kendostatic.com/2013.2.716/styles/kendo.default.min.css">
+<script src="//da7xgjtj801h2.cloudfront.net/2013.2.716/js/kendo.all.min.js"></script>
 <script>
     $(function() {
         $("#accordion").accordion({collapsible: true, heightStyle: "content", active: false}); 
         {% for concept in concepts %}
-        $("#{{ concept[0] }}menu").menu();
+        $("#{{ concept[0] }}menu").kendoMenu();
         {% endfor %}
     });
 </script>
@@ -25,7 +28,7 @@
               <p>1. Check the concepts that you think are important in answering the question:</p>
             <div id="error_answer"></div>      
             <!-- loop generates a list of concepts with check box defined in assignment_concepts -->
-            <div id="accordion">
+            <div id="">
             {% for concept in concepts %}
             <h3>{{ concept[0] }}</h3>
             <div>
