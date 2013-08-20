@@ -34,11 +34,11 @@ function post(&$a) {
         if (array_key_exists('question_num', $a)) {
             $concepts = implode(",", preg_grep_keys_return_values('/^tag/', $a['request']));
             $connection = \Edu8\Config::initDb();
-            $a['request']['second_answer'] = preg_grep_keys('/^C/', $a['request'])[0];
+            //$a['request']['second_answer'] = preg_grep_keys('/^C/', $a['request'])[0];
 
             //Testing.
-            $a['answered_correct'][0] = 0;
-            $a['answered_correct'][0] = 0;
+            //$a['answered_correct'][0] = 0;
+            //$a['answered_correct'][0] = 0;
             
             if (!$a['student']['is_professor']) {
                 try {
