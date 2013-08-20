@@ -18,6 +18,8 @@
         chooseLeftRationale = function() {};
         chooseRightRationale = function(response_) {document.getElementById('response_').value = response_; document.getElementById('form').submit();};
         document.getElementById('answer').value = document.getElementById('rightButton').value;
+        prompt('right');
+        unprompt('left');
     }
     
     function enableLeft() {
@@ -26,7 +28,18 @@
         chooseRightRationale = function() {};
         chooseLeftRationale = function(response_) {document.getElementById('response_').value = response_; document.getElementById('form').submit();};
         document.getElementById('answer').value = document.getElementById('leftButton').value;
-    }    
+        prompt('left');
+        unprompt('right');
+    }
+    
+    function prompt(side) {
+        document.getElementById(side + '_prompt').innerHTML = 
+        '<div class="alert"> <button type="button" class="close" data-dismiss="alert">&times;</button>Choose a rationale by clicking on it.</div>';
+    }
+    
+    function unprompt(side) {
+        document.getElementById(side + '_prompt').innerHTML = '';
+    }
 </script>
 {% include 'header.html.twig' %}
 {% include 'init.twig' %}
@@ -100,6 +113,7 @@
                  </span>
               </h2>
 
+          <p id="left_prompt"></p>
           {% for r in l_rationale %}
           <p onclick="chooseLeftRationale('{{ r['response_'] }}');">{{ r['rationale'] }}</p>
           {% endfor %}         
@@ -122,6 +136,7 @@
                  </span>
               </h2>
 
+          <p id="right_prompt"></p>
           {% for r in r_rationale %}
           <p onclick="chooseRightRationale('{{ r['response_'] }}');">{{ r['rationale'] }}</p>
           {% endfor %}
