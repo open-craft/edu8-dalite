@@ -17,7 +17,7 @@
         disableChoice('left');
         chooseLeftRationale = function() {};
         chooseRightRationale = function(response_) {document.getElementById('response_').value = response_; document.getElementById('form').submit();};
-        document.getElementById('answer').value = document.getElementById('rightButton').value;
+        document.getElementById('second_answer').value = document.getElementById('rightButton').value;
         prompt('right');
         unprompt('left');
     }
@@ -27,7 +27,7 @@
         disableChoice('right');
         chooseRightRationale = function() {};
         chooseLeftRationale = function(response_) {document.getElementById('response_').value = response_; document.getElementById('form').submit();};
-        document.getElementById('answer').value = document.getElementById('leftButton').value;
+        document.getElementById('second_answer').value = document.getElementById('leftButton').value;
         prompt('left');
         unprompt('right');
     }
@@ -74,7 +74,7 @@
 
         {% include 'form-begin.html.twig' with {'action': '/question-part4'} %}
         <input type="hidden" id="response_" name="response_" />
-        <input type="hidden" id="answer" name="answer" />
+        <input type="hidden" id="second_answer" name="second_answer" />
         <div class="control-group question">
           <article class="student-rationale">
             <!--<h2>Your rationale</h2>-->
