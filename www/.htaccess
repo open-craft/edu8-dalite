@@ -1,5 +1,7 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
+  RewriteCond %{REQUEST_URI} /info$
+  RewriteRule . /inf.php [L]
 
   # we skip all files with .something
   # comment the following 3 lines to allow periods in routes
