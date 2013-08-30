@@ -1,4 +1,8 @@
 {% include 'head.html.twig' %}
+<style>
+        .star {display: none; margin: 0px 5px 0px 0px;}
+</style>
+
 <script>
     function enableChoice(side) {
         $('#' + side + 'choice').attr('class', side + ' selected-standalone-rationale');
@@ -16,7 +20,7 @@
         enableChoice('right');
         disableChoice('left');
         chooseLeftRationale = function() {};
-        chooseRightRationale = function(response_) {document.getElementById('response_').value = response_; document.getElementById('form').submit();};
+        chooseRightRationale = function(response_) {selectRationale(response_);};
         document.getElementById('second_answer').value = document.getElementById('rightButton').value;
         prompt('right');
         unprompt('left');
@@ -26,7 +30,7 @@
         enableChoice('left');
         disableChoice('right');
         chooseRightRationale = function() {};
-        chooseLeftRationale = function(response_) {document.getElementById('response_').value = response_; document.getElementById('form').submit();};
+        chooseLeftRationale = function(response_) {selectRationale(response_);};
         document.getElementById('second_answer').value = document.getElementById('leftButton').value;
         prompt('left');
         unprompt('right');
@@ -39,6 +43,12 @@
     
     function unprompt(side) {
         document.getElementById(side + '_prompt').innerHTML = '';
+    }
+    
+    function selectRationale(response_) {
+        document.getElementById('response_').value = response_;
+        $('#star' + response_).show();
+        setTimeout(function() {document.getElementById('form').submit();}, 5000);
     }
 </script>
 {% include 'header.html.twig' %}
@@ -115,7 +125,8 @@
 
           <p id="left_prompt"></p>
           {% for r in l_rationale %}
-          <p onclick="chooseLeftRationale('{{ r['response_'] }}');">{{ r['rationale'] }}<img src="/img/star.png" alt="star"/></p>
+          <p onclick="chooseLeftRationale('{{ r['response_'] }}');">
+          <img src="/img/star.png" alt="star" id="star{{ r['response_'] }}" class="star" />{{ r['rationale'] }}</p>
           {% endfor %}         
       </article>        
     </div>
@@ -138,7 +149,8 @@
 
           <p id="right_prompt"></p>
           {% for r in r_rationale %}
-          <p onclick="chooseRightRationale('{{ r['response_'] }}');">{{ r['rationale'] }}</p>
+          <p onclick="chooseRightRationale('{{ r['response_'] }}');">
+          <img src="/img/star.png" alt="star" id="star{{ r['response_'] }}" class="star" />{{ r['rationale'] }}</p>
           {% endfor %}
         </article>
       </div>
