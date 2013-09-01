@@ -1,5 +1,21 @@
 <?php
 
+$counter = 1;
+
+function tagLabels(&$labels) {
+    global $counter;
+     
+    foreach ($labels as &$label) {
+        if(isset($label[1]) && is_array($label[1])) {
+            tagLabels($label[1]);
+        }
+        else {
+             $label = [$label, $counter]; 
+             $counter++;
+        }
+    }
+}
+
 function build(&$a) {
     if (!array_key_exists('assignment', $a['request'])) {
         unset($a['question_num']);
@@ -245,6 +261,8 @@ function build(&$a) {
             \Edu8\Http::redirect('/');
         }
     }
+    
+    tagLabels( $a['concepts']);
 }
 
 ?>
