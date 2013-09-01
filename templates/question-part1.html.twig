@@ -13,8 +13,6 @@
 </script>
 
 <style>
-        #accordion > li {display: inline; white-space: nowrap;}
-        #accordion > div {}
 </style>
 {% include 'header.html.twig' %}
 {% include 'init.twig' %}
@@ -33,7 +31,7 @@
             <h3>{{ concept[0] }}</h3>
             <div>
             <ul id="{{ concept[0] }}menu">
-                {% include "/concept-tags.html.twig" with {'concepts': concept[1]} %}
+                {% include "/concept-tags.html.twig" with {'concepts' : concept[1]} %}
             </ul>
             </div>
             {% endfor %}
