@@ -5,30 +5,34 @@ function chooseRationales(&$rows) {
     $expert = [];
     $votes = [];
     $max_vote = 0;
+    if (count($rows) > 4) {
+        for ($i = 0; $i < count($rows); $i++)
+            $max_vote = $max_vote > intval ($rows[$i]['votes']) ? $max_vote : intval($rows[$i]['votes']);
+
+        foreach ($rows as $row)
+            if ($row['expert'])
+                $expert[] = $row;
+            elseif ($row['votes'] > floor($max_vote / 2))
+                $votes[] = $row;
+            else
+                $remain_rows[] = $row;
+
+        if (count($expert))
+            $results[] = $expert[array_rand($expert)];
+
+        if (count($votes))
+            $results[] = $votes[array_rand($votes)];
+
+        $rand_remain = array_rand($remain_rows, 4 - count($results));
+
+        for ($i = 0; $i < count($rand_remain); $i++)
+            $results[] = $remain_rows[$rand_remain[$i]];
+    } else {
+        $results = $rows;
+    }
     
-    for($i = 0;$i < count($rows);$i++)
-        $max_vote = $max_vote > $rows[$i]['votes'] ? $max_vote : $rows[$i]['votes'];
-    
-    foreach ($rows as $row)
-        if($row['expert'])
-            $expert[] = $row;
-        elseif($row['votes'] > div($max_vote,2))
-            $votes[] = $row;
-        else
-            $remain_rows[] = $row;
- 
-    if (count($expert))
-        $results[] = $expert[array_rand($expert)];
-
-    if (count($votes))
-        $results[] = $votes[array_rand($votes)];
-
-    $rand_remain = array_rand($remain_rows, 4 - count($results));
-
-    for($i = 0;$i < count($rand_remain);$i++)
-        $results[] = $remain_rows[$rand_remain[$i]];
-
-    return shuffle($results);
+    shuffle($results);
+    return($results);
 }
 
 function build(&$a) {
