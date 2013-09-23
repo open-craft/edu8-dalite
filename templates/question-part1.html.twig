@@ -1,19 +1,4 @@
 {% include 'head.html.twig' %}
-<link rel="stylesheet" href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
-<link rel="stylesheet" href="//da7xgjtj801h2.cloudfront.net/2013.2.716/styles/kendo.common.min.css">
-<link rel="stylesheet" href="//da7xgjtj801h2.cloudfront.net/2013.2.716/styles/kendo.default.min.css">
-<script src="//da7xgjtj801h2.cloudfront.net/2013.2.716/js/kendo.all.min.js"></script>
-<script>
-    $(function() {
-        $("#accordion").accordion({collapsible: true, heightStyle: "content", active: false}); 
-        {% for concept in concepts %}
-        $("#{{ concept[0] }}menu").kendoMenu();
-        {% endfor %}
-    });
-</script>
-
-<style>
-</style>
 {% include 'header.html.twig' %}
 {% include 'init.twig' %}
 
@@ -21,44 +6,18 @@
 <section id="main-content">
   {% include 'question-header.html.twig' with {'class': 'question part-1'} %}
     <section class="question">
-        {% include 'form-begin.html.twig' with {'action': '/question-part2'} %}
-            <div class="control-group">
-              <p>1. Check the concepts that you think are important in answering the question:</p>
-            <div id="error_answer"></div>      
-            <!-- loop generates a list of concepts with check box defined in assignment_concepts -->
-            <div id="">
-            {% for concept in concepts %}
-            <h3>{{ concept[0] }}</h3>
-            <div>
-            <ul id="{{ concept[0] }}menu">
-                {% include "/concept-tags.html.twig" with {'concepts' : concept[1]} %}
-            </ul>
-            </div>
-            {% endfor %}
-            </div>
-            </div>
-        {% include 'form-end.html.twig' %}
     <div id="error_msg"></div>
       <div class="img-upload">
             {% include 'media.html.twig' with {'media': q['media1'], 'type': 'image'} %}
-      </div>            
+      </div>
+        {% include 'form-begin.html.twig' with {'action': '/question-part2'} %}
+            <div class="control-group">
+              <p>Consider the following question.</p>
+            </div>
+        {% include 'form-end.html.twig' %}
         <script>
         function validateform(){
-            var inputs = document.getElementsByTagName('input');
-            var input_checked = false;
-            
-            for(var i = 0; i < inputs.length; i++) {
-                if(inputs[i].checked == true) {
-                   input_checked = true; 
-                }
-            }
-            
-            if(input_checked == false) {
-                document.getElementById('error_answer').innerHTML = 
-                '<div class="alert"> <button type="button" class="close" data-dismiss="alert">&times;</button>Select at least one.</div>';
-            }
-            
-            return input_checked;
+            return true;
         }
         </script>
       <div class="clear"></div>
