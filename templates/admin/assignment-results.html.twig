@@ -6,6 +6,9 @@ function showQuestionDlg(filename){
             $('#modal-content').modal('show');
             return false;
 }
+function main(){
+       $( document ).tooltip();
+}
 </script>
 
 {% include 'header.html.twig' %}
@@ -36,7 +39,7 @@ function showQuestionDlg(filename){
 					<th>Student name</th>
                                         {% for i in 1 .. question_list|length %}                                            
                                         <th colspan="2">
-                                            <a href="#" onclick="showQuestionDlg('{{ question_list[i-1]['media1'] }}')">Q{{i}}</a>
+                                            <a href="#" title="{{ question_list[i-1]['rationale'] }}" onclick="showQuestionDlg('{{ question_list[i-1]['media1'] }}')">Q{{i}}</a>
                                         </th>
                                         {% endfor %}
 				</tr>
@@ -51,7 +54,7 @@ function showQuestionDlg(filename){
                                         {% for response_num in 0..r|length-1  %}
                                         {% set color = r[response_num]['correct'] ? 'green':'red' %}
                                         
-					<td><a href="#" class="{{ color }}">P{{1 + response_num % 2}}</a></td>
+					<td><a href="#" title="{{ r[response_num]['s_rationale'] }}" class="{{ color }}">P{{1 + response_num % 2}}</a></td>
                                         {% endfor %}
 				</tr>
 				{% endfor %}
