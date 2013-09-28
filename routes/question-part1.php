@@ -260,9 +260,9 @@ function build(&$a) {
             unset($a['question_num']);
             \Edu8\Http::redirect('/');
         }
-    }
-    
-    tagLabels( $a['concepts']);
+        
+        tagLabels( $a['concepts']);
+    }    
 }
 
 ?>
