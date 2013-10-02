@@ -40,6 +40,9 @@ function post(&$a) {
             //$a['answered_correct'][0] = 0;
             //$a['answered_correct'][0] = 0;
             
+            if($a['question'][$a['question_num']]['alpha'] == "1")
+                    $a['request']['second_answer'] = $a['from_alpha'][$a['request']['second_answer']];
+            
             if (!$a['student']['is_professor']) {
                 try {
                     $connection->insert('response', ['student_' => $a['student']['student_'], 'assignment_' => $a['assignment'], 'question_' => $a['question'][$a['question_num']]['question_'], 'attempt' => '0', 'answer' => $a['request']['answer'], 'rationale' => $a['request']['rationale'], 'concepts' => $concepts]);
