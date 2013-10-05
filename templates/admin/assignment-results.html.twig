@@ -53,6 +53,7 @@ function main(){
                         		<td>{{r[0]['firstname']}} {{r[0]['lastname']}}</td>
                                         {% for response_num in 0..r|length-1  %}
                                         {% set color = r[response_num]['correct'] ? 'green':'red' %}
+                                        {% set color = r[response_num]['r_answer'] ? color : 'orange' %}
                                         
 					<td><a href="#" title="{{ r[response_num]['s_rationale'] }}" class="{{ color }}">P{{1 + response_num % 2}}</a></td>
                                         {% endfor %}

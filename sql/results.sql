@@ -1,4 +1,4 @@
-Select firstname, lastname, student.student_, `order`, response.rationale as s_rationale, response.answer = question.answer as correct from response 
+Select firstname, lastname, student.student_, `order`, response.answer as r_answer, response.rationale as s_rationale, response.answer = question.answer as correct from response 
 join student on student.student_ = response.student_
 join assignment_question on assignment_question.assignment_ = response.assignment_ and assignment_question.question_ = response.question_
 join question on question.question_ = response.question_
