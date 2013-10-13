@@ -23,7 +23,7 @@ function post(&$a) {
         }
             fclose($outfile);
 
-            system('mysqlimport --ignore-lines=1 -vv --local --columns=login,password,firstname,lastname --fields-terminated-by="," -u root --password=xxxxxx dalite /tmp/student.csv', $noerr);
+            system('mysqlimport --ignore-lines=1 -vv --local --columns=login,password,firstname,lastname --fields-optionally-enclosed-by="\"" --fields-terminated-by="," -u root --password=xxxxxx dalite /tmp/student.csv', $noerr);
             $params = readLogins('/tmp/student.csv');
 
             if (!noerr || !count($params))
