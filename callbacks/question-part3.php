@@ -47,6 +47,8 @@ function post(&$a) {
                 try {
                     $connection->insert('response', ['student_' => $a['student']['student_'], 'assignment_' => $a['assignment'], 'question_' => $a['question'][$a['question_num']]['question_'], 'attempt' => '0', 'answer' => $a['request']['answer'], 'rationale' => $a['request']['rationale'], 'concepts' => $concepts]);
                     $connection->insert('response', ['student_' => $a['student']['student_'], 'assignment_' => $a['assignment'], 'question_' => $a['question'][$a['question_num']]['question_'], 'attempt' => '1', 'answer' => $a['request']['second_answer'], 'rationale' => $a['request']['rationale'], 'concepts' => $concepts]);
+                    if (strlen($a['request']['response_']))
+                        $connection->exec('update response SET votes=votes+1 WHERE response_ =' . $a['request']['response_']);
                 } catch (Exception $e) {
                     unset($e);
                     //echo 'RESUBMIT ignored.';
