@@ -23,7 +23,7 @@ class Http {
         return Http::$session->get('twig_vars', []);
     }
 
-    public static function Redirect($url, &$vars) {
+    public static function Redirect($url, &$vars = null) {
         if(isset($vars))
             Http::SetSession($vars);        
         $response = new \Symfony\Component\HttpFoundation\RedirectResponse($url);
