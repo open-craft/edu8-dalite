@@ -43,7 +43,8 @@ function main() {
         exit;
     }
     if (isset($_SESSION['source_id'])) {
-
+        require('lti_handler.php');
+        exit;
     }
 
     if (isset($twig_vars['auth']) && $file_root === '/login') {
