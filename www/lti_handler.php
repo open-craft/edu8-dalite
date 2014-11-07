@@ -39,7 +39,8 @@ if (! isset($_SESSION['source_id'])) {
 }
 
 // Need to get a templating system up. One may already be in this project.
-echo "<html><body><code>";
+echo "<html><body>";
+echo "<p>Successful transmission and authentication! Here's what was sent:</p><code>";
 var_dump($_SESSION);
 var_dump($_POST);
 echo "</code></body></html>";
