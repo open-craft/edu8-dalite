@@ -1,5 +1,9 @@
+<html>
+<body>
 <?php
-require('../config/lti_key.php');
+require_once '../OAuth/OAuth.php';
+require_once '../OAuth/TrivialOAuthDataStore.php';
+require_once('../config/lti_key.php');
 function validateRequest() {
     /*
     Validate that the LTI key and secret match what the LMS sent.
@@ -14,9 +18,8 @@ function validateRequest() {
     first-time verification that we aren't state-checking like we should on each
     request.
     */
-    global $key, $secret;
     $store = new TrivialOAuthDataStore();
-    $store->add_consumer($key, $secret);
+    $store->add_consumer(KEY, SECRET);
     $server = new OAuthServer($store);
     $method = new OAuthSignatureMethod_HMAC_SHA1();
     $server->add_signature_method($method);
@@ -39,8 +42,10 @@ if (! isset($_SESSION['source_id'])) {
 }
 
 // Need to get a templating system up. One may already be in this project.
-echo "<html><body>";
 echo "<p>Successful transmission and authentication! Here's what was sent:</p><code>";
 var_dump($_SESSION);
 var_dump($_POST);
-echo "</code></body></html>";
+echo "</code>";
+?>
+</body>
+</html>
