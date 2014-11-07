@@ -37,6 +37,15 @@ function main() {
     }
     Http::SetSession($twig_vars);
 
+    if (isset($_POST['lis_result_sourcedid']) &&
+        isset($_POST['lis_outcome_service_url'])) {
+        require('lti_handler.php');
+        exit;
+    }
+    if (isset($_SESSION['source_id'])) {
+
+    }
+
     if (isset($twig_vars['auth']) && $file_root === '/login') {
         Http::Redirect('/');
     }
