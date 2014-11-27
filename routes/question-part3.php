@@ -10,7 +10,7 @@ function chooseRationales(&$rows) {
             $max_vote = $max_vote > intval ($rows[$i]['votes']) ? $max_vote : intval($rows[$i]['votes']);
 
         foreach ($rows as $row)
-            if ($row['expert'])
+            if (isset($row['expert']))
                 $expert[] = $row;
             elseif ($row['votes'] > floor($max_vote / 2))
                 $votes[] = $row;
