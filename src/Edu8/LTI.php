@@ -56,4 +56,8 @@ class LTI {
         $question_id = filter_input(INPUT_POST, LTI::QUESTION_ID_PARAMETER, FILTER_SANITIZE_NUMBER_INT);
         return new LTI($user_id, $sourced_id, $outcome_service_id, $question_id);
     }
+    
+    public function sendGrade($grade) {
+        echo "Sending grade $grade";
+    }
 }

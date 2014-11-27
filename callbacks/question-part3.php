@@ -20,6 +20,13 @@ function preg_grep_keys_return_values($pattern, $input, $flags = 0) {
     return $vals;
 }
 
+function sendGrade($session){
+    $question_num = $session['question_num'];
+    $correct_answer = $session['question'][$question_num]['answer'];
+    $result = $session['request']['answer'] === $correct_answer ? 1 : 0;
+    $session['lti']->sendGrade($result);
+}
+
 function post(&$a) {
     if ($a['request']['pathname'] != '/question-part4' && $a['request']['pathname'] != '/question-part3') {
         $a['message_dlg'] = 'Please complete this question first.';
@@ -39,6 +46,10 @@ function post(&$a) {
             //Testing.
             //$a['answered_correct'][0] = 0;
             //$a['answered_correct'][0] = 0;
+            var_dump($a);
+            sendGrade($a);
+            echo "QWEQWEQWE";
+            exit;
             
             if($a['question'][$a['question_num']]['alpha'] == "1")
                     $a['request']['second_answer'] = $a['from_alpha'][$a['request']['second_answer']];

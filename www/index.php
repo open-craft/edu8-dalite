@@ -42,14 +42,19 @@ function main() {
         isset($_POST['lis_outcome_service_url'])) {
         try {
             $lti = LTI::parseRequest();
-            $_SESSION['lti'] = $lti;
-            $_SESSION['question_num'] = $lti->question_id;
-            
-            $a['auth'] = true;
-            echo "QWEQWEQWEQWEQWE";
-            Http::Redirect('/question-part1');
+            $twig_vars['lti'] = $lti;
+            $twig_vars['question_num'] = $lti->question_id;
+            $twig_vars['student'] = array(
+                'student_'=>-1,
+                'login'=>$lti->iser_id, 
+                'password'=>$lti->user_id,
+                'is_professor'=>0
+            );
+            $twig_vars['auth'] = true;
+
+            Http::Redirect('/question-part1', $twig_vars);
         } catch (Exception $ex) {
-            $_SESSION['message_dlg'] = "<p><b>Error:</b> LTI request did not validate</p>" . $ex->getMessage();
+            $twig_vars['message_dlg'] = "<p><b>Error:</b> LTI request did not validate</p>" . $ex->getMessage();
         }
     }
 
@@ -58,6 +63,8 @@ function main() {
     }
     
     if (!isset($twig_vars['auth']) && $file_root !== '/login') {
+        var_dump($twig_vars); echo $file_root;
+        exit;
         Http::Redirect('/login');
     }
 

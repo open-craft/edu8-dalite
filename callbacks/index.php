@@ -1,7 +1,9 @@
 <?php
 
 function post(&$a) {
-    unset($a['question_num']);
+    if (!isset($a['lti'])) {
+        unset($a['question_num']);
+    }
     unset($a['message_dlg']);
 }
 
