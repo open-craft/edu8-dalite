@@ -2,6 +2,7 @@
 namespace Edu8;
 
 require_once '../OAuth/OAuth.php';
+require_once '../OAuth/OAuthBody.php';
 require_once '../OAuth/TrivialOAuthDataStore.php';
 require_once '../config/lti_key.php';
 
@@ -87,8 +88,9 @@ class LTI {
                 $this->sourced_id,
                 $grade
         );
-        
-        echo "<pre>".htmlentities($response_xml)."</pre>";
+               
+        // TODO: add error handling, retries, etc.
+        $response = \sendOAuthBodyPOST("POST", $this->outcome_service_id, KEY, SECRET, "application/xml", $response_xml);
     }
     
     const XMLNS = "http://www.imsglobal.org/services/ltiv1p1/xsd/imsoms_v1p0";
