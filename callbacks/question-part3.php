@@ -20,7 +20,7 @@ function preg_grep_keys_return_values($pattern, $input, $flags = 0) {
     return $vals;
 }
 
-function handleLTI($lti, &$a){
+function handleLTI($lti, &$session){
     $question_num = $session['question_num'];
     $correct_answer = $session['question'][$question_num]['answer'];
     $lti->accumulateGrade($session['request']['answer'] === $correct_answer);
