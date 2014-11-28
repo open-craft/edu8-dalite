@@ -20,11 +20,24 @@ function preg_grep_keys_return_values($pattern, $input, $flags = 0) {
     return $vals;
 }
 
-function sendGrade($session){
+function handleLTI($lti, &$a){
     $question_num = $session['question_num'];
     $correct_answer = $session['question'][$question_num]['answer'];
-    $result = $session['request']['answer'] === $correct_answer ? 1 : 0;
-    $session['lti']->sendGrade($result);
+    $lti->accumulateGrade($session['request']['answer'] === $correct_answer);
+}
+
+function handleNonLTI(&$a){
+    if (!$a['student']['is_professor']) {
+        try {
+            $connection->insert('response', ['student_' => $a['student']['student_'], 'assignment_' => $a['assignment'], 'question_' => $a['question'][$a['question_num']]['question_'], 'attempt' => '0', 'answer' => $a['request']['answer'], 'rationale' => $a['request']['rationale'], 'concepts' => $concepts]);
+            $connection->insert('response', ['student_' => $a['student']['student_'], 'assignment_' => $a['assignment'], 'question_' => $a['question'][$a['question_num']]['question_'], 'attempt' => '1', 'answer' => $a['request']['second_answer'], 'rationale' => $a['request']['rationale'], 'concepts' => $concepts]);
+            if (strlen($a['request']['response_']))
+                $connection->exec('update response SET votes=votes+1 WHERE response_ =' . $a['request']['response_']);
+        } catch (Exception $e) {
+            unset($e);
+            //echo 'RESUBMIT ignored.';
+        }
+    }
 }
 
 function post(&$a) {
@@ -46,24 +59,17 @@ function post(&$a) {
             //Testing.
             //$a['answered_correct'][0] = 0;
             //$a['answered_correct'][0] = 0;
-            var_dump($a);
-            sendGrade($a);
-            echo "QWEQWEQWE";
-            exit;
             
-            if($a['question'][$a['question_num']]['alpha'] == "1")
-                    $a['request']['second_answer'] = $a['from_alpha'][$a['request']['second_answer']];
+            if($a['question'][$a['question_num']]['alpha'] == "1") {
+                $a['request']['second_answer'] = $a['from_alpha'][$a['request']['second_answer']];
+            }
             
-            if (!$a['student']['is_professor']) {
-                try {
-                    $connection->insert('response', ['student_' => $a['student']['student_'], 'assignment_' => $a['assignment'], 'question_' => $a['question'][$a['question_num']]['question_'], 'attempt' => '0', 'answer' => $a['request']['answer'], 'rationale' => $a['request']['rationale'], 'concepts' => $concepts]);
-                    $connection->insert('response', ['student_' => $a['student']['student_'], 'assignment_' => $a['assignment'], 'question_' => $a['question'][$a['question_num']]['question_'], 'attempt' => '1', 'answer' => $a['request']['second_answer'], 'rationale' => $a['request']['rationale'], 'concepts' => $concepts]);
-                    if (strlen($a['request']['response_']))
-                        $connection->exec('update response SET votes=votes+1 WHERE response_ =' . $a['request']['response_']);
-                } catch (Exception $e) {
-                    unset($e);
-                    //echo 'RESUBMIT ignored.';
-                }
+            $lti = Edu8\Http::getLTIObject($a);
+            if ($lti != null) {
+                handleLTI($lti, $a);
+            }
+            else {
+                handleNonLTI($a);
             }
         }
     }

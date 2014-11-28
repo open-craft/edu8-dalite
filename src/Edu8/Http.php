@@ -31,5 +31,14 @@ class Http {
         exit(0);
     }
 
+    public static function isLTISession($session){
+        if (!isset($session))
+            $session = Http::$session;
+        return isset($session[LTI::SESSION_PARAMETER]);
+    }
+    
+    public static function getLTIObject($session) {
+        return isset($session[LTI::SESSION_PARAMETER]) ? $session[LTI::SESSION_PARAMETER] : null;
+    }
 }
 ?>

@@ -16,6 +16,16 @@ function post(&$a) {
             unset($a['question']);
             unset($a['question_num']);
             unset($a['request']);
+            $lti = Edu8\Http::getLTIObject($a);
+            if ($lti != null) {
+                try{
+                    $lti->sendGrade();
+                    $lti->resetGrade();
+                }
+                catch (Exception $e) {
+                    throw $e;
+                }
+            }
             $a['message_dlg'] = 'Bravo, you have completed this assignment';
             Edu8\Http::Redirect('/', $a);
         } else {

@@ -42,12 +42,13 @@ function main() {
         isset($_POST['lis_outcome_service_url'])) {
         try {
             $lti = LTI::parseRequest();
-            $twig_vars['lti'] = $lti;
-            $twig_vars['question_num'] = $lti->question_id;
+            $twig_vars[LTI::SESSION_PARAMETER] = $lti;
+            $twig_vars['assignment'] = $lti->assignment_id;
+            $twig_vars['request'] = array_merge($twig_vars['request'], array('assignment'=>$lti->assignment_id));
             $twig_vars['student'] = array(
                 'student_'=>-1,
-                'login'=>$lti->iser_id, 
-                'password'=>$lti->user_id,
+                'login'=>$lti->user_id, 
+                'password'=>'',
                 'is_professor'=>0
             );
             $twig_vars['auth'] = true;
@@ -63,8 +64,6 @@ function main() {
     }
     
     if (!isset($twig_vars['auth']) && $file_root !== '/login') {
-        var_dump($twig_vars); echo $file_root;
-        exit;
         Http::Redirect('/login');
     }
 
