@@ -5,6 +5,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing;
 use Edu8\Http;
+use Edu8\LTI;
 
 function main() {
     $request = Request::createFromGlobals();
@@ -39,12 +40,23 @@ function main() {
 
     if (isset($_POST['lis_result_sourcedid']) &&
         isset($_POST['lis_outcome_service_url'])) {
-        require('lti_handler.php');
-        exit;
-    }
-    if (isset($_SESSION['source_id'])) {
-        require('lti_handler.php');
-        exit;
+        try {
+            $lti = LTI::parseRequest();
+            $twig_vars[LTI::SESSION_PARAMETER] = $lti;
+            $twig_vars['assignment'] = $lti->assignment_id;
+            $twig_vars['request'] = array_merge($twig_vars['request'], array('assignment'=>$lti->assignment_id));
+            $twig_vars['student'] = array(
+                'student_'=>-1,
+                'login'=>$lti->user_id, 
+                'password'=>'',
+                'is_professor'=>0
+            );
+            $twig_vars['auth'] = true;
+
+            Http::Redirect('/question-part1', $twig_vars);
+        } catch (Exception $ex) {
+            $twig_vars['message_dlg'] = "<p><b>Error:</b> LTI request did not validate</p>" . $ex->getMessage();
+        }
     }
 
     if (isset($twig_vars['auth']) && $file_root === '/login') {

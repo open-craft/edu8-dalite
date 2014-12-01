@@ -20,6 +20,26 @@ function preg_grep_keys_return_values($pattern, $input, $flags = 0) {
     return $vals;
 }
 
+function handleLTI($lti, &$session){
+    $question_num = $session['question_num'];
+    $correct_answer = $session['question'][$question_num]['answer'];
+    $lti->accumulateGrade($session['request']['answer'] === $correct_answer);
+}
+
+function handleNonLTI(&$a){
+    if (!$a['student']['is_professor']) {
+        try {
+            $connection->insert('response', ['student_' => $a['student']['student_'], 'assignment_' => $a['assignment'], 'question_' => $a['question'][$a['question_num']]['question_'], 'attempt' => '0', 'answer' => $a['request']['answer'], 'rationale' => $a['request']['rationale'], 'concepts' => $concepts]);
+            $connection->insert('response', ['student_' => $a['student']['student_'], 'assignment_' => $a['assignment'], 'question_' => $a['question'][$a['question_num']]['question_'], 'attempt' => '1', 'answer' => $a['request']['second_answer'], 'rationale' => $a['request']['rationale'], 'concepts' => $concepts]);
+            if (strlen($a['request']['response_']))
+                $connection->exec('update response SET votes=votes+1 WHERE response_ =' . $a['request']['response_']);
+        } catch (Exception $e) {
+            unset($e);
+            //echo 'RESUBMIT ignored.';
+        }
+    }
+}
+
 function post(&$a) {
     if ($a['request']['pathname'] != '/question-part4' && $a['request']['pathname'] != '/question-part3') {
         $a['message_dlg'] = 'Please complete this question first.';
@@ -40,19 +60,16 @@ function post(&$a) {
             //$a['answered_correct'][0] = 0;
             //$a['answered_correct'][0] = 0;
             
-            if($a['question'][$a['question_num']]['alpha'] == "1")
-                    $a['request']['second_answer'] = $a['from_alpha'][$a['request']['second_answer']];
+            if($a['question'][$a['question_num']]['alpha'] == "1") {
+                $a['request']['second_answer'] = $a['from_alpha'][$a['request']['second_answer']];
+            }
             
-            if (!$a['student']['is_professor']) {
-                try {
-                    $connection->insert('response', ['student_' => $a['student']['student_'], 'assignment_' => $a['assignment'], 'question_' => $a['question'][$a['question_num']]['question_'], 'attempt' => '0', 'answer' => $a['request']['answer'], 'rationale' => $a['request']['rationale'], 'concepts' => $concepts]);
-                    $connection->insert('response', ['student_' => $a['student']['student_'], 'assignment_' => $a['assignment'], 'question_' => $a['question'][$a['question_num']]['question_'], 'attempt' => '1', 'answer' => $a['request']['second_answer'], 'rationale' => $a['request']['rationale'], 'concepts' => $concepts]);
-                    if (strlen($a['request']['response_']))
-                        $connection->exec('update response SET votes=votes+1 WHERE response_ =' . $a['request']['response_']);
-                } catch (Exception $e) {
-                    unset($e);
-                    //echo 'RESUBMIT ignored.';
-                }
+            $lti = Edu8\Http::getLTIObject($a);
+            if ($lti != null) {
+                handleLTI($lti, $a);
+            }
+            else {
+                handleNonLTI($a);
             }
         }
     }

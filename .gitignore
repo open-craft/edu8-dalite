@@ -58,3 +58,4 @@ vendor/
 config/db.php
 www/img/q/*
 www/img-uploads/*
+/nbproject/*
